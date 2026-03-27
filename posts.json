@@ -1,5 +1,17 @@
 [
   {
+    "slug": "test-post",
+    "title": "Test Post",
+    "excerpt": "Test meta description for SEO",
+    "category": "Luxury transfer Bulgaria",
+    "emoji": "✦",
+    "gradient": "linear-gradient(135deg,#0d1b3e 0%,#1a3a6e 50%,#0A0E27 100%)",
+    "date": "2026-03-27",
+    "readTime": "3 min read",
+    "thumbnail": null,
+    "featured": false
+  },
+  {
     "slug": "best-ski-resorts-balkans",
     "title": "Best Ski Resorts in the Balkans: Bansko vs Kopaonik vs Jahorina vs Borovets [2026 Guide]",
     "excerpt": "An honest, detailed comparison of the Balkans' top four ski destinations — slopes, après-ski, accommodation, accessibility and where to stay in genuine luxury.",
