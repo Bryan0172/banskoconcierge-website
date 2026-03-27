@@ -223,79 +223,10 @@
         <button class="blog-cat-btn">Property</button>
       </div>
 
-      <!-- Article Grid -->
-      <div class="blog-grid blog-grid--featured">
-
-        <!-- Featured: Article 1 -->
-        <a href="/blog/best-ski-resorts-balkans.html" class="blog-card blog-card--featured" style="text-decoration:none;">
-          <div class="blog-card__img-placeholder" style="background: linear-gradient(135deg, #0d1b3e 0%, #1a3a6e 40%, #0d2655 100%);">⛷️</div>
-          <div class="blog-card__body">
-            <span class="blog-card__cat">Ski &amp; Winter · Featured</span>
-            <div class="blog-card__title">Best Ski Resorts in the Balkans: Bansko vs Kopaonik vs Jahorina vs Borovets [2026 Guide]</div>
-            <p class="blog-card__excerpt">An honest, detailed comparison of the Balkans' top four ski destinations — slopes, après-ski, accommodation, accessibility from major airports, and where to stay in genuine luxury. Written by someone who has managed hotel builds across all four.</p>
-            <div class="blog-card__footer">
-              <span class="blog-card__meta">March 2026 · 8 min read</span>
-              <span class="blog-card__read">Read Article →</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- Article 2 -->
-        <a href="/blog/private-transfer-athens-bansko.html" class="blog-card" style="text-decoration:none;">
-          <div class="blog-card__img-placeholder" style="background: linear-gradient(135deg, #1a0a2e 0%, #3d1a6e 50%, #0A0E27 100%);">✈️</div>
-          <div class="blog-card__body">
-            <span class="blog-card__cat">Transfers &amp; Logistics</span>
-            <div class="blog-card__title">How to Get from Athens Airport to Bansko: All Options Compared</div>
-            <p class="blog-card__excerpt">Flying into Athens and heading to Bansko? Every option from budget bus to private luxury chauffeur — compared honestly on price, comfort and time.</p>
-            <div class="blog-card__footer">
-              <span class="blog-card__meta">March 2026 · 6 min read</span>
-              <span class="blog-card__read">Read Article →</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- Coming Soon: Article 3 -->
-        <div class="blog-card blog-card--coming">
-          <div class="blog-card__img-placeholder" style="background: linear-gradient(135deg, #0a2e1a 0%, #1a6e3d 50%, #0A0E27 100%);">🌊</div>
-          <div class="blog-card__body">
-            <span class="blog-card__cat">Black Sea &amp; Adriatic</span>
-            <div class="blog-card__title">Black Sea vs Adriatic vs Aegean: The Ultimate Luxury Beach Comparison</div>
-            <p class="blog-card__excerpt">Three seas, three distinct atmospheres. Where to base your summer luxury escape on the Balkan coastline — coming April 2026.</p>
-            <div class="blog-card__footer">
-              <span class="blog-card__meta">April 2026 · 7 min read</span>
-              <span class="blog-card__read">Coming Soon</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Coming Soon: Article 4 -->
-        <div class="blog-card blog-card--coming">
-          <div class="blog-card__img-placeholder" style="background: linear-gradient(135deg, #2e1a0a 0%, #6e3d1a 50%, #0A0E27 100%);">🍷</div>
-          <div class="blog-card__body">
-            <span class="blog-card__cat">Experiences</span>
-            <div class="blog-card__title">Luxury Villa Rentals: Bulgaria vs Greece vs Croatia — Cost Comparison 2026</div>
-            <p class="blog-card__excerpt">Real data on what luxury costs across three Balkan destinations — and how to get a private chef, transfers and concierge included.</p>
-            <div class="blog-card__footer">
-              <span class="blog-card__meta">April 2026 · 7 min read</span>
-              <span class="blog-card__read">Coming Soon</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Coming Soon: Article 5 -->
-        <div class="blog-card blog-card--coming">
-          <div class="blog-card__img-placeholder" style="background: linear-gradient(135deg, #0a1a2e 0%, #1a4a6e 50%, #0A0E27 100%);">🏔️</div>
-          <div class="blog-card__body">
-            <span class="blog-card__cat">Property</span>
-            <div class="blog-card__title">Foreign Property Owner's Guide to Bulgaria: What Nobody Tells You</div>
-            <p class="blog-card__excerpt">15 years of hard-won insights for UK, Scandinavian and Irish owners with properties in Bulgaria — maintenance, management and who to trust.</p>
-            <div class="blog-card__footer">
-              <span class="blog-card__meta">May 2026 · 9 min read</span>
-              <span class="blog-card__read">Coming Soon</span>
-            </div>
-          </div>
-        </div>
-
+      <!-- Article Grid – dynamisch aus posts.json geladen -->
+      <div id="blogGrid" class="blog-grid blog-grid--featured">
+        <!-- wird per JS befüllt -->
+        <div style="grid-column:1/-1; text-align:center; padding:60px 0; color:var(--grey);">Loading articles…</div>
       </div>
 
       <!-- CTA Banner -->
@@ -382,7 +313,76 @@
     hamburger.addEventListener('click', () => { mobileMenu.classList.add('open'); document.body.style.overflow = 'hidden'; });
     function closeMobileMenu() { mobileMenu.classList.remove('open'); document.body.style.overflow = ''; }
     mobileClose.addEventListener('click', closeMobileMenu);
-    // Category filter (UI only for now)
+    // ── Dynamic blog grid from posts.json ────────────────────────────
+    const GRADIENTS = [
+      'linear-gradient(135deg,#0d1b3e 0%,#1a3a6e 40%,#0d2655 100%)',
+      'linear-gradient(135deg,#1a0a2e 0%,#3d1a6e 50%,#0A0E27 100%)',
+      'linear-gradient(135deg,#0a2e1a 0%,#1a6e3d 50%,#0A0E27 100%)',
+      'linear-gradient(135deg,#2e1a0a 0%,#6e3d1a 50%,#0A0E27 100%)',
+      'linear-gradient(135deg,#0a1a2e 0%,#1a4a6e 50%,#0A0E27 100%)',
+      'linear-gradient(135deg,#2e0a1a 0%,#6e1a3d 50%,#0A0E27 100%)'
+    ];
+    function formatDate(d) {
+      const opts = { year:'numeric', month:'long' };
+      return new Date(d).toLocaleDateString('en-GB', opts);
+    }
+    function buildCard(post, index, isFeatured) {
+      const grad = post.gradient || GRADIENTS[index % GRADIENTS.length];
+      const emoji = post.emoji || '✦';
+      if (isFeatured) {
+        return `<a href="/blog/${post.slug}.html" class="blog-card blog-card--featured" style="text-decoration:none;">
+          <div class="blog-card__img-placeholder" style="background:${grad};">${emoji}</div>
+          <div class="blog-card__body">
+            <span class="blog-card__cat">${post.category} · Featured</span>
+            <div class="blog-card__title">${post.title}</div>
+            <p class="blog-card__excerpt">${post.excerpt}</p>
+            <div class="blog-card__footer">
+              <span class="blog-card__meta">${formatDate(post.date)} · ${post.readTime || '7 min read'}</span>
+              <span class="blog-card__read">Read Article →</span>
+            </div>
+          </div></a>`;
+      }
+      return `<a href="/blog/${post.slug}.html" class="blog-card" style="text-decoration:none;">
+        <div class="blog-card__img-placeholder" style="background:${grad};">${emoji}</div>
+        <div class="blog-card__body">
+          <span class="blog-card__cat">${post.category}</span>
+          <div class="blog-card__title">${post.title}</div>
+          <p class="blog-card__excerpt">${post.excerpt}</p>
+          <div class="blog-card__footer">
+            <span class="blog-card__meta">${formatDate(post.date)} · ${post.readTime || '7 min read'}</span>
+            <span class="blog-card__read">Read Article →</span>
+          </div>
+        </div></a>`;
+    }
+    fetch('/posts.json')
+      .then(r => r.json())
+      .then(posts => {
+        const grid = document.getElementById('blogGrid');
+        if (!posts || posts.length === 0) {
+          grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:60px;color:var(--grey);">No articles yet — check back soon.</div>';
+          return;
+        }
+        // Sort newest first
+        posts.sort((a,b) => new Date(b.date) - new Date(a.date));
+        let html = '';
+        posts.forEach((post, i) => {
+          html += buildCard(post, i, i === 0);
+        });
+        grid.innerHTML = html;
+        // Update grid class based on count
+        if (posts.length >= 2) {
+          grid.classList.add('blog-grid--featured');
+        } else {
+          grid.classList.remove('blog-grid--featured');
+          grid.style.gridTemplateColumns = '1fr';
+        }
+      })
+      .catch(() => {
+        document.getElementById('blogGrid').innerHTML =
+          '<div style="grid-column:1/-1;text-align:center;padding:60px;color:var(--grey);">Could not load articles.</div>';
+      });
+
+    // Category filter
     document.querySelectorAll('.blog-cat-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         document.querySelectorAll('.blog-cat-btn').forEach(b => b.classList.remove('active'));
