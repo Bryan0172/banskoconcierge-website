@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "site": "banskoconcierge.com",
+    "webhook": "https://banskoconcierge.com/.netlify/functions/arvow-webhook",
+    "last_updated": "2026-03-27",
+    "notes": "Keywords are processed in order. Status: pending/used. Do not change order."
+  },
+  "keywords": [
+    { "id": 1, "keyword": "private transfer Sofia airport to Bansko", "category": "transfers", "priority": "high", "status": "pending", "used_date": null },
+    { "id": 2, "keyword": "private driver Athens to Bansko", "category": "transfers", "priority": "high", "status": "used", "used_date": "2026-03-27", "slug": "private-transfer-athens-bansko" },
+    { "id": 3, "keyword": "best ski resorts Balkans", "category": "ski", "priority": "high", "status": "used", "used_date": "2026-03-27", "slug": "best-ski-resorts-balkans" },
+    { "id": 4, "keyword": "luxury concierge service Bulgaria", "category": "luxury", "priority": "high", "status": "pending", "used_date": null },
+    { "id": 5, "keyword": "Sofia airport taxi Bansko", "category": "transfers", "priority": "high", "status": "pending", "used_date": null },
+    { "id": 6, "keyword": "Thessaloniki to Bansko private transfer", "category": "transfers", "priority": "high", "status": "pending", "used_date": null },
+    { "id": 7, "keyword": "ski concierge Bansko luxury", "category": "ski", "priority": "medium", "status": "pending", "used_date": null },
+    { "id": 8, "keyword": "Bansko ski resort review 2026", "category": "ski", "priority": "medium", "status": "pending", "used_date": null },
+    { "id": 9, "keyword": "private chef Bansko villa", "category": "luxury", "priority": "medium", "status": "pending", "used_date": null },
+    { "id": 10, "keyword": "Black Sea luxury transfers Bulgaria", "category": "transfers", "priority": "medium", "status": "pending", "used_date": null },
+    { "id": 11, "keyword": "Dubrovnik to Sofia private transfer", "category": "transfers", "priority": "medium", "status": "pending", "used_date": null },
+    { "id": 12, "keyword": "how to get from Sofia airport to Bansko", "category": "informational", "priority": "medium", "status": "pending", "used_date": null },
+    { "id": 13, "keyword": "Bansko vs Borovets ski resort comparison", "category": "ski", "priority": "medium", "status": "pending", "used_date": null },
+    { "id": 14, "keyword": "luxury villa Bansko Bulgaria", "category": "luxury", "priority": "medium", "status": "pending", "used_date": null },
+    { "id": 15, "keyword": "Varna to Bansko private transfer", "category": "transfers", "priority": "medium", "status": "pending", "used_date": null },
+    { "id": 16, "keyword": "Bucharest to Black Sea luxury car", "category": "transfers", "priority": "low", "status": "pending", "used_date": null },
+    { "id": 17, "keyword": "Bulgaria travel guide for expats", "category": "informational", "priority": "low", "status": "pending", "used_date": null },
+    { "id": 18, "keyword": "best restaurants Bansko 2026", "category": "informational", "priority": "low", "status": "pending", "used_date": null },
+    { "id": 19, "keyword": "skiing Bulgaria vs Romania comparison", "category": "ski", "priority": "low", "status": "pending", "used_date": null },
+    { "id": 20, "keyword": "Black Sea coast Bulgaria guide", "category": "informational", "priority": "low", "status": "pending", "used_date": null },
+    { "id": 21, "keyword": "private transfer Plovdiv to Bansko", "category": "transfers", "priority": "low", "status": "pending", "used_date": null },
+    { "id": 22, "keyword": "Bansko property owner guide", "category": "informational", "priority": "low", "status": "pending", "used_date": null },
+    { "id": 23, "keyword": "Belgrade to Bansko private transfer", "category": "transfers", "priority": "low", "status": "pending", "used_date": null },
+    { "id": 24, "keyword": "luxury travel Balkans 2026", "category": "luxury", "priority": "low", "status": "pending", "used_date": null },
+    { "id": 25, "keyword": "private ski instructor Bansko", "category": "ski", "priority": "low", "status": "pending", "used_date": null }
+  ]
+}
