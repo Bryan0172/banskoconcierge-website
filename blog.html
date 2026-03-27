@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Balkan Dispatch – Luxury Travel Blog | Bansko Concierge</title>
+  <meta name="description" content="Expert guides to luxury travel across the Balkans. Transfers, ski resorts, bespoke experiences and insider knowledge from Bansko Concierge VIP." />
+  <meta property="og:title" content="The Balkan Dispatch – Luxury Travel Insights" />
+  <meta property="og:description" content="Expert guides to luxury travel across the Balkans — transfers, ski, Black Sea, bespoke experiences and more." />
+  <meta property="og:url" content="https://www.banskoconcierge.com/blog.html" />
+  <meta name="theme-color" content="#0A0E27" />
+  <link rel="canonical" href="https://www.banskoconcierge.com/blog.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:     #0A0E27;
+      --navy-mid: #141830;
+      --navy-lt:  #1E2340;
+      --gold:     #C9A96E;
+      --gold-lt:  #E8D5B0;
+      --white:    #F8F6F0;
+      --grey:     #9A9A9A;
+      --font-sans: 'Inter', sans-serif;
+      --font-serif: 'Playfair Display', serif;
+      --radius: 4px;
+      --transition: 0.35s ease;
+      --max-w: 1200px;
+    }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: var(--font-sans); background: var(--navy); color: var(--white); line-height: 1.6; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    ul { list-style: none; }
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+    .label { font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; display: block; }
+    .heading-xl { font-family: var(--font-serif); font-size: clamp(2.8rem,5vw,5rem); font-weight: 400; line-height: 1.1; }
+    .heading-lg { font-family: var(--font-serif); font-size: clamp(2rem,3.5vw,3.2rem); font-weight: 400; line-height: 1.2; }
+    .btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 28px; border: 1px solid var(--gold); border-radius: var(--radius); font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; transition: var(--transition); cursor: pointer; }
+    .btn--gold { background: var(--gold); color: var(--navy); }
+    .btn--gold:hover { background: var(--gold-lt); border-color: var(--gold-lt); }
+    .btn--outline { color: var(--white); }
+    .btn--outline:hover { background: rgba(201,169,110,0.1); }
+    .divider { width: 48px; height: 1px; background: var(--gold); margin: 24px 0; }
+
+    /* NAV */
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px 0; transition: background var(--transition), padding var(--transition); }
+    .nav.scrolled { background: rgba(10,14,39,0.95); backdrop-filter: blur(12px); padding: 14px 0; border-bottom: 1px solid rgba(201,169,110,0.15); }
+    .nav__inner { display: flex; align-items: center; justify-content: space-between; }
+    .nav__logo { display: flex; flex-direction: column; gap: 2px; }
+    .nav__logo-main { font-family: var(--font-serif); font-size: 1.25rem; font-weight: 600; color: var(--white); }
+    .nav__logo-sub { font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); }
+    .nav__links { display: flex; align-items: center; gap: 36px; }
+    .nav__links a { font-size: 13px; letter-spacing: 0.04em; color: rgba(248,246,240,0.8); transition: color var(--transition); }
+    .nav__links a:hover, .nav__links a.active { color: var(--gold); }
+    .nav__cta { display: flex; align-items: center; gap: 12px; }
+    .nav__wa { display: flex; align-items: center; gap: 8px; padding: 10px 20px; background: var(--gold); border-radius: var(--radius); font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--navy); transition: var(--transition); }
+    .nav__wa:hover { background: var(--gold-lt); }
+    .nav__hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+    .nav__hamburger span { display: block; width: 24px; height: 1.5px; background: var(--white); transition: var(--transition); }
+    .nav__mobile { position: fixed; inset: 0; background: var(--navy); z-index: 1100; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 32px; transform: translateX(100%); transition: transform 0.4s ease; }
+    .nav__mobile.open { transform: translateX(0); }
+    .nav__mobile a { font-family: var(--font-serif); font-size: 2rem; color: var(--white); transition: color var(--transition); }
+    .nav__mobile a:hover { color: var(--gold); }
+    .nav__mobile-close { position: absolute; top: 24px; right: 24px; background: none; border: none; color: var(--white); font-size: 1.5rem; cursor: pointer; }
+    .nav__mobile-wa { display: inline-flex; align-items: center; gap: 8px; padding: 14px 32px; background: var(--gold); border-radius: var(--radius); font-size: 14px; font-weight: 600; color: var(--navy) !important; letter-spacing: 0.08em; text-transform: uppercase; margin-top: 8px; }
+
+    /* BLOG HERO */
+    .blog-hero {
+      padding: 160px 0 80px;
+      background: var(--navy-mid);
+      border-bottom: 1px solid rgba(201,169,110,0.12);
+      position: relative;
+      overflow: hidden;
+    }
+    .blog-hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(ellipse at 70% 50%, rgba(201,169,110,0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .blog-hero__inner { max-width: 720px; }
+    .blog-hero__title { font-family: var(--font-serif); font-size: clamp(2.8rem,5vw,4.5rem); font-weight: 400; line-height: 1.1; margin-bottom: 20px; }
+    .blog-hero__subtitle { font-size: 1.05rem; color: var(--grey); line-height: 1.7; max-width: 560px; }
+
+    /* BLOG GRID */
+    .blog-main { padding: 80px 0 120px; }
+    .blog-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; margin-bottom: 60px; }
+    .blog-grid--featured { grid-template-columns: 1.6fr 1fr 1fr; }
+    .blog-card { background: var(--navy-lt); border: 1px solid rgba(201,169,110,0.12); border-radius: var(--radius); overflow: hidden; transition: var(--transition); display: flex; flex-direction: column; }
+    .blog-card:hover { border-color: rgba(201,169,110,0.4); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
+    .blog-card--featured { grid-row: span 1; }
+    .blog-card__img-placeholder { width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; font-size: 3rem; flex-shrink: 0; }
+    .blog-card--featured .blog-card__img-placeholder { height: 240px; font-size: 4rem; }
+    .blog-card__body { padding: 28px; flex: 1; display: flex; flex-direction: column; }
+    .blog-card__cat { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; display: block; }
+    .blog-card__title { font-family: var(--font-serif); font-size: 1.2rem; line-height: 1.35; margin-bottom: 10px; }
+    .blog-card--featured .blog-card__title { font-size: 1.55rem; }
+    .blog-card__excerpt { font-size: 0.875rem; color: var(--grey); line-height: 1.6; margin-bottom: 20px; flex: 1; }
+    .blog-card__footer { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(201,169,110,0.1); padding-top: 16px; }
+    .blog-card__meta { font-size: 11px; color: rgba(248,246,240,0.3); letter-spacing: 0.04em; }
+    .blog-card__read { font-size: 11px; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; transition: color var(--transition); }
+    .blog-card__read:hover { color: var(--gold-lt); }
+    .blog-card--coming { opacity: 0.6; pointer-events: none; }
+
+    /* CATEGORIES */
+    .blog-cats { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 48px; }
+    .blog-cat-btn { padding: 8px 20px; border: 1px solid rgba(201,169,110,0.25); border-radius: 24px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(248,246,240,0.7); cursor: pointer; transition: var(--transition); background: none; }
+    .blog-cat-btn:hover, .blog-cat-btn.active { border-color: var(--gold); color: var(--gold); background: rgba(201,169,110,0.08); }
+
+    /* CTA BANNER */
+    .blog-cta { background: var(--navy-lt); border: 1px solid rgba(201,169,110,0.2); border-radius: var(--radius); padding: 60px 48px; display: flex; align-items: center; justify-content: space-between; gap: 40px; margin-top: 80px; }
+    .blog-cta__text h3 { font-family: var(--font-serif); font-size: 1.8rem; margin-bottom: 10px; }
+    .blog-cta__text p { color: var(--grey); font-size: 0.95rem; max-width: 440px; }
+
+    /* FOOTER */
+    .footer { background: var(--navy-mid); border-top: 1px solid rgba(201,169,110,0.12); padding: 72px 0 40px; }
+    .footer__top { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 56px; }
+    .footer__brand-name { font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 4px; }
+    .footer__brand-sub { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    .footer__brand-desc { font-size: 0.875rem; color: var(--grey); line-height: 1.7; max-width: 280px; }
+    .footer__col-title { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    .footer__links li { margin-bottom: 10px; }
+    .footer__links a { font-size: 0.875rem; color: rgba(248,246,240,0.5); transition: color var(--transition); }
+    .footer__links a:hover { color: var(--white); }
+    .footer__bottom { border-top: 1px solid rgba(201,169,110,0.1); padding-top: 32px; display: flex; justify-content: space-between; align-items: center; }
+    .footer__copy { font-size: 0.8rem; color: rgba(248,246,240,0.3); }
+    .footer__legal { display: flex; gap: 24px; }
+    .footer__legal a { font-size: 0.8rem; color: rgba(248,246,240,0.3); transition: color var(--transition); }
+    .footer__legal a:hover { color: var(--white); }
+
+    /* WA STICKY */
+    .wa-sticky { position: fixed; bottom: 28px; right: 28px; z-index: 900; display: flex; align-items: center; gap: 0; border-radius: 50px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.35); transition: var(--transition); }
+    .wa-sticky__btn { width: 56px; height: 56px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .wa-sticky:hover { box-shadow: 0 6px 32px rgba(37,211,102,0.55); }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .nav__links { display: none; }
+      .nav__hamburger { display: flex; }
+      .nav__wa { display: none; }
+      .blog-grid { grid-template-columns: 1fr 1fr; }
+      .blog-grid--featured { grid-template-columns: 1fr 1fr; }
+      .blog-cta { flex-direction: column; text-align: center; }
+      .blog-cta__text p { max-width: 100%; }
+      .footer__top { grid-template-columns: 1fr 1fr; gap: 40px; }
+    }
+    @media (max-width: 768px) {
+      .blog-grid { grid-template-columns: 1fr; }
+      .blog-grid--featured { grid-template-columns: 1fr; }
+      .blog-cta { padding: 40px 28px; }
+      .footer__top { grid-template-columns: 1fr; gap: 32px; }
+      .footer__bottom { flex-direction: column; text-align: center; gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="/" class="nav__logo">
+          <span class="nav__logo-main">Bansko Concierge</span>
+          <span class="nav__logo-sub">VIP · Balkan Corridor</span>
+        </a>
+        <ul class="nav__links">
+          <li><a href="/#services">Services</a></li>
+          <li><a href="/#packages">Packages</a></li>
+          <li><a href="/#coverage">Coverage</a></li>
+          <li><a href="/blog.html" class="active">Blog</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+        <div class="nav__cta">
+          <a href="https://wa.me/359895762785" target="_blank" rel="noopener" class="nav__wa">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <button class="nav__hamburger" id="hamburger" aria-label="Open menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="nav__mobile" id="mobileMenu">
+    <button class="nav__mobile-close" id="mobileClose" aria-label="Close menu">✕</button>
+    <a href="/#services" onclick="closeMobileMenu()">Services</a>
+    <a href="/#packages" onclick="closeMobileMenu()">Packages</a>
+    <a href="/#coverage" onclick="closeMobileMenu()">Coverage</a>
+    <a href="/blog.html" onclick="closeMobileMenu()">Blog</a>
+    <a href="/#contact" onclick="closeMobileMenu()">Contact</a>
+    <a href="https://wa.me/359895762785" target="_blank" class="nav__mobile-wa">WhatsApp us</a>
+  </div>
+
+  <!-- BLOG HERO -->
+  <section class="blog-hero">
+    <div class="container">
+      <div class="blog-hero__inner">
+        <span class="label">Insights &amp; Travel Guides</span>
+        <h1 class="blog-hero__title">The Balkan<br /><em>Dispatch</em></h1>
+        <div class="divider"></div>
+        <p class="blog-hero__subtitle">Expert perspectives on luxury travel across the Balkans — from insider ski guides and private transfer routes to hidden coastal gems and bespoke experiences crafted by 15+ years of on-the-ground expertise.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG MAIN -->
+  <main class="blog-main">
+    <div class="container">
+
+      <!-- Category filter -->
+      <div class="blog-cats">
+        <button class="blog-cat-btn active">All</button>
+        <button class="blog-cat-btn">Ski &amp; Winter</button>
+        <button class="blog-cat-btn">Transfers</button>
+        <button class="blog-cat-btn">Experiences</button>
+        <button class="blog-cat-btn">Black Sea</button>
+        <button class="blog-cat-btn">Adriatic</button>
+        <button class="blog-cat-btn">Property</button>
+      </div>
+
+      <!-- Article Grid -->
+      <div class="blog-grid blog-grid--featured">
+
+        <!-- Featured: Article 1 -->
+        <a href="/blog/best-ski-resorts-balkans.html" class="blog-card blog-card--featured" style="text-decoration:none;">
+          <div class="blog-card__img-placeholder" style="background: linear-gradient(135deg, #0d1b3e 0%, #1a3a6e 40%, #0d2655 100%);">⛷️</div>
+          <div class="blog-card__body">
+            <span class="blog-card__cat">Ski &amp; Winter · Featured</span>
+            <div class="blog-card__title">Best Ski Resorts in the Balkans: Bansko vs Kopaonik vs Jahorina vs Borovets [2026 Guide]</div>
+            <p class="blog-card__excerpt">An honest, detailed comparison of the Balkans' top four ski destinations — slopes, après-ski, accommodation, accessibility from major airports, and where to stay in genuine luxury. Written by someone who has managed hotel builds across all four.</p>
+            <div class="blog-card__footer">
+              <span class="blog-card__meta">March 2026 · 8 min read</span>
+              <span class="blog-card__read">Read Article →</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Article 2 -->
+        <a href="/blog/private-transfer-athens-bansko.html" class="blog-card" style="text-decoration:none;">
+          <div class="blog-card__img-placeholder" style="background: linear-gradient(135deg, #1a0a2e 0%, #3d1a6e 50%, #0A0E27 100%);">✈️</div>
+          <div class="blog-card__body">
+            <span class="blog-card__cat">Transfers &amp; Logistics</span>
+            <div class="blog-card__title">How to Get from Athens Airport to Bansko: All Options Compared</div>
+            <p class="blog-card__excerpt">Flying into Athens and heading to Bansko? Every option from budget bus to private luxury chauffeur — compared honestly on price, comfort and time.</p>
+            <div class="blog-card__footer">
+              <span class="blog-card__meta">March 2026 · 6 min read</span>
+              <span class="blog-card__read">Read Article →</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Coming Soon: Article 3 -->
+        <div class="blog-card blog-card--coming">
+          <div class="blog-card__img-placeholder" style="background: linear-gradient(135deg, #0a2e1a 0%, #1a6e3d 50%, #0A0E27 100%);">🌊</div>
+          <div class="blog-card__body">
+            <span class="blog-card__cat">Black Sea &amp; Adriatic</span>
+            <div class="blog-card__title">Black Sea vs Adriatic vs Aegean: The Ultimate Luxury Beach Comparison</div>
+            <p class="blog-card__excerpt">Three seas, three distinct atmospheres. Where to base your summer luxury escape on the Balkan coastline — coming April 2026.</p>
+            <div class="blog-card__footer">
+              <span class="blog-card__meta">April 2026 · 7 min read</span>
+              <span class="blog-card__read">Coming Soon</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Coming Soon: Article 4 -->
+        <div class="blog-card blog-card--coming">
+          <div class="blog-card__img-placeholder" style="background: linear-gradient(135deg, #2e1a0a 0%, #6e3d1a 50%, #0A0E27 100%);">🍷</div>
+          <div class="blog-card__body">
+            <span class="blog-card__cat">Experiences</span>
+            <div class="blog-card__title">Luxury Villa Rentals: Bulgaria vs Greece vs Croatia — Cost Comparison 2026</div>
+            <p class="blog-card__excerpt">Real data on what luxury costs across three Balkan destinations — and how to get a private chef, transfers and concierge included.</p>
+            <div class="blog-card__footer">
+              <span class="blog-card__meta">April 2026 · 7 min read</span>
+              <span class="blog-card__read">Coming Soon</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Coming Soon: Article 5 -->
+        <div class="blog-card blog-card--coming">
+          <div class="blog-card__img-placeholder" style="background: linear-gradient(135deg, #0a1a2e 0%, #1a4a6e 50%, #0A0E27 100%);">🏔️</div>
+          <div class="blog-card__body">
+            <span class="blog-card__cat">Property</span>
+            <div class="blog-card__title">Foreign Property Owner's Guide to Bulgaria: What Nobody Tells You</div>
+            <p class="blog-card__excerpt">15 years of hard-won insights for UK, Scandinavian and Irish owners with properties in Bulgaria — maintenance, management and who to trust.</p>
+            <div class="blog-card__footer">
+              <span class="blog-card__meta">May 2026 · 9 min read</span>
+              <span class="blog-card__read">Coming Soon</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- CTA Banner -->
+      <div class="blog-cta">
+        <div class="blog-cta__text">
+          <h3>Need a bespoke transfer or experience?</h3>
+          <p>Every article here reflects 15+ years of on-the-ground expertise across the Balkans. When you're ready to travel — reach out directly.</p>
+        </div>
+        <div style="display:flex; gap:16px; flex-wrap:wrap; justify-content:center;">
+          <a href="https://wa.me/359895762785?text=Hello%20Bansko%20Concierge%2C%20I%20read%20your%20blog%20and%20would%20like%20to%20enquire." target="_blank" class="btn btn--gold">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp Now
+          </a>
+          <a href="/#contact" class="btn btn--outline">Send Enquiry</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div>
+          <div class="footer__brand-name">Bansko Concierge VIP</div>
+          <div class="footer__brand-sub">The Balkan Corridor</div>
+          <p class="footer__brand-desc">Your personal gateway to the Balkans. Elite concierge services across Bulgaria, Serbia, Greece and beyond — handled locally, executed with precision.</p>
+        </div>
+        <div>
+          <div class="footer__col-title">Services</div>
+          <ul class="footer__links">
+            <li><a href="/#services">VIP Airport Transfers</a></li>
+            <li><a href="/#services">On-Call Private Driver</a></li>
+            <li><a href="/#services">Property Support</a></li>
+            <li><a href="/#services">Private Chef &amp; SPA</a></li>
+            <li><a href="/#services">Ski Services</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__col-title">Blog</div>
+          <ul class="footer__links">
+            <li><a href="/blog/best-ski-resorts-balkans.html">Best Ski Resorts Balkans</a></li>
+            <li><a href="/blog/private-transfer-athens-bansko.html">Athens to Bansko Transfer</a></li>
+            <li><a href="/blog.html">All Articles</a></li>
+          </ul>
+          <div class="footer__col-title" style="margin-top:28px;">Coverage</div>
+          <ul class="footer__links">
+            <li><a href="/#coverage">Bulgaria · Serbia · Greece</a></li>
+            <li><a href="/#coverage">Croatia · Romania · Montenegro</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__col-title">Contact</div>
+          <ul class="footer__links">
+            <li><a href="https://wa.me/359895762785" target="_blank">WhatsApp: +359 895 762 785</a></li>
+            <li><a href="mailto:hello@banskoconcierge.com">hello@banskoconcierge.com</a></li>
+            <li><a href="/#contact">Send Enquiry</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <div class="footer__copy">© 2026 Bansko Concierge VIP. All rights reserved.</div>
+        <div class="footer__legal">
+          <a href="https://sites.google.com/peak-care.com/legalimprint/startseite" target="_blank">Legal Imprint</a>
+          <a href="https://sites.google.com/peak-care.com/privacy-policy/startseite" target="_blank">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/359895762785?text=Hello%20Bansko%20Concierge%20VIP%2C%20I%20would%20like%20to%20enquire%20about%20your%20services." target="_blank" rel="noopener" class="wa-sticky" aria-label="Contact on WhatsApp">
+    <div class="wa-sticky__btn">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </div>
+  </a>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); }, { passive: true });
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileClose = document.getElementById('mobileClose');
+    hamburger.addEventListener('click', () => { mobileMenu.classList.add('open'); document.body.style.overflow = 'hidden'; });
+    function closeMobileMenu() { mobileMenu.classList.remove('open'); document.body.style.overflow = ''; }
+    mobileClose.addEventListener('click', closeMobileMenu);
+    // Category filter (UI only for now)
+    document.querySelectorAll('.blog-cat-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.blog-cat-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
