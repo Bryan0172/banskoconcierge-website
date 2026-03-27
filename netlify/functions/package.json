@@ -1,0 +1,8 @@
+{
+  "name": "arvow-webhook",
+  "version": "1.0.0",
+  "description": "Arvow webhook handler for Bansko Concierge",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
