@@ -1,29 +1,5 @@
 [
   {
-    "slug": "black-sea-adriatic-or-aegean-choosing-your-luxury-beach-in-the-balkans",
-    "title": "Black Sea, Adriatic or Aegean: Choosing Your Luxury Beach in the Balkans",
-    "excerpt": "Compare Black Sea, Adriatic and Aegean luxury beach destinations — and discover how Bansko Concierge arranges your perfect Balkan coastal escape.",
-    "category": "Black Sea vs Adriatic vs Aegean luxury beach",
-    "emoji": "✦",
-    "gradient": "linear-gradient(135deg,#0d1b3e 0%,#1a3a6e 50%,#0A0E27 100%)",
-    "date": "2026-03-30",
-    "readTime": "6 min read",
-    "thumbnail": null,
-    "featured": false
-  },
-  {
-    "slug": "test-post",
-    "title": "Test Post",
-    "excerpt": "Test meta description for SEO",
-    "category": "Luxury transfer Bulgaria",
-    "emoji": "✦",
-    "gradient": "linear-gradient(135deg,#0d1b3e 0%,#1a3a6e 50%,#0A0E27 100%)",
-    "date": "2026-03-27",
-    "readTime": "3 min read",
-    "thumbnail": null,
-    "featured": false
-  },
-  {
     "slug": "best-ski-resorts-balkans",
     "title": "Best Ski Resorts in the Balkans: Bansko vs Kopaonik vs Jahorina vs Borovets [2026 Guide]",
     "excerpt": "An honest, detailed comparison of the Balkans' top four ski destinations — slopes, après-ski, accommodation, accessibility and where to stay in genuine luxury.",
@@ -43,6 +19,17 @@
     "gradient": "linear-gradient(135deg, #1a0a2e 0%, #3d1a6e 50%, #0A0E27 100%)",
     "date": "2026-03-27",
     "readTime": "6 min read",
+    "featured": false
+  },
+  {
+    "slug": "black-sea-adriatic-aegean",
+    "title": "Black Sea vs Adriatic vs Aegean: The Ultimate Luxury Beach Guide for Summer 2026",
+    "excerpt": "Three seas, three distinct worlds. A personal guide to choosing the right Balkan coastline for your summer — from someone who has spent 15 years working and living across all three.",
+    "category": "Coast & Sea",
+    "emoji": "🌊",
+    "gradient": "linear-gradient(135deg, #0a1a3e 0%, #0a2e3a 50%, #0A0E27 100%)",
+    "date": "2026-04-01",
+    "readTime": "7 min read",
     "featured": false
   }
 ]
