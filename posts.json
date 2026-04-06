@@ -1,10 +1,22 @@
 [
   {
+    "slug": "private-transfer-sofia-airport-to-bansko",
+    "title": "Private Transfer from Sofia Airport to Bansko: The Arrival That Sets the Tone",
+    "excerpt": "Arrange a private transfer from Sofia Airport to Bansko with Bansko Concierge. Luxury chauffeur service, personalised welcome, door-to-door comfort.",
+    "category": "Transfers",
+    "emoji": "\u2708",
+    "gradient": "linear-gradient(135deg,#0d1b3e 0%,#1a3a6e 50%,#0A0E27 100%)",
+    "date": "2026-04-06",
+    "readTime": "6 min read",
+    "thumbnail": null,
+    "featured": false
+  },
+  {
     "slug": "best-ski-resorts-balkans",
     "title": "Best Ski Resorts in the Balkans: Bansko vs Kopaonik vs Jahorina vs Borovets [2026 Guide]",
-    "excerpt": "An honest, detailed comparison of the Balkans' top four ski destinations — slopes, après-ski, accommodation, accessibility and where to stay in genuine luxury.",
+    "excerpt": "An honest, detailed comparison of the Balkans' top four ski destinations \u2014 slopes, apr\u00e8s-ski, accommodation, accessibility and where to stay in genuine luxury.",
     "category": "Ski & Winter",
-    "emoji": "⛷️",
+    "emoji": "\u26f7\ufe0f",
     "gradient": "linear-gradient(135deg, #0d1b3e 0%, #1a3a6e 40%, #0d2655 100%)",
     "date": "2026-03-27",
     "readTime": "8 min read",
@@ -13,9 +25,9 @@
   {
     "slug": "private-transfer-athens-bansko",
     "title": "How to Get from Athens Airport to Bansko: All Transfer Options Compared [2026]",
-    "excerpt": "Flying into Athens and heading to Bansko? Every option from budget bus to private luxury chauffeur — compared honestly on price, comfort and time.",
+    "excerpt": "Flying into Athens and heading to Bansko? Every option from budget bus to private luxury chauffeur \u2014 compared honestly on price, comfort and time.",
     "category": "Transfers & Logistics",
-    "emoji": "✈️",
+    "emoji": "\u2708\ufe0f",
     "gradient": "linear-gradient(135deg, #1a0a2e 0%, #3d1a6e 50%, #0A0E27 100%)",
     "date": "2026-03-27",
     "readTime": "6 min read",
@@ -24,9 +36,9 @@
   {
     "slug": "black-sea-adriatic-aegean",
     "title": "Black Sea vs Adriatic vs Aegean: The Ultimate Luxury Beach Guide for Summer 2026",
-    "excerpt": "Three seas, three distinct worlds. A personal guide to choosing the right Balkan coastline for your summer — from someone who has spent 15 years working and living across all three.",
+    "excerpt": "Three seas, three distinct worlds. A personal guide to choosing the right Balkan coastline for your summer \u2014 from someone who has spent 15 years working and living across all three.",
     "category": "Coast & Sea",
-    "emoji": "🌊",
+    "emoji": "\ud83c\udf0a",
     "gradient": "linear-gradient(135deg, #0a1a3e 0%, #0a2e3a 50%, #0A0E27 100%)",
     "date": "2026-04-01",
     "readTime": "7 min read",
