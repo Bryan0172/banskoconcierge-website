@@ -2,8 +2,8 @@
   "meta": {
     "site": "banskoconcierge.com",
     "webhook": "https://banskoconcierge.com/.netlify/functions/arvow-webhook",
-    "last_updated": "2026-03-30",
-    "notes": "Keywords processed in order. Status: pending/used. LUXURY ONLY \u2014 no budget/price comparisons. No competitor options. Contact CTA only."
+    "last_updated": "2026-04-06",
+    "notes": "Keywords processed in order. Status: pending/used. LUXURY ONLY — no budget/price comparisons. No competitor options. Contact CTA only."
   },
   "keywords": [
     {
@@ -13,7 +13,7 @@
       "priority": "high",
       "status": "used",
       "used_date": "2026-03-30",
-      "angle": "Premium beach comparison \u2014 already teased on homepage, write this first",
+      "angle": "Premium beach comparison — already teased on homepage, write this first",
       "slug": "black-sea-adriatic-or-aegean-choosing-your-luxury-beach-in-the-balkans"
     },
     {
@@ -21,9 +21,10 @@
       "keyword": "private transfer Sofia airport to Bansko",
       "category": "transfers",
       "priority": "high",
-      "status": "pending",
-      "used_date": null,
-      "angle": "Luxury chauffeur experience, no prices, CTA for quote"
+      "status": "used",
+      "used_date": "2026-04-06",
+      "angle": "Luxury chauffeur experience, no prices, CTA for quote",
+      "slug": "private-transfer-sofia-airport-to-bansko"
     },
     {
       "id": 3,
@@ -42,7 +43,7 @@
       "status": "used",
       "used_date": "2026-03-27",
       "slug": "private-transfer-athens-bansko",
-      "angle": "Rewritten as luxury experience guide \u2014 no price comparison"
+      "angle": "Rewritten as luxury experience guide — no price comparison"
     },
     {
       "id": 5,
@@ -69,7 +70,7 @@
       "priority": "medium",
       "status": "pending",
       "used_date": null,
-      "angle": "Full ski concierge experience \u2014 lift passes, equipment, instructor, restaurant reservations"
+      "angle": "Full ski concierge experience — lift passes, equipment, instructor, restaurant reservations"
     },
     {
       "id": 8,
@@ -87,7 +88,7 @@
       "priority": "medium",
       "status": "pending",
       "used_date": null,
-      "angle": "In-villa chef service \u2014 menus, experience, occasions"
+      "angle": "In-villa chef service — menus, experience, occasions"
     },
     {
       "id": 10,
@@ -96,7 +97,7 @@
       "priority": "medium",
       "status": "pending",
       "used_date": null,
-      "angle": "Varna, Sozopol, Nessebar \u2014 premium coastal Bulgaria"
+      "angle": "Varna, Sozopol, Nessebar — premium coastal Bulgaria"
     },
     {
       "id": 11,
@@ -114,7 +115,7 @@
       "priority": "medium",
       "status": "pending",
       "used_date": null,
-      "angle": "Arrivals experience at SOF \u2014 what to expect from a premium transfer"
+      "angle": "Arrivals experience at SOF — what to expect from a premium transfer"
     },
     {
       "id": 13,
@@ -123,7 +124,7 @@
       "priority": "medium",
       "status": "pending",
       "used_date": null,
-      "angle": "Pirin region food culture \u2014 mehanas, local wines, curated dining"
+      "angle": "Pirin region food culture — mehanas, local wines, curated dining"
     },
     {
       "id": 14,
@@ -168,7 +169,7 @@
       "priority": "low",
       "status": "pending",
       "used_date": null,
-      "angle": "Montenegro, Croatia, Albania coast \u2014 water-based luxury"
+      "angle": "Montenegro, Croatia, Albania coast — water-based luxury"
     },
     {
       "id": 19,
