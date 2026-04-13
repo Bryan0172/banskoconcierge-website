@@ -5,17 +5,60 @@
   <!-- Homepage -->
   <url>
     <loc>https://www.banskoconcierge.com/</loc>
-    <lastmod>2026-04-01</lastmod>
+    <lastmod>2026-04-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- Blog -->
+  <!-- Blog Index -->
   <url>
-    <loc>https://www.banskoconcierge.com/blog.html</loc>
-    <lastmod>2026-04-01</lastmod>
+    <loc>https://www.banskoconcierge.com/blog</loc>
+    <lastmod>2026-04-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+
+  <!-- Blog Posts -->
+  <url>
+    <loc>https://www.banskoconcierge.com/blog/private-transfer-sofia-airport-to-bansko</loc>
+    <lastmod>2026-04-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.banskoconcierge.com/blog/private-transfer-athens-bansko</loc>
+    <lastmod>2026-04-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.banskoconcierge.com/blog/black-sea-adriatic-aegean</loc>
+    <lastmod>2026-04-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.banskoconcierge.com/blog/black-sea-adriatic-or-aegean-choosing-your-luxury-beach-in-the-balkans</loc>
+    <lastmod>2026-04-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.banskoconcierge.com/blog/best-ski-resorts-balkans</loc>
+    <lastmod>2026-04-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.banskoconcierge.com/blog/bansko-montenegro-croatia-investment-2026</loc>
+    <lastmod>2026-04-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 
 </urlset>

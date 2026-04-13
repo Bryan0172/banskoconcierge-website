@@ -19,3 +19,46 @@
   [headers.values]
     Access-Control-Allow-Origin = "*"
     Access-Control-Allow-Methods = "POST, OPTIONS"
+
+# Explicit 301 redirects: .html → clean URLs (fixes GSC "Page with redirect" issue)
+[[redirects]]
+  from = "/blog.html"
+  to = "/blog"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/private-transfer-sofia-airport-to-bansko.html"
+  to = "/blog/private-transfer-sofia-airport-to-bansko"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/private-transfer-athens-bansko.html"
+  to = "/blog/private-transfer-athens-bansko"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/black-sea-adriatic-aegean.html"
+  to = "/blog/black-sea-adriatic-aegean"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/black-sea-adriatic-or-aegean-choosing-your-luxury-beach-in-the-balkans.html"
+  to = "/blog/black-sea-adriatic-or-aegean-choosing-your-luxury-beach-in-the-balkans"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/best-ski-resorts-balkans.html"
+  to = "/blog/best-ski-resorts-balkans"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/bansko-montenegro-croatia-investment-2026.html"
+  to = "/blog/bansko-montenegro-croatia-investment-2026"
+  status = 301
+  force = true
