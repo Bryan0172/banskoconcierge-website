@@ -62,3 +62,64 @@
   to = "/blog/bansko-montenegro-croatia-investment-2026"
   status = 301
   force = true
+
+# Country & Service page redirects (.html → clean URL)
+[[redirects]]
+  from = "/bulgaria.html"
+  to = "/bulgaria"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/serbia.html"
+  to = "/serbia"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/greece.html"
+  to = "/greece"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/croatia.html"
+  to = "/croatia"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/romania.html"
+  to = "/romania"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/montenegro.html"
+  to = "/montenegro"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/north-macedonia.html"
+  to = "/north-macedonia"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/albania.html"
+  to = "/albania"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/vip-airport-transfer.html"
+  to = "/vip-airport-transfer"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/private-chef-spa.html"
+  to = "/private-chef-spa"
+  status = 301
+  force = true
