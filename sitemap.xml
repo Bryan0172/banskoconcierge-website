@@ -90,6 +90,14 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Testimonials -->
+  <url>
+    <loc>https://www.banskoconcierge.com/testimonials</loc>
+    <lastmod>2026-04-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Blog Posts -->
   <url>
     <loc>https://www.banskoconcierge.com/blog/private-transfer-sofia-airport-to-bansko</loc>

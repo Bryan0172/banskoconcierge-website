@@ -24,6 +24,7 @@
     .cta{padding:100px 0;background:var(--navy-mid)}.cta__inner{max-width:680px}.cta h2{font-family:var(--font-serif);font-size:clamp(2rem,3.5vw,2.8rem);font-weight:400;line-height:1.2;margin-bottom:20px}.cta p{color:rgba(248,246,240,0.65);font-size:1rem;line-height:1.7;margin-bottom:40px}.cta__btns{display:flex;gap:16px;flex-wrap:wrap}
     .footer{background:var(--navy-mid);border-top:1px solid rgba(201,169,110,0.12);padding:60px 0 40px}.footer__bottom{border-top:1px solid rgba(201,169,110,0.1);padding-top:28px;display:flex;justify-content:space-between;align-items:center;margin-top:40px;flex-wrap:wrap;gap:16px}.footer__copy{font-size:0.8rem;color:rgba(248,246,240,0.3)}.footer__legal{display:flex;gap:24px}.footer__legal a{font-size:0.8rem;color:rgba(248,246,240,0.3)}.footer__legal a:hover{color:var(--white)}
     .wa-sticky{position:fixed;bottom:28px;right:28px;z-index:900}.wa-sticky__btn{width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,0.35);transition:var(--transition)}.wa-sticky__btn:hover{box-shadow:0 6px 32px rgba(37,211,102,0.55)}
+    .tband{padding:80px 0;background:var(--navy)}.tband__inner{max-width:760px;margin:0 auto;text-align:center}.tband__carousel{position:relative;min-height:140px;display:flex;align-items:center;justify-content:center}.tband__slide{position:absolute;top:0;left:0;right:0;opacity:0;transition:opacity 0.9s ease;pointer-events:none;text-align:center}.tband__slide.active{opacity:1;pointer-events:auto;position:relative}.tband__quote{font-family:var(--font-serif);font-size:clamp(1.05rem,2vw,1.3rem);font-style:italic;color:var(--white);line-height:1.7;margin-bottom:20px}.tband__quote::before{content:'"';font-size:3.5rem;color:rgba(201,169,110,0.3);line-height:0;vertical-align:-0.45em;margin-right:4px}.tband__attr{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold)}.tband__dots{display:flex;justify-content:center;gap:10px;margin-top:32px}.tband__dot{width:5px;height:5px;border-radius:50%;background:rgba(201,169,110,0.25);border:none;cursor:pointer;transition:background 0.3s;padding:0}.tband__dot.active{background:var(--gold)}.tband__footer{margin-top:28px}.tband__link{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(201,169,110,0.6);border-bottom:1px solid rgba(201,169,110,0.25);padding-bottom:2px;transition:color var(--transition)}.tband__link:hover{color:var(--gold)}
     @media(max-width:1024px){.nav__links{display:none}.nav__hamburger{display:flex}.nav__wa{display:none}.incl__grid{grid-template-columns:repeat(2,1fr)}.how__steps{grid-template-columns:repeat(2,1fr)}.menus__grid{grid-template-columns:repeat(2,1fr)}.spa__grid{grid-template-columns:repeat(2,1fr)}}
     @media(max-width:640px){.incl__grid{grid-template-columns:1fr}.how__steps{grid-template-columns:1fr}.menus__grid{grid-template-columns:1fr}.spa__grid{grid-template-columns:1fr}.footer__bottom{flex-direction:column;text-align:center}}
   </style>
@@ -110,6 +111,24 @@
     </div>
   </div></section>
 
+  <!-- ROTATING TESTIMONIALS BAND -->
+  <section class="tband">
+    <div class="container">
+      <div class="tband__inner">
+        <span class="label" style="text-align:center;">Private &amp; VIP Client Feedback</span>
+        <div class="tband__carousel" id="tbandCarousel">
+          <div class="tband__slide active"><p class="tband__quote">The level of detail and care put into every aspect made a real difference. You feel it immediately.</p><div class="tband__attr">Private Guest — Stockholm</div></div>
+          <div class="tband__slide"><p class="tband__quote">A level of discretion and professionalism that is rare to find. Every detail was considered without ever being intrusive.</p><div class="tband__attr">International Client — Vienna</div></div>
+          <div class="tband__slide"><p class="tband__quote">The entire experience felt effortless. Even complex arrangements were managed smoothly in the background.</p><div class="tband__attr">Private Guest — Zurich</div></div>
+          <div class="tband__slide"><p class="tband__quote">What impressed us most was the access — not just places, but the right people and the right atmosphere.</p><div class="tband__attr">Private Investor — London</div></div>
+          <div class="tband__slide"><p class="tband__quote">This is clearly a different level of service. Structured, discreet and very well connected.</p><div class="tband__attr">International Client — Brussels</div></div>
+        </div>
+        <div class="tband__dots" id="tbandDots"></div>
+        <div class="tband__footer"><a href="/testimonials" class="tband__link">Read all client experiences →</a></div>
+      </div>
+    </div>
+  </section>
+
   <section class="cta"><div class="container"><div class="cta__inner">
     <span class="label">Book Your Chef</span>
     <h2>Tonight's Dinner.<br/>In Your Chalet.<br/>From €180.</h2>
@@ -122,6 +141,26 @@
     <div class="footer__bottom"><div class="footer__copy">© 2026 Bansko Concierge VIP. All rights reserved.</div><div class="footer__legal"><a href="https://sites.google.com/peak-care.com/legalimprint/startseite" target="_blank">Legal Imprint</a><a href="https://sites.google.com/peak-care.com/privacy-policy/startseite" target="_blank">Privacy Policy</a></div></div>
   </div></footer>
   <a href="https://wa.me/359895762785?text=Hello%20Bansko%20Concierge%20VIP%2C%20I'd%20like%20to%20book%20a%20private%20chef." target="_blank" rel="noopener" class="wa-sticky" aria-label="WhatsApp"><div class="wa-sticky__btn"><svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div></a>
-  <script>const nav=document.getElementById('nav');window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>60)},{passive:true});const hamburger=document.getElementById('hamburger');const mobileMenu=document.getElementById('mobileMenu');const mobileClose=document.getElementById('mobileClose');hamburger.addEventListener('click',()=>{mobileMenu.classList.add('open');document.body.style.overflow='hidden'});function closeMobileMenu(){mobileMenu.classList.remove('open');document.body.style.overflow=''}mobileClose.addEventListener('click',closeMobileMenu);mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMobileMenu));</script>
+  <script>
+    const nav=document.getElementById('nav');
+    window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>60)},{passive:true});
+    const hamburger=document.getElementById('hamburger');
+    const mobileMenu=document.getElementById('mobileMenu');
+    const mobileClose=document.getElementById('mobileClose');
+    hamburger.addEventListener('click',()=>{mobileMenu.classList.add('open');document.body.style.overflow='hidden'});
+    function closeMobileMenu(){mobileMenu.classList.remove('open');document.body.style.overflow=''}
+    mobileClose.addEventListener('click',closeMobileMenu);
+    mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMobileMenu));
+    // Testimonials carousel
+    (function(){
+      const slides=document.querySelectorAll('#tbandCarousel .tband__slide');
+      const dotsEl=document.getElementById('tbandDots');
+      let cur=0,timer;
+      slides.forEach((_,i)=>{const d=document.createElement('button');d.className='tband__dot'+(i===0?' active':'');d.setAttribute('aria-label','Testimonial '+(i+1));d.addEventListener('click',()=>{go(i);clearInterval(timer);timer=setInterval(next,6000)});dotsEl.appendChild(d)});
+      function go(n){slides[cur].classList.remove('active');dotsEl.children[cur].classList.remove('active');cur=n;slides[cur].classList.add('active');dotsEl.children[cur].classList.add('active')}
+      function next(){go((cur+1)%slides.length)}
+      timer=setInterval(next,6000);
+    })();
+  </script>
 </body>
 </html>

@@ -123,3 +123,9 @@
   to = "/private-chef-spa"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/testimonials.html"
+  to = "/testimonials"
+  status = 301
+  force = true
