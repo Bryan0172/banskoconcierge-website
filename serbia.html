@@ -143,6 +143,21 @@
     .footer__legal { display: flex; gap: 24px; }
     .footer__legal a { font-size: 0.8rem; color: rgba(248,246,240,0.3); }
     .footer__legal a:hover { color: var(--white); }
+    /* TESTIMONIALS BAND */
+    .tband { padding: 80px 0; background: var(--navy-mid); }
+    .tband__inner { max-width: 760px; margin: 0 auto; text-align: center; }
+    .tband__carousel { position: relative; min-height: 140px; display: flex; align-items: center; justify-content: center; }
+    .tband__slide { position: absolute; top: 0; left: 0; right: 0; opacity: 0; transition: opacity 0.9s ease; pointer-events: none; text-align: center; }
+    .tband__slide.active { opacity: 1; pointer-events: auto; position: relative; }
+    .tband__quote { font-family: var(--font-serif); font-size: clamp(1.05rem, 2vw, 1.3rem); font-style: italic; color: var(--white); line-height: 1.7; margin-bottom: 20px; }
+    .tband__quote::before { content: '"'; font-size: 3.5rem; color: rgba(201,169,110,0.3); line-height: 0; vertical-align: -0.45em; margin-right: 4px; }
+    .tband__attr { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); }
+    .tband__dots { display: flex; justify-content: center; gap: 10px; margin-top: 32px; }
+    .tband__dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(201,169,110,0.25); border: none; cursor: pointer; transition: background 0.3s; padding: 0; }
+    .tband__dot.active { background: var(--gold); }
+    .tband__footer { margin-top: 28px; }
+    .tband__link { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(201,169,110,0.6); border-bottom: 1px solid rgba(201,169,110,0.25); padding-bottom: 2px; transition: color var(--transition); }
+    .tband__link:hover { color: var(--gold); }
     .wa-sticky { position: fixed; bottom: 28px; right: 28px; z-index: 900; }
     .wa-sticky__btn { width: 56px; height: 56px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(0,0,0,0.35); transition: var(--transition); }
     .wa-sticky__btn:hover { box-shadow: 0 6px 32px rgba(37,211,102,0.55); }
@@ -305,6 +320,24 @@
     </div>
   </section>
 
+  <!-- TESTIMONIAL BAND -->
+  <section class="tband">
+    <div class="container">
+      <div class="tband__inner">
+        <span class="label" style="text-align:center;">Private &amp; VIP Client Feedback</span>
+        <div class="tband__carousel" id="tbandCarousel">
+          <div class="tband__slide active"><p class="tband__quote">"We were moving between Sofia and our villa — Bansko Concierge handled everything. We've used similar services in Monaco and Dubai. This was on that level."</p><div class="tband__attr">Private Guest — Vienna</div></div>
+          <div class="tband__slide"><p class="tband__quote">"The driver knew exactly when to be there — not 10 minutes early, not 2 minutes late. Exactly on time. That's the kind of detail that matters when you're travelling at this level."</p><div class="tband__attr">Private Guest — Munich</div></div>
+          <div class="tband__slide"><p class="tband__quote">"I didn't have to think about a single detail. The vehicle was spotless, the route was optimised, and nothing felt rushed. A genuinely first-class experience."</p><div class="tband__attr">Private Guest — London</div></div>
+          <div class="tband__slide"><p class="tband__quote">"What impressed me most was the discretion. No small talk, no delays, no surprises. Just a professional service delivered exactly as promised."</p><div class="tband__attr">Private Guest — Zurich</div></div>
+          <div class="tband__slide"><p class="tband__quote">"Serbia exceeded every expectation. Belgrade at night, the food, the warmth of the people — and Bansko Concierge made sure every connection was seamless."</p><div class="tband__attr">Private Guest — Amsterdam</div></div>
+        </div>
+        <div class="tband__dots" id="tbandDots"></div>
+        <div class="tband__footer"><a href="/testimonials" class="tband__link">Read all client experiences →</a></div>
+      </div>
+    </div>
+  </section>
+
   <section class="cta">
     <div class="container">
       <div class="cta__inner">
@@ -352,6 +385,7 @@
     function closeMobileMenu() { mobileMenu.classList.remove('open'); document.body.style.overflow = ''; }
     mobileClose.addEventListener('click', closeMobileMenu);
     mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMobileMenu));
+    (function(){const slides=document.querySelectorAll('#tbandCarousel .tband__slide');const dotsEl=document.getElementById('tbandDots');if(!slides.length||!dotsEl)return;let cur=0,timer;slides.forEach((_,i)=>{const d=document.createElement('button');d.className='tband__dot'+(i===0?' active':'');d.setAttribute('aria-label','Testimonial '+(i+1));d.addEventListener('click',()=>{go(i);clearInterval(timer);timer=setInterval(next,6000)});dotsEl.appendChild(d)});function go(n){slides[cur].classList.remove('active');dotsEl.children[cur].classList.remove('active');cur=n;slides[cur].classList.add('active');dotsEl.children[cur].classList.add('active')}function next(){go((cur+1)%slides.length)}timer=setInterval(next,6000)})();
   </script>
 </body>
 </html>
