@@ -20,6 +20,55 @@
     Access-Control-Allow-Origin = "*"
     Access-Control-Allow-Methods = "POST, OPTIONS"
 
+# Phantom URL redirects — discovered by Google via analytics/old links
+[[redirects]]
+  from = "/home"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/startseite"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/_/view"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/naLogImpressions"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/http:/*"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/https:/*"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/ski-services"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/property-management"
+  to = "/"
+  status = 301
+  force = true
+
 # Explicit 301 redirects: .html → clean URLs (fixes GSC "Page with redirect" issue)
 [[redirects]]
   from = "/blog.html"
