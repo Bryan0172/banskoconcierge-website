@@ -178,3 +178,24 @@
   to = "/testimonials"
   status = 301
   force = true
+
+# Phase 2 Offer Pages — clean URL rewrites
+[[redirects]]
+  from = "/property-risk-check-bulgaria"
+  to = "/property-risk-check-bulgaria.html"
+  status = 200
+
+[[redirects]]
+  from = "/owner-care-bulgaria"
+  to = "/owner-care-bulgaria.html"
+  status = 200
+
+[[redirects]]
+  from = "/relocation-bulgaria-orientation"
+  to = "/relocation-bulgaria-orientation.html"
+  status = 200
+
+[[redirects]]
+  from = "/investor-support"
+  to = "/investor-support.html"
+  status = 200

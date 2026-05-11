@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Property Risk Check Bulgaria | Building &amp; Moisture Assessment</title>
+  <meta name="description" content="Buying or owning property in Bulgaria? Bansko Concierge provides practical property risk checks for foreign buyers and owners, including visible building condition, moisture, mold risk and renovation cost indicators." />
+  <meta property="og:title" content="Property Risk Check Bulgaria | Bansko Concierge" />
+  <meta property="og:description" content="Practical property risk checks for foreign buyers and owners in Bulgaria — visible building condition, moisture, mold risk and renovation cost indicators." />
+  <meta property="og:url" content="https://www.banskoconcierge.com/property-risk-check-bulgaria" />
+  <link rel="canonical" href="https://www.banskoconcierge.com/property-risk-check-bulgaria" />
+  <meta name="theme-color" content="#0A0E27" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:     #0A0E27;
+      --navy-mid: #141830;
+      --navy-lt:  #1E2340;
+      --gold:     #C9A96E;
+      --gold-lt:  #E8D5B0;
+      --white:    #F8F6F0;
+      --grey:     #9A9A9A;
+      --grey-lt:  #E8E8E8;
+      --font-sans: 'Inter', sans-serif;
+      --font-serif: 'Playfair Display', serif;
+      --radius: 4px;
+      --transition: 0.35s ease;
+      --max-w: 1200px;
+    }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: var(--font-sans); background: var(--navy); color: var(--white); line-height: 1.6; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    ul { list-style: none; }
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+    .section { padding: 100px 0; }
+    .section--mid { background: var(--navy-mid); }
+    .label { font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; display: block; }
+    .heading-xl { font-family: var(--font-serif); font-size: clamp(2.8rem, 5vw, 5rem); font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; }
+    .heading-lg { font-family: var(--font-serif); font-size: clamp(2rem, 3.5vw, 3.2rem); font-weight: 400; line-height: 1.2; }
+    .heading-md { font-family: var(--font-serif); font-size: clamp(1.4rem, 2.5vw, 2rem); font-weight: 400; line-height: 1.3; }
+    .text-gold { color: var(--gold); }
+    .divider { width: 48px; height: 1px; background: var(--gold); margin: 24px 0; }
+    .btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 28px; border: 1px solid var(--gold); border-radius: var(--radius); font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; transition: var(--transition); cursor: pointer; }
+    .btn--gold { background: var(--gold); color: var(--navy); }
+    .btn--gold:hover { background: var(--gold-lt); border-color: var(--gold-lt); }
+    .btn--outline { color: var(--white); }
+    .btn--outline:hover { background: rgba(201,169,110,0.1); }
+
+    /* NAV */
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px 0; transition: background var(--transition), padding var(--transition); }
+    .nav.scrolled { background: rgba(10,14,39,0.95); backdrop-filter: blur(12px); padding: 14px 0; }
+    .nav__inner { display: flex; align-items: center; justify-content: space-between; }
+    .nav__logo { display: flex; flex-direction: column; }
+    .nav__logo-main { font-family: var(--font-serif); font-size: 1.25rem; letter-spacing: 0.02em; color: var(--white); }
+    .nav__logo-sub { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(248,246,240,0.4); margin-top: 2px; }
+    .nav__links { display: flex; gap: 36px; }
+    .nav__links a { font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(248,246,240,0.7); transition: color var(--transition); }
+    .nav__links a:hover { color: var(--white); }
+    .nav__cta { display: flex; align-items: center; gap: 16px; }
+    .nav__wa { display: flex; align-items: center; gap: 8px; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); border: 1px solid rgba(201,169,110,0.4); padding: 8px 16px; border-radius: var(--radius); transition: var(--transition); }
+    .nav__wa:hover { background: rgba(201,169,110,0.1); }
+    .nav__hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+    .nav__hamburger span { display: block; width: 22px; height: 1.5px; background: var(--white); }
+    .nav__mobile { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--navy); z-index: 2000; flex-direction: column; align-items: center; justify-content: center; gap: 40px; }
+    .nav__mobile.open { display: flex; }
+    .nav__mobile a { font-family: var(--font-serif); font-size: 1.8rem; color: var(--white); }
+    .nav__mobile-wa { color: var(--gold) !important; }
+    .nav__mobile-close { position: absolute; top: 24px; right: 24px; background: none; border: none; color: var(--white); font-size: 1.5rem; cursor: pointer; }
+
+    /* HERO */
+    .page-hero { padding: 160px 0 100px; position: relative; overflow: hidden; }
+    .page-hero__bg { position: absolute; inset: 0; background: radial-gradient(ellipse at 60% 50%, rgba(201,169,110,0.07) 0%, transparent 60%); pointer-events: none; }
+    .page-hero__eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+    .page-hero__title { font-family: var(--font-serif); font-size: clamp(2.5rem, 4.5vw, 4.2rem); font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 28px; max-width: 760px; }
+    .page-hero__sub { font-size: 1.1rem; color: rgba(248,246,240,0.65); line-height: 1.75; max-width: 600px; margin-bottom: 44px; }
+    .page-hero__ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+
+    /* CONTENT SECTIONS */
+    .content-section { padding: 80px 0; }
+    .content-section__inner { max-width: 820px; }
+    .content-section h2 { font-family: var(--font-serif); font-size: clamp(1.6rem, 2.8vw, 2.4rem); font-weight: 400; line-height: 1.2; margin-bottom: 20px; }
+    .content-section p { font-size: 0.97rem; color: rgba(248,246,240,0.7); line-height: 1.8; margin-bottom: 16px; }
+    .content-section p:last-child { margin-bottom: 0; }
+    .check-list { margin: 24px 0; display: flex; flex-direction: column; gap: 14px; }
+    .check-list li { display: flex; gap: 14px; align-items: flex-start; font-size: 0.95rem; color: rgba(248,246,240,0.75); line-height: 1.6; }
+    .check-list li::before { content: "—"; color: var(--gold); flex-shrink: 0; margin-top: 2px; }
+    .limitation-box { background: rgba(248,246,240,0.03); border: 1px solid rgba(248,246,240,0.1); border-radius: var(--radius); padding: 32px 36px; margin-top: 40px; }
+    .limitation-box__title { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(248,246,240,0.35); margin-bottom: 16px; }
+    .limitation-box p { font-size: 0.88rem; color: rgba(248,246,240,0.5); line-height: 1.75; margin-bottom: 0; }
+
+    /* CTA MID */
+    .cta-mid { padding: 60px 0; }
+    .cta-mid__box { background: rgba(201,169,110,0.06); border: 1px solid rgba(201,169,110,0.2); border-radius: var(--radius); padding: 48px 52px; max-width: 760px; }
+    .cta-mid__box h3 { font-family: var(--font-serif); font-size: clamp(1.4rem, 2.5vw, 2rem); font-weight: 400; margin-bottom: 16px; }
+    .cta-mid__box p { font-size: 0.95rem; color: rgba(248,246,240,0.65); line-height: 1.75; margin-bottom: 28px; }
+
+    /* HOW IT WORKS */
+    .how-it-works { padding: 80px 0; }
+    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; margin-top: 48px; }
+    .step { }
+    .step__num { font-family: var(--font-serif); font-size: 2.5rem; color: rgba(201,169,110,0.25); margin-bottom: 16px; line-height: 1; }
+    .step__title { font-size: 0.9rem; font-weight: 600; letter-spacing: 0.05em; color: var(--white); margin-bottom: 10px; }
+    .step__desc { font-size: 0.875rem; color: rgba(248,246,240,0.55); line-height: 1.7; }
+
+    /* PEAK CARE BLOCK */
+    .peak-care-block { background: rgba(248,246,240,0.03); border: 1px solid rgba(248,246,240,0.1); border-radius: var(--radius); padding: 36px 40px; max-width: 760px; margin: 0 auto; }
+    .peak-care-block__label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; color: rgba(248,246,240,0.4); text-transform: uppercase; margin-bottom: 16px; }
+    .peak-care-block h3 { font-size: 1.05rem; font-weight: 600; color: var(--white); margin: 0 0 16px; line-height: 1.4; }
+    .peak-care-block p { color: rgba(248,246,240,0.6); font-size: 0.9rem; line-height: 1.75; margin: 0 0 16px; }
+    .peak-care-block p:last-of-type { margin-bottom: 20px; }
+    .peak-care-block a { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(248,246,240,0.5); text-decoration: none; border-bottom: 1px solid rgba(248,246,240,0.2); padding-bottom: 2px; }
+
+    /* CONTACT CTA */
+    .contact-cta { padding: 100px 0; background: var(--navy-mid); }
+    .contact-cta__inner { max-width: 680px; }
+    .contact-cta h2 { font-family: var(--font-serif); font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 400; line-height: 1.2; margin-bottom: 20px; }
+    .contact-cta p { font-size: 0.97rem; color: rgba(248,246,240,0.65); line-height: 1.8; margin-bottom: 36px; }
+    .contact-cta__actions { display: flex; flex-direction: column; gap: 16px; }
+    .contact-cta__wa { display: inline-flex; align-items: center; gap: 12px; padding: 16px 32px; background: var(--gold); color: var(--navy); font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; border-radius: var(--radius); transition: var(--transition); width: fit-content; }
+    .contact-cta__wa:hover { background: var(--gold-lt); }
+    .contact-cta__email { font-size: 0.88rem; color: rgba(248,246,240,0.5); }
+    .contact-cta__email a { color: rgba(248,246,240,0.7); border-bottom: 1px solid rgba(248,246,240,0.2); padding-bottom: 1px; }
+    .contact-cta__email a:hover { color: var(--white); }
+
+    /* CROSS-LINKS */
+    .cross-links { padding: 60px 0; }
+    .cross-links h3 { font-family: var(--font-serif); font-size: 1.3rem; font-weight: 400; margin-bottom: 28px; color: rgba(248,246,240,0.8); }
+    .cross-links__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; max-width: 680px; }
+    .cross-link-card { display: block; padding: 24px 28px; border: 1px solid rgba(248,246,240,0.1); border-radius: var(--radius); transition: var(--transition); }
+    .cross-link-card:hover { border-color: rgba(201,169,110,0.3); background: rgba(201,169,110,0.04); }
+    .cross-link-card__label { font-size: 10px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+    .cross-link-card__title { font-size: 0.9rem; font-weight: 500; color: var(--white); line-height: 1.4; }
+
+    /* FOOTER */
+    .footer { padding: 80px 0 40px; background: var(--navy-mid); border-top: 1px solid rgba(248,246,240,0.06); }
+    .footer__top { display: grid; grid-template-columns: 2fr 2fr 1fr 1fr; gap: 48px; margin-bottom: 60px; }
+    .footer__brand-name { font-family: var(--font-serif); font-size: 1.3rem; color: var(--white); margin-bottom: 6px; }
+    .footer__brand-sub { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(248,246,240,0.35); margin-bottom: 20px; }
+    .footer__brand-desc { font-size: 0.85rem; color: rgba(248,246,240,0.45); line-height: 1.7; }
+    .footer__col-title { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(248,246,240,0.35); margin-bottom: 16px; }
+    .footer__links { display: flex; flex-direction: column; gap: 10px; }
+    .footer__links a, .footer__links li { font-size: 0.85rem; color: rgba(248,246,240,0.5); transition: color var(--transition); }
+    .footer__links a:hover { color: var(--white); }
+    .footer__bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 32px; border-top: 1px solid rgba(248,246,240,0.06); }
+    .footer__copy { font-size: 0.75rem; color: rgba(248,246,240,0.3); }
+    .footer__legal { display: flex; gap: 24px; }
+    .footer__legal a { font-size: 0.75rem; color: rgba(248,246,240,0.3); transition: color var(--transition); }
+    .footer__legal a:hover { color: var(--grey); }
+
+    /* STICKY WA */
+    .wa-sticky { position: fixed; bottom: 32px; right: 32px; z-index: 900; display: flex; align-items: center; gap: 12px; }
+    .wa-sticky__label { background: var(--navy); border: 1px solid rgba(201,169,110,0.3); color: var(--gold); font-size: 0.75rem; font-weight: 500; padding: 8px 14px; border-radius: var(--radius); white-space: nowrap; opacity: 0; transform: translateX(8px); transition: var(--transition); }
+    .wa-sticky:hover .wa-sticky__label { opacity: 1; transform: translateX(0); }
+    .wa-sticky__btn { width: 56px; height: 56px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,0.35); transition: transform var(--transition); }
+    .wa-sticky:hover .wa-sticky__btn { transform: scale(1.08); }
+
+    @media (max-width: 900px) {
+      .nav__links { display: none; }
+      .nav__hamburger { display: flex; }
+      .steps { grid-template-columns: 1fr 1fr; }
+      .footer__top { grid-template-columns: 1fr 1fr; gap: 40px; }
+      .cross-links__grid { grid-template-columns: 1fr; }
+      .cta-mid__box { padding: 36px 28px; }
+    }
+    @media (max-width: 600px) {
+      .steps { grid-template-columns: 1fr; }
+      .footer__top { grid-template-columns: 1fr; gap: 32px; }
+      .footer__bottom { flex-direction: column; text-align: center; gap: 16px; }
+      .page-hero { padding: 130px 0 80px; }
+      .content-section { padding: 60px 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="/" class="nav__logo">
+          <span class="nav__logo-main">Bansko Concierge</span>
+          <span class="nav__logo-sub">Based in Bansko · Bulgaria</span>
+        </a>
+        <ul class="nav__links">
+          <li><a href="/#services">How We Work</a></li>
+          <li><a href="/#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="nav__cta">
+          <a href="https://wa.me/359895762785" target="_blank" rel="noopener" class="nav__wa">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <button class="nav__hamburger" id="hamburger" aria-label="Open menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="nav__mobile" id="mobileMenu">
+    <button class="nav__mobile-close" id="mobileClose" aria-label="Close menu">✕</button>
+    <a href="/#services" onclick="closeMobileMenu()">How We Work</a>
+    <a href="/#about" onclick="closeMobileMenu()">About</a>
+    <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+    <a href="https://wa.me/359895762785" target="_blank" class="nav__mobile-wa">WhatsApp us</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="page-hero__bg"></div>
+    <div class="container">
+      <div class="page-hero__eyebrow">For foreign buyers, owners and investors</div>
+      <h1 class="page-hero__title">Property Risk Check <span class="text-gold">Bulgaria</span></h1>
+      <p class="page-hero__sub">Before you buy, renovate or rely on a property in Bulgaria, understand the visible risks, moisture issues and realistic cost indicators.</p>
+      <div class="page-hero__ctas">
+        <a href="https://wa.me/359895762785?text=Hello%20Bansko%20Concierge%2C%20I%20would%20like%20to%20request%20a%20Property%20Risk%20Check%20for%20a%20property%20in%20Bulgaria." target="_blank" rel="noopener" class="btn btn--gold">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Request a Property Risk Check
+        </a>
+        <a href="mailto:hello@banskoconcierge.com" class="btn btn--outline">hello@banskoconcierge.com</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 1: Legal check is not a building risk check -->
+  <section class="content-section section--mid">
+    <div class="container">
+      <div class="content-section__inner">
+        <span class="label">What most buyers miss</span>
+        <h2>A legal check is not a building risk check.</h2>
+        <div class="divider"></div>
+        <p>Most foreign buyers in Bulgaria work with a lawyer. That is the right thing to do. But a lawyer checks titles, contracts and legal standing — not visible building condition, moisture ingress or structural indicators.</p>
+        <p>Many buyers complete a legal due diligence process and still walk into a property with undisclosed water damage, mold behind walls, or a renovation that will cost far more than anticipated. The two processes address completely different questions.</p>
+        <p>A Property Risk Check looks at what the legal process does not: the physical condition of the building and what it means for you as a buyer, owner or investor.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: What we look at -->
+  <section class="content-section">
+    <div class="container">
+      <div class="content-section__inner">
+        <span class="label">Scope of the check</span>
+        <h2>What we look at during a Property Risk Check</h2>
+        <div class="divider"></div>
+        <p>We carry out a practical, observational review of the property. This is not a certified structural survey. It is a professional-level walkthrough based on renovation, construction and property experience in Bulgaria.</p>
+        <ul class="check-list">
+          <li>Visible building condition — walls, ceilings, floors, exterior</li>
+          <li>Moisture indicators — staining, condensation, damp areas</li>
+          <li>Mold risk — visible signs and likely causes</li>
+          <li>Construction quality indicators — common issues in Bulgarian building standards</li>
+          <li>Renovation cost orientation — indicative ranges, not formal quotes</li>
+          <li>Structural observations — visible issues that warrant further investigation</li>
+          <li>Practical next steps — what to address before committing, what to prioritise after purchase</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: Clear observations -->
+  <section class="content-section section--mid">
+    <div class="container">
+      <div class="content-section__inner">
+        <span class="label">What you receive</span>
+        <h2>Clear observations. Practical next steps.</h2>
+        <div class="divider"></div>
+        <p>We do not issue certified reports or official assessments. What we provide is a direct, honest picture of what we observed — written in plain language, with clear indications of what matters, what is normal and what requires attention.</p>
+        <p>You receive: a summary of the most significant observations, an indication of what each issue could mean for renovation costs or risk exposure, and a list of recommended next steps — including when a specialist report is genuinely warranted.</p>
+        <p>The goal is to give you confidence in your decision, not to add more uncertainty to the process.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MID CTA -->
+  <section class="cta-mid">
+    <div class="container">
+      <div class="cta-mid__box">
+        <h3>Before you commit, understand the risk.</h3>
+        <p>A property risk check takes a few hours and can prevent months of expensive problems. Contact us to discuss the property and arrange a check.</p>
+        <a href="https://wa.me/359895762785?text=Hello%20Bansko%20Concierge%2C%20I%20would%20like%20to%20request%20a%20Property%20Risk%20Check%20for%20a%20property%20in%20Bulgaria." target="_blank" rel="noopener" class="btn btn--gold">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Request a Property Risk Check
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: Who should request this -->
+  <section class="content-section section--mid">
+    <div class="container">
+      <div class="content-section__inner">
+        <span class="label">Typical situations</span>
+        <h2>Who should request this check?</h2>
+        <div class="divider"></div>
+        <ul class="check-list">
+          <li>Foreign buyers before completing a purchase — especially for older properties or those that have been unoccupied</li>
+          <li>Property owners before starting a renovation — to understand the real scope of work</li>
+          <li>Investors before committing to a larger purchase or portfolio — to establish a realistic cost basis</li>
+          <li>Owners who have not visited their property for an extended period — to assess current condition</li>
+          <li>Anyone who received a property valuation that felt inconsistent with the asking price or visible condition</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PEAK CARE BLOCK -->
+  <section class="content-section">
+    <div class="container">
+      <div class="peak-care-block">
+        <div class="peak-care-block__label">Technical Competence Layer</div>
+        <h3>Technical property insight through Peak Care</h3>
+        <p>Property checks require more than a walkthrough.</p>
+        <p>Technical support is provided through Peak Care expertise in renovation, moisture issues, mold, soundproofing and property assessment — before you buy, commit or start a renovation.</p>
+        <a href="https://peak-care.com" target="_blank" rel="noopener">Learn more about Peak Care &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIMITATION BOX -->
+  <section class="content-section section--mid">
+    <div class="container">
+      <div class="content-section__inner">
+        <span class="label">Important boundaries</span>
+        <h2>What this service does not replace</h2>
+        <div class="divider"></div>
+        <p>A Property Risk Check is a practical, observational assessment. It is not a substitute for specialist professional services.</p>
+        <div class="limitation-box">
+          <div class="limitation-box__title">This service does not replace</div>
+          <p>An officially certified structural assessment by a licensed engineer. Legal due diligence or title verification by a Bulgarian lawyer. A formal cost estimate from a registered contractor. Specialist reports for building permits or mortgage applications. Official property valuation for insurance or legal purposes.</p>
+        </div>
+        <p style="margin-top: 24px;">We will tell you when a situation requires one of these services and help you find a suitable local contact if needed.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-it-works">
+    <div class="container">
+      <span class="label">Process</span>
+      <h2 class="heading-lg">How it works</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step__num">01</div>
+          <div class="step__title">Initial contact</div>
+          <div class="step__desc">Tell us about the property — location, type, your situation and what concerns you have.</div>
+        </div>
+        <div class="step">
+          <div class="step__num">02</div>
+          <div class="step__title">Scope alignment</div>
+          <div class="step__desc">We confirm what we can cover, agree on timing and arrange access to the property.</div>
+        </div>
+        <div class="step">
+          <div class="step__num">03</div>
+          <div class="step__title">On-site check</div>
+          <div class="step__desc">We carry out a thorough observational review of the property, documenting findings and key observations.</div>
+        </div>
+        <div class="step">
+          <div class="step__num">04</div>
+          <div class="step__title">Report and next steps</div>
+          <div class="step__desc">You receive a clear summary of findings, risk indicators and practical recommendations.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CROSS-LINKS -->
+  <section class="cross-links section--mid">
+    <div class="container">
+      <h3>You might also need</h3>
+      <div class="cross-links__grid">
+        <a href="/owner-care-bulgaria" class="cross-link-card">
+          <div class="cross-link-card__label">Related service</div>
+          <div class="cross-link-card__title">Owner Care Bulgaria — local property oversight when you are not there</div>
+        </a>
+        <a href="/investor-support" class="cross-link-card">
+          <div class="cross-link-card__label">Related service</div>
+          <div class="cross-link-card__title">Investor Support Bulgaria — practical orientation before major decisions</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT CTA -->
+  <section class="contact-cta" id="contact">
+    <div class="container">
+      <div class="contact-cta__inner">
+        <span class="label">Get in touch</span>
+        <h2>Before you commit, understand the risk.</h2>
+        <p>A property risk check takes a few hours and can prevent months of expensive problems. Tell us about the property and we will confirm what we can cover and when.</p>
+        <div class="contact-cta__actions">
+          <a href="https://wa.me/359895762785?text=Hello%20Bansko%20Concierge%2C%20I%20would%20like%20to%20request%20a%20Property%20Risk%20Check%20for%20a%20property%20in%20Bulgaria." target="_blank" rel="noopener" class="contact-cta__wa">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp: +359 895 762 785
+          </a>
+          <div class="contact-cta__email">Or write to us at <a href="mailto:hello@banskoconcierge.com">hello@banskoconcierge.com</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div>
+          <div class="footer__brand-name">Bansko Concierge</div>
+          <div class="footer__brand-sub">Based in Bansko · Operating across Bulgaria</div>
+          <p class="footer__brand-desc">Private operations service for international property owners, buyers, investors and families relocating to Bulgaria.</p>
+        </div>
+        <div>
+          <div class="footer__col-title">Core Services</div>
+          <ul class="footer__links">
+            <li><a href="/property-risk-check-bulgaria">Property Risk Check Bulgaria</a></li>
+            <li><a href="/owner-care-bulgaria">Owner Care Bulgaria</a></li>
+            <li><a href="/relocation-bulgaria-orientation">Relocation Bulgaria Orientation</a></li>
+            <li><a href="/investor-support">Investor Support</a></li>
+          </ul>
+          <div class="footer__col-title" style="margin-top:28px;">Additional Services</div>
+          <ul class="footer__links">
+            <li><a href="/vip-airport-transfer">Private Transfer / Chauffeur Service</a></li>
+            <li><a href="/private-chef-spa">Private Chef / Local Experience</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__col-title">Coverage</div>
+          <ul class="footer__links">
+            <li>Based in Bansko</li>
+            <li>Operating across Bulgaria</li>
+            <li>Building a trusted Balkan network</li>
+          </ul>
+          <div class="footer__col-title" style="margin-top:28px;">About</div>
+          <ul class="footer__links">
+            <li><a href="/#about">Our approach</a></li>
+            <li><a href="https://peak-care.com" target="_blank" rel="noopener">Peak Care</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__col-title">Contact</div>
+          <ul class="footer__links">
+            <li><a href="https://wa.me/359895762785" target="_blank">WhatsApp: +359 895 762 785</a></li>
+            <li><a href="mailto:hello@banskoconcierge.com">hello@banskoconcierge.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <div class="footer__copy">© 2026 Bansko Concierge. All rights reserved.</div>
+        <div class="footer__legal">
+          <a href="https://sites.google.com/peak-care.com/legalimprint/startseite" target="_blank">Legal Imprint</a>
+          <a href="https://sites.google.com/peak-care.com/privacy-policy/startseite" target="_blank">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/359895762785?text=Hello%20Bansko%20Concierge%2C%20I%20would%20like%20to%20request%20a%20Property%20Risk%20Check%20for%20a%20property%20in%20Bulgaria." target="_blank" rel="noopener" class="wa-sticky" aria-label="Contact on WhatsApp">
+    <span class="wa-sticky__label">Chat with us</span>
+    <div class="wa-sticky__btn">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </div>
+  </a>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); }, { passive: true });
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileClose = document.getElementById('mobileClose');
+    function closeMobileMenu() { mobileMenu.classList.remove('open'); }
+    hamburger.addEventListener('click', () => mobileMenu.classList.add('open'));
+    mobileClose.addEventListener('click', closeMobileMenu);
+  </script>
+</body>
+</html>
