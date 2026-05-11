@@ -3,6 +3,11 @@
   functions = "netlify/functions"
 
 [[headers]]
+  for = "/sitemap.xml"
+  [headers.values]
+    Content-Type = "application/xml; charset=utf-8"
+
+[[headers]]
   for = "/posts.json"
   [headers.values]
     Cache-Control = "public, max-age=60, stale-while-revalidate=300"
