@@ -127,6 +127,14 @@
     .wa-sticky__btn { width: 56px; height: 56px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,0.35); transition: transform var(--transition); }
     .wa-sticky:hover .wa-sticky__btn { transform: scale(1.08); }
 
+    /* FAQ */
+    .faq-section { padding: 80px 0; }
+    .faq-section__inner { max-width: 820px; }
+    .faq-item { border-bottom: 1px solid rgba(248,246,240,0.08); padding: 28px 0; }
+    .faq-item:first-child { border-top: 1px solid rgba(248,246,240,0.08); }
+    .faq-item__q { font-family: var(--font-serif); font-size: 1.05rem; font-weight: 400; color: var(--white); margin-bottom: 12px; line-height: 1.4; }
+    .faq-item__a { font-size: 0.93rem; color: rgba(248,246,240,0.65); line-height: 1.8; }
+
     @media (max-width: 900px) {
       .nav__links { display: none; } .nav__hamburger { display: flex; }
       .steps { grid-template-columns: 1fr 1fr; }
@@ -141,6 +149,73 @@
       .page-hero { padding: 130px 0 80px; } .content-section { padding: 60px 0; }
     }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": "https://banskoconcierge.com/investor-support#service",
+    "name": "Investor Support Bulgaria",
+    "url": "https://banskoconcierge.com/investor-support",
+    "description": "Practical local orientation for international buyers and private investors exploring property opportunities in Bulgaria. Covers local market context, property condition review, property-use scenarios, indicative cost orientation and trusted local contacts.",
+    "provider": { "@type": "LocalBusiness", "@id": "https://banskoconcierge.com/#organization", "name": "Bansko Concierge" },
+    "areaServed": { "@type": "Country", "name": "Bulgaria" },
+    "audience": { "@type": "Audience", "audienceType": "International buyers and private investors considering property in Bulgaria" },
+    "serviceType": "Property Investment Orientation"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://banskoconcierge.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Investor Support Bulgaria", "item": "https://banskoconcierge.com/investor-support" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What does Investor Support from Bansko Concierge include?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Practical local orientation for international buyers exploring property in Bulgaria. This includes local market context, visible property condition reviews, property-use scenario analysis, indicative renovation and operating cost estimates and introductions to trusted local professionals. It does not include investment advice, legal services or financial projections." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can Bansko Concierge tell me what rental yield to expect from a Bulgarian property?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. We do not provide rental yield projections or income forecasts — these depend on variables we cannot guarantee. What we can provide is honest local context about rental demand in specific areas, typical operating realities and the factors that influence performance." }
+      },
+      {
+        "@type": "Question",
+        "name": "What are the most common mistakes foreign investors make when buying property in Bulgaria?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Underestimating renovation costs is the most consistent issue — real local costs are frequently two or more times higher than initial estimates. Others include overestimating rental demand in specific areas, overlooking building condition, and not having reliable local contacts in place before the purchase completes." }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does property renovation typically cost in Bulgaria?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Costs vary significantly by property type, condition and location. We can provide indicative cost orientation based on direct local experience, but we do not provide formal cost estimates or project guarantees. For larger renovation scopes, a proper site assessment is needed before any reliable cost range can be established." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Investor Support the same as working with a Bulgarian estate agent?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Estate agents represent the sale or rental of specific properties and are compensated on transaction. Investor Support is independent local orientation — we do not sell property, represent developers or have a stake in whether you buy or not. Our interest is in giving you an accurate picture, not in closing a deal." }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens after the purchase if I need ongoing property oversight?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Our Owner Care service provides local property oversight for investors who need reliable presence on the ground — condition checks, issue response, contractor coordination and direct reporting. It is designed specifically for international owners who cannot be present regularly." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I get started with Investor Support from Bansko Concierge?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Contact us via WhatsApp or email with details about the properties you are considering, your goals and your timeline. We will confirm what local context we can provide and discuss the most useful starting point." }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -335,6 +410,44 @@
           <div class="cross-link-card__label">Related service</div>
           <div class="cross-link-card__title">Owner Care Bulgaria — local oversight and issue coordination after the purchase</div>
         </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section section--mid" id="faq">
+    <div class="container">
+      <div class="faq-section__inner">
+        <span class="label">Common questions</span>
+        <h2 style="font-family: var(--font-serif); font-size: clamp(1.6rem, 2.8vw, 2.4rem); font-weight: 400; line-height: 1.2; margin-bottom: 40px;">Frequently asked questions</h2>
+        <div class="faq-item">
+          <div class="faq-item__q">What does Investor Support from Bansko Concierge include?</div>
+          <div class="faq-item__a">Practical local orientation for international buyers exploring property in Bulgaria. This includes local market context, visible property condition reviews, property-use scenario analysis, indicative renovation and operating cost estimates and introductions to trusted local professionals. It does not include investment advice, legal services or financial projections.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-item__q">Can Bansko Concierge tell me what rental yield to expect from a Bulgarian property?</div>
+          <div class="faq-item__a">No. We do not provide rental yield projections or income forecasts — these depend on variables we cannot guarantee. What we can provide is honest local context about rental demand in specific areas, typical operating realities and the factors that influence performance.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-item__q">What are the most common mistakes foreign investors make when buying property in Bulgaria?</div>
+          <div class="faq-item__a">Underestimating renovation costs is the most consistent issue — real local costs are frequently two or more times higher than initial estimates. Others include overestimating rental demand in specific areas, overlooking building condition, and not having reliable local contacts in place before the purchase completes.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-item__q">How much does property renovation typically cost in Bulgaria?</div>
+          <div class="faq-item__a">Costs vary significantly by property type, condition and location. We can provide indicative cost orientation based on direct local experience, but we do not provide formal cost estimates or project guarantees. For larger renovation scopes, a proper site assessment is needed before any reliable cost range can be established.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-item__q">Is Investor Support the same as working with a Bulgarian estate agent?</div>
+          <div class="faq-item__a">No. Estate agents represent the sale or rental of specific properties and are compensated on transaction. Investor Support is independent local orientation — we do not sell property, represent developers or have a stake in whether you buy or not. Our interest is in giving you an accurate picture, not in closing a deal.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-item__q">What happens after the purchase if I need ongoing property oversight?</div>
+          <div class="faq-item__a">Our Owner Care service provides local property oversight for investors who need reliable presence on the ground — condition checks, issue response, contractor coordination and direct reporting. It is designed specifically for international owners who cannot be present regularly.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-item__q">How do I get started with Investor Support from Bansko Concierge?</div>
+          <div class="faq-item__a">Contact us via WhatsApp or email with details about the properties you are considering, your goals and your timeline. We will confirm what local context we can provide and discuss the most useful starting point.</div>
+        </div>
       </div>
     </div>
   </section>

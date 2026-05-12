@@ -127,6 +127,14 @@
     .wa-sticky__btn { width: 56px; height: 56px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,0.35); transition: transform var(--transition); }
     .wa-sticky:hover .wa-sticky__btn { transform: scale(1.08); }
 
+    /* FAQ */
+    .faq-section { padding: 80px 0; }
+    .faq-section__inner { max-width: 820px; }
+    .faq-item { border-bottom: 1px solid rgba(248,246,240,0.08); padding: 28px 0; }
+    .faq-item:first-child { border-top: 1px solid rgba(248,246,240,0.08); }
+    .faq-item__q { font-family: var(--font-serif); font-size: 1.05rem; font-weight: 400; color: var(--white); margin-bottom: 12px; line-height: 1.4; }
+    .faq-item__a { font-size: 0.93rem; color: rgba(248,246,240,0.65); line-height: 1.8; }
+
     @media (max-width: 900px) {
       .nav__links { display: none; } .nav__hamburger { display: flex; }
       .steps { grid-template-columns: 1fr 1fr; }
@@ -141,6 +149,73 @@
       .page-hero { padding: 130px 0 80px; } .content-section { padding: 60px 0; }
     }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": "https://banskoconcierge.com/relocation-bulgaria-orientation#service",
+    "name": "Relocation Bulgaria Orientation",
+    "url": "https://banskoconcierge.com/relocation-bulgaria-orientation",
+    "description": "Practical local orientation for individuals, families and property buyers planning to relocate to Bulgaria. Covers location choice, everyday setup, healthcare, schooling, property market overview and access to trusted local contacts.",
+    "provider": { "@type": "LocalBusiness", "@id": "https://banskoconcierge.com/#organization", "name": "Bansko Concierge" },
+    "areaServed": { "@type": "Country", "name": "Bulgaria" },
+    "audience": { "@type": "Audience", "audienceType": "International individuals and families planning to relocate to Bulgaria" },
+    "serviceType": "Relocation Orientation"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://banskoconcierge.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Relocation Bulgaria Orientation", "item": "https://banskoconcierge.com/relocation-bulgaria-orientation" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is Relocation Bulgaria Orientation?",
+        "acceptedAnswer": { "@type": "Answer", "text": "A practical local briefing for individuals and families planning to move to or settle in Bulgaria. It covers location choice, everyday setup, healthcare navigation, schooling options, property market realities and access to trusted local contacts. It is not a formal immigration or legal service." }
+      },
+      {
+        "@type": "Question",
+        "name": "Do EU citizens need a visa to live in Bulgaria?",
+        "acceptedAnswer": { "@type": "Answer", "text": "EU citizens can live and work in Bulgaria without a visa. For stays beyond three months, registration with local authorities is required. Relocation Orientation covers what that process involves in practice, but formal residency applications require a licensed immigration professional." }
+      },
+      {
+        "@type": "Question",
+        "name": "What are the practical differences between living in Bansko, Sofia and the Bulgarian coast?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Each location has a distinct character. Bansko is a mountain resort town with a strong international community, lower cost of living and proximity to ski and outdoor activities. Sofia is the capital, with full urban infrastructure and the widest range of services. The coast has seasonal character with a more relaxed pace. Orientation covers which option suits your situation honestly." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can Bansko Concierge help foreign nationals open a bank account in Bulgaria?",
+        "acceptedAnswer": { "@type": "Answer", "text": "We can provide guidance on what to expect and which options are generally accessible to foreign nationals, but bank account opening is subject to individual bank decisions and we cannot guarantee any specific outcome. We will point you to the options most commonly used by the international community." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Bulgaria a good choice for remote workers relocating from Western Europe?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Bulgaria offers a combination of EU membership, relatively low costs, fast internet connectivity and a growing international community in key locations. Relocation Orientation provides a direct, honest local picture — including the practical limitations that are not visible from online research." }
+      },
+      {
+        "@type": "Question",
+        "name": "What does Relocation Bulgaria Orientation not cover?",
+        "acceptedAnswer": { "@type": "Answer", "text": "It does not provide immigration advice, legal representation, tax planning, official residency application support, certified translation or notarial services. Where these are needed, we will point you to the right local professionals." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I arrange a relocation orientation conversation with Bansko Concierge?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Contact us via WhatsApp or email with a brief description of your situation and timeline. We will confirm what we can cover and schedule a conversation based on your availability." }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -324,6 +399,44 @@
           <div class="cross-link-card__label">Related service</div>
           <div class="cross-link-card__title">Owner Care Bulgaria — local oversight for property you own but cannot always visit</div>
         </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section section--mid" id="faq">
+    <div class="container">
+      <div class="faq-section__inner">
+        <span class="label">Common questions</span>
+        <h2 style="font-family: var(--font-serif); font-size: clamp(1.6rem, 2.8vw, 2.4rem); font-weight: 400; line-height: 1.2; margin-bottom: 40px;">Frequently asked questions</h2>
+        <div class="faq-item">
+          <div class="faq-item__q">What is Relocation Bulgaria Orientation?</div>
+          <div class="faq-item__a">A practical local briefing for individuals and families planning to move to or settle in Bulgaria. It covers location choice, everyday setup, healthcare navigation, schooling options, property market realities and access to trusted local contacts. It is not a formal immigration or legal service.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-item__q">Do EU citizens need a visa to live in Bulgaria?</div>
+          <div class="faq-item__a">EU citizens can live and work in Bulgaria without a visa. For stays beyond three months, registration with local authorities is required. Relocation Orientation covers what that process involves in practice, but formal residency applications require a licensed immigration professional.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-item__q">What are the practical differences between living in Bansko, Sofia and the Bulgarian coast?</div>
+          <div class="faq-item__a">Each location has a distinct character. Bansko is a mountain resort town with a strong international community, lower cost of living and proximity to ski and outdoor activities. Sofia is the capital, with full urban infrastructure and the widest range of services. The coast has seasonal character with a more relaxed pace. Orientation covers which option suits your situation honestly.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-item__q">Can Bansko Concierge help foreign nationals open a bank account in Bulgaria?</div>
+          <div class="faq-item__a">We can provide guidance on what to expect and which options are generally accessible to foreign nationals, but bank account opening is subject to individual bank decisions and we cannot guarantee any specific outcome. We will point you to the options most commonly used by the international community.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-item__q">Is Bulgaria a good choice for remote workers relocating from Western Europe?</div>
+          <div class="faq-item__a">Bulgaria offers a combination of EU membership, relatively low costs, fast internet connectivity and a growing international community in key locations. Relocation Orientation provides a direct, honest local picture — including the practical limitations that are not visible from online research.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-item__q">What does Relocation Bulgaria Orientation not cover?</div>
+          <div class="faq-item__a">It does not provide immigration advice, legal representation, tax planning, official residency application support, certified translation or notarial services. Where these are needed, we will point you to the right local professionals.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-item__q">How do I arrange a relocation orientation conversation with Bansko Concierge?</div>
+          <div class="faq-item__a">Contact us via WhatsApp or email with a brief description of your situation and timeline. We will confirm what we can cover and schedule a conversation based on your availability.</div>
+        </div>
       </div>
     </div>
   </section>

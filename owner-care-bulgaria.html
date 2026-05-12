@@ -163,7 +163,89 @@
       .page-hero { padding: 130px 0 80px; }
       .content-section { padding: 60px 0; }
     }
+
+    /* FAQ */
+    .faq-section { padding: 80px 0; }
+    .faq-section__inner { max-width: 820px; }
+    .faq-item { border-bottom: 1px solid rgba(248,246,240,0.08); padding: 28px 0; }
+    .faq-item:first-child { border-top: 1px solid rgba(248,246,240,0.08); }
+    .faq-item__q { font-family: var(--font-serif); font-size: 1.05rem; font-weight: 400; color: var(--white); margin-bottom: 12px; line-height: 1.4; }
+    .faq-item__a { font-size: 0.93rem; color: rgba(248,246,240,0.65); line-height: 1.8; }
   </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": "https://banskoconcierge.com/owner-care-bulgaria#service",
+    "name": "Owner Care Bulgaria",
+    "url": "https://banskoconcierge.com/owner-care-bulgaria",
+    "description": "Local property oversight for international property owners in Bulgaria who are not present year-round. Includes visual checks, issue follow-up, contractor coordination and practical reporting. Not a 24/7 emergency service or legal representation.",
+    "provider": {
+      "@type": "LocalBusiness",
+      "@id": "https://banskoconcierge.com/#organization",
+      "name": "Bansko Concierge"
+    },
+    "areaServed": { "@type": "Country", "name": "Bulgaria" },
+    "audience": { "@type": "Audience", "audienceType": "International property owners in Bulgaria who live abroad" },
+    "serviceType": "Property Owner Care"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Bansko Concierge", "item": "https://banskoconcierge.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Owner Care Bulgaria", "item": "https://banskoconcierge.com/owner-care-bulgaria" }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is Owner Care in Bulgaria?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Owner Care is a local property oversight service for international owners who live outside Bulgaria. It provides a locally present point of contact who monitors the property, follows up on issues, coordinates local contractors and keeps the owner informed — without requiring the owner to manage everything from abroad." }
+      },
+      {
+        "@type": "Question",
+        "name": "How can foreign property owners manage their Bulgarian property from abroad?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Most international owners try to rely on neighbours, building managers or occasional visits. Owner Care provides a structured alternative: a local contact who knows the property, carries out agreed checks, responds to issues and provides clear updates — so the owner has reliable information without having to coordinate everything remotely." }
+      },
+      {
+        "@type": "Question",
+        "name": "What does Owner Care from Bansko Concierge typically include?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Regular property checks for condition and visible issues, moisture and mold monitoring for properties closed for extended periods, issue follow-up and contractor coordination, practical reporting on what was found and what was done, seasonal property preparation, and liaison with neighbours or building management where needed." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Owner Care the same as a licensed property management company?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Owner Care is a practical local support service — not a licensed property management company with official authorisation, legal representation or power of attorney. It does not replace formal legal or tax compliance services for property ownership in Bulgaria." }
+      },
+      {
+        "@type": "Question",
+        "name": "How often will someone check my property?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Frequency is agreed individually based on your property and what you need. Starting points range from occasional one-off checks to seasonal visits before and after ski season or summer, to regular ongoing oversight. There is no fixed standard frequency — everything is tailored to the property and situation." }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens if an issue is found during a property check?",
+        "acceptedAnswer": { "@type": "Answer", "text": "We document the issue, inform the owner directly and discuss the appropriate response. For straightforward maintenance, we can coordinate a local tradesperson. For more serious technical issues — moisture damage, structural concerns, renovation scope — we can draw on Peak Care expertise in building assessment and restoration." }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need to be present for an Owner Care arrangement to start?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Owner Care can begin remotely. We discuss the property by phone or message, agree on scope and access arrangements, and begin from there. Most owners who use this service are based in Germany, Austria, the UK or elsewhere in Europe and manage the arrangement without needing to travel for the setup." }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -386,6 +468,44 @@
           <div class="cross-link-card__label">Related service</div>
           <div class="cross-link-card__title">Investor Support Bulgaria — practical orientation for property buyers and investors</div>
         </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section section--mid" id="faq">
+    <div class="container">
+      <div class="faq-section__inner">
+        <span class="label">Common questions</span>
+        <h2 style="font-family: var(--font-serif); font-size: clamp(1.6rem, 2.8vw, 2.4rem); font-weight: 400; line-height: 1.2; margin-bottom: 40px;">Frequently asked questions</h2>
+        <div class="faq-item">
+          <div class="faq-item__q">What is Owner Care in Bulgaria?</div>
+          <div class="faq-item__a">Owner Care is a local property oversight service for international owners who live outside Bulgaria. It provides a locally present point of contact who monitors the property, follows up on issues, coordinates local contractors and keeps the owner informed — without requiring the owner to manage everything from abroad.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-item__q">How can foreign property owners manage their Bulgarian property from abroad?</div>
+          <div class="faq-item__a">Most international owners try to rely on neighbours, building managers or occasional visits. Owner Care provides a structured alternative: a local contact who knows the property, carries out agreed checks, responds to issues and provides clear updates — so the owner has reliable information without having to coordinate everything remotely.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-item__q">What does Owner Care from Bansko Concierge typically include?</div>
+          <div class="faq-item__a">Regular property checks for condition and visible issues, moisture and mold monitoring for properties closed for extended periods, issue follow-up and contractor coordination, practical reporting on what was found and what was done, seasonal property preparation, and liaison with neighbours or building management where needed.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-item__q">Is Owner Care the same as a licensed property management company?</div>
+          <div class="faq-item__a">No. Owner Care is a practical local support service — not a licensed property management company with official authorisation, legal representation or power of attorney. It does not replace formal legal or tax compliance services for property ownership in Bulgaria.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-item__q">How often will someone check my property?</div>
+          <div class="faq-item__a">Frequency is agreed individually based on your property and what you need. Starting points range from occasional one-off checks to seasonal visits before and after ski season or summer, to regular ongoing oversight. There is no fixed standard frequency — everything is tailored to the property and situation.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-item__q">What happens if an issue is found during a property check?</div>
+          <div class="faq-item__a">We document the issue, inform the owner directly and discuss the appropriate response. For straightforward maintenance, we can coordinate a local tradesperson. For more serious technical issues — moisture damage, structural concerns, renovation scope — we can draw on Peak Care expertise in building assessment and restoration.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-item__q">Do I need to be present for an Owner Care arrangement to start?</div>
+          <div class="faq-item__a">No. Owner Care can begin remotely. We discuss the property by phone or message, agree on scope and access arrangements, and begin from there. Most owners who use this service are based in Germany, Austria, the UK or elsewhere in Europe and manage the arrangement without needing to travel for the setup.</div>
+        </div>
       </div>
     </div>
   </section>
