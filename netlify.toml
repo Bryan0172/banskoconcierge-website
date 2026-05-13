@@ -166,15 +166,51 @@
   status = 301
   force = true
 
+# Old service URLs → new repositioned URLs (permanent)
+[[redirects]]
+  from = "/vip-airport-transfer"
+  to = "/private-mobility"
+  status = 301
+  force = true
+
 [[redirects]]
   from = "/vip-airport-transfer.html"
-  to = "/vip-airport-transfer"
+  to = "/private-mobility"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/private-chef-spa"
+  to = "/private-dining"
   status = 301
   force = true
 
 [[redirects]]
   from = "/private-chef-spa.html"
-  to = "/private-chef-spa"
+  to = "/private-dining"
+  status = 301
+  force = true
+
+# New clean URL rewrites
+[[redirects]]
+  from = "/private-mobility"
+  to = "/private-mobility.html"
+  status = 200
+
+[[redirects]]
+  from = "/private-mobility.html"
+  to = "/private-mobility"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/private-dining"
+  to = "/private-dining.html"
+  status = 200
+
+[[redirects]]
+  from = "/private-dining.html"
+  to = "/private-dining"
   status = 301
   force = true
 

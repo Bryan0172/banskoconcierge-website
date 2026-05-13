@@ -126,6 +126,20 @@
     <priority>0.8</priority>
   </url>
 
+  <url>
+    <loc>https://banskoconcierge.com/private-mobility</loc>
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://banskoconcierge.com/private-dining</loc>
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Testimonials -->
   <url>
     <loc>https://banskoconcierge.com/testimonials</loc>
