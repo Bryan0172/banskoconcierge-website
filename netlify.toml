@@ -184,6 +184,17 @@
   status = 301
   force = true
 
+[[redirects]]
+  from = "/local-support.html"
+  to = "/local-support"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/local-support"
+  to = "/local-support.html"
+  status = 200
+
 # Phase 2 Offer Pages — clean URL rewrites
 [[redirects]]
   from = "/property-risk-check-bulgaria"
