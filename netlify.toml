@@ -251,3 +251,26 @@
   from = "/investor-support"
   to = "/investor-support.html"
   status = 200
+
+# Session 87/88 — new pages
+[[redirects]]
+  from = "/outdoor-experiences-bulgaria"
+  to = "/outdoor-experiences-bulgaria.html"
+  status = 200
+
+[[redirects]]
+  from = "/outdoor-experiences-bulgaria.html"
+  to = "/outdoor-experiences-bulgaria"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/car-import-registration-bulgaria"
+  to = "/car-import-registration-bulgaria.html"
+  status = 200
+
+[[redirects]]
+  from = "/car-import-registration-bulgaria.html"
+  to = "/car-import-registration-bulgaria"
+  status = 301
+  force = true
