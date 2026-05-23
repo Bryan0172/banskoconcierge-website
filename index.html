@@ -130,24 +130,17 @@
     }
     .nav__logo {
       display: flex;
-      flex-direction: column;
-      gap: 2px;
+      align-items: center;
+      line-height: 1;
+      flex-shrink: 0;
     }
-    .nav__logo-main {
-      font-family: var(--font-serif);
-      font-size: 1.25rem;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-      color: var(--white);
-      white-space: nowrap;
+    .nav__logo svg {
+      display: block;
+      height: 42px;
+      width: auto;
     }
-    .nav__logo-sub {
-      font-size: 9px;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--gold);
-      white-space: nowrap;
-      overflow: hidden;
+    @media (max-width: 480px) {
+      .nav__logo svg { height: 36px; }
     }
     .nav__links {
       display: flex;
@@ -1364,9 +1357,38 @@
   <nav class="nav" id="nav">
     <div class="container">
       <div class="nav__inner">
-        <a href="#hero" class="nav__logo">
-          <span class="nav__logo-main">Bansko Concierge</span>
-          <span class="nav__logo-sub">Based in Bansko · Bulgaria</span>
+        <a href="#hero" class="nav__logo" aria-label="Bansko Concierge">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 48" role="img" aria-hidden="true">
+            <!-- Circular monogram emblem -->
+            <g transform="translate(24,24)">
+              <circle r="21" fill="none" stroke="#C9A96E" stroke-width="1.2"/>
+              <!-- C arc: opens to the right -->
+              <path d="M 8.5,-15 A 16.5,16.5 0 1 0 8.5,15"
+                    fill="none" stroke="#C9A96E" stroke-width="1.7" stroke-linecap="butt"/>
+              <!-- V inside -->
+              <path d="M -2.5,-11 L 4,11 L 10.5,-11"
+                    fill="none" stroke="#C9A96E" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="miter"/>
+            </g>
+            <!-- BANSKO -->
+            <text x="55" y="15"
+                  font-family="'Inter','Helvetica Neue',Arial,sans-serif"
+                  font-size="12" font-weight="700"
+                  fill="#C9A96E" letter-spacing="5.5">BANSKO</text>
+            <!-- thin rule -->
+            <line x1="55" y1="20" x2="206" y2="20"
+                  stroke="#C9A96E" stroke-width="0.45" opacity="0.4"/>
+            <!-- CONCIERGE -->
+            <text x="55" y="32"
+                  font-family="'Inter','Helvetica Neue',Arial,sans-serif"
+                  font-size="9.5" font-weight="500"
+                  fill="#C9A96E" letter-spacing="4">CONCIERGE</text>
+            <!-- tagline -->
+            <text x="55" y="44"
+                  font-family="'Inter','Helvetica Neue',Arial,sans-serif"
+                  font-size="6.5" font-weight="300"
+                  fill="#C9A96E" letter-spacing="3" opacity="0.6">BULGARIA · BALKANS</text>
+          </svg>
         </a>
         <ul class="nav__links">
           <li><a href="#services">How We Work</a></li>
@@ -1635,7 +1657,7 @@
         <div style="background:rgba(248,246,240,0.03); border:1px solid rgba(248,246,240,0.08); border-radius:4px; padding:36px 32px;">
           <div style="font-size:0.65rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:rgba(196,160,40,0.6); margin-bottom:16px;">Private Mobility</div>
           <h3 style="font-size:1.05rem; font-weight:600; color:#f8f6f0; margin:0 0 14px; line-height:1.4;">Private Mobility &amp; Chauffeur Coordination</h3>
-          <p style="color:rgba(248,246,240,0.55); font-size:0.88rem; line-height:1.75; margin:0 0 24px;">Airport transfers, inter-city travel and multi-destination routing — coordinated with trusted local drivers. Discreet, punctual, available across Bulgaria and into the wider Balkans.</p>
+          <p style="color:rgba(248,246,240,0.55); font-size:0.88rem; line-height:1.75; margin:0 0 24px;">Owner arrivals, investor viewing routes and cross-border coordination — managed through trusted drivers across Bulgaria and into the wider Balkans.</p>
           <a href="/private-mobility" style="font-size:0.75rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:rgba(196,160,40,0.75); text-decoration:none; border-bottom:1px solid rgba(196,160,40,0.25); padding-bottom:2px;">Service details &rarr;</a>
         </div>
 
@@ -1657,6 +1679,42 @@
         </div>
 
       </div>
+
+      <!-- Additional services — compact row -->
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px; max-width:1000px; margin:24px auto 0;">
+
+        <!-- Car Import & Registration -->
+        <div style="background:rgba(248,246,240,0.02); border:1px solid rgba(248,246,240,0.06); border-radius:4px; padding:24px 28px; display:flex; align-items:flex-start; gap:18px;">
+          <div style="flex:1;">
+            <div style="font-size:0.62rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:rgba(196,160,40,0.55); margin-bottom:10px;">Vehicle Logistics</div>
+            <h3 style="font-size:0.95rem; font-weight:600; color:#f8f6f0; margin:0 0 10px; line-height:1.4;">Car Import &amp; Registration in Bulgaria</h3>
+            <p style="color:rgba(248,246,240,0.5); font-size:0.83rem; line-height:1.7; margin:0 0 16px;">Practical coordination for vehicle re-registration when moving to Bulgaria — inspection appointments, document checklist, local contacts.</p>
+            <a href="/car-import-registration-bulgaria" style="font-size:0.72rem; font-weight:600; letter-spacing:0.09em; text-transform:uppercase; color:rgba(196,160,40,0.7); text-decoration:none; border-bottom:1px solid rgba(196,160,40,0.2); padding-bottom:2px;">Full overview &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Remote Owner Care -->
+        <div style="background:rgba(248,246,240,0.02); border:1px solid rgba(248,246,240,0.06); border-radius:4px; padding:24px 28px; display:flex; align-items:flex-start; gap:18px;">
+          <div style="flex:1;">
+            <div style="font-size:0.62rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:rgba(196,160,40,0.55); margin-bottom:10px;">Remote Owner Care</div>
+            <h3 style="font-size:0.95rem; font-weight:600; color:#f8f6f0; margin:0 0 10px; line-height:1.4;">Property Oversight for International Owners</h3>
+            <p style="color:rgba(248,246,240,0.5); font-size:0.83rem; line-height:1.7; margin:0 0 16px;">Regular checks, issue follow-up and local contractor coordination — for owners based abroad who need a reliable local presence.</p>
+            <a href="/owner-care-bulgaria" style="font-size:0.72rem; font-weight:600; letter-spacing:0.09em; text-transform:uppercase; color:rgba(196,160,40,0.7); text-decoration:none; border-bottom:1px solid rgba(196,160,40,0.2); padding-bottom:2px;">Service details &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Selected Private Outdoor -->
+        <div style="background:rgba(248,246,240,0.02); border:1px solid rgba(248,246,240,0.06); border-radius:4px; padding:24px 28px; display:flex; align-items:flex-start; gap:18px;">
+          <div style="flex:1;">
+            <div style="font-size:0.62rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:rgba(196,160,40,0.55); margin-bottom:10px;">Selected Private Outdoor</div>
+            <h3 style="font-size:0.95rem; font-weight:600; color:#f8f6f0; margin:0 0 10px; line-height:1.4;">Private Hunting &amp; Fly Fishing Arrangements</h3>
+            <p style="color:rgba(248,246,240,0.5); font-size:0.83rem; line-height:1.7; margin:0 0 16px;">Personal introductions to red stag, wild boar and mountain river fly fishing across the Pirin, Rila and Rhodope Mountains. Arranged through trusted local partners.</p>
+            <a href="/outdoor-experiences-bulgaria" style="font-size:0.72rem; font-weight:600; letter-spacing:0.09em; text-transform:uppercase; color:rgba(196,160,40,0.7); text-decoration:none; border-bottom:1px solid rgba(196,160,40,0.2); padding-bottom:2px;">Experiences &rarr;</a>
+          </div>
+        </div>
+
+      </div>
+
     </div>
   </section>
 
@@ -2028,7 +2086,7 @@
       <div class="footer__top">
         <div>
           <div class="footer__brand-name">Bansko Concierge</div>
-          <div class="footer__brand-sub">Based in Bansko · Operating across Bulgaria</div>
+          <div class="footer__brand-sub">Based in Bansko · Bulgaria &amp; the Balkans</div>
           <p class="footer__brand-desc">
             Private operations service for international property owners,
             buyers, investors and families relocating to Bulgaria.
@@ -2045,8 +2103,9 @@
           <div class="footer__col-title" style="margin-top:28px;">Private Support</div>
           <ul class="footer__links">
             <li><a href="/local-support">Local Execution Support</a></li>
-            <li><a href="/private-mobility">Private Mobility & Transfers</a></li>
+            <li><a href="/private-mobility">Private Mobility & Coordination</a></li>
             <li><a href="/private-dining">Private Dining & Experiences</a></li>
+            <li><a href="/outdoor-experiences-bulgaria">Selected Private Outdoor</a></li>
           </ul>
         </div>
         <div>
