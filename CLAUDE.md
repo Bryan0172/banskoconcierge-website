@@ -118,6 +118,43 @@ URL to `sitemap.xml` (both are maintained by hand).
   years of experience, or statistics.
 - Legal/Privacy links point to external Google Sites pages.
 
+## Memory-Sync: Cloud ↔ Desktop (verbindlich)
+
+Diese Datei ist die **einzige Quelle der Wahrheit für dauerhafte Instruktionen,
+Präferenzen und Entscheidungen**. Sie wird von **beiden** Umgebungen automatisch
+gelesen — der Claude-Code-Desktop-App (lokal) und Claude Code on the web (Cloud-
+Container). Lokale, nicht-committete Memory der Desktop-App
+(`~/.claude/CLAUDE.md`, `CLAUDE.local.md`, lokale Settings) ist in der Cloud
+**nicht sichtbar**. Damit zwischen den beiden Umgebungen kein Informationsgefälle
+entsteht, gilt:
+
+1. **Alles Dauerhafte gehört in committete Dateien.** Sobald eine projektrelevante
+   Instruktion, Präferenz, Konvention oder Entscheidung getroffen wird, wird sie in
+   diese `CLAUDE.md` (oder eine andere committete Datei unter `.claude/`)
+   geschrieben und gepusht — **nicht** nur in lokale Memory abgelegt.
+2. **Niemals Secrets committen.** Tokens, API-Keys, Passwörter (`GITHUB_TOKEN`,
+   `ARVOW_SECRET`, Netlify-Keys usw.) gehören in Umgebungsvariablen / Netlify, nie
+   in `CLAUDE.md`, Code oder Commits. In committeten Dateien wird nur auf ihren
+   *Namen* und *Speicherort* verwiesen.
+3. **Was wohin gehört:**
+   - Projektregeln & geteilte Präferenzen → diese `CLAUDE.md` (committed, gepusht).
+   - Rein private/lokale Notizen → `CLAUDE.local.md` (gitignored, bleibt lokal).
+     *Achtung:* solche Inhalte sind in der Cloud nicht verfügbar — nur hierher
+     einfügen, wenn beide Seiten sie brauchen.
+   - Permissions, Hooks, Slash-Commands, Subagents, MCP-Config → committete Dateien
+     unter `.claude/` bzw. `.mcp.json` (ohne Secrets).
+4. **Nach Übernahme von Desktop-Memory** wird der Inhalt hier strukturiert
+   eingepflegt, committet und auf `main` gepusht; danach `git pull` in der jeweils
+   anderen Umgebung → beide Seiten sind synchron.
+
+Die Schritt-für-Schritt-Anweisung für den initialen Export aus der Desktop-App
+liegt in **`DESKTOP-SYNC-INSTRUCTIONS.md`**.
+
+### Persönliche Präferenzen & projektübergreifende Instruktionen
+<!-- Hier werden Inhalte aus der globalen ~/.claude/CLAUDE.md der Desktop-App
+     eingepflegt, sobald sie bereitgestellt werden. Bis dahin: leer. -->
+- Kommunikationssprache: Deutsch (Standard für Antworten in diesem Projekt).
+
 ## Git & deployment workflow
 - `main` is the production branch — pushing to it deploys live. Be deliberate about
   what lands there.
