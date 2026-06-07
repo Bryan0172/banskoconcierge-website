@@ -13,5 +13,11 @@
         ]
       }
     ]
+  },
+  "permissions": {
+    "allow": [
+      "Bash(git *)",
+      "Bash(python3 -m http.server *)"
+    ]
   }
 }

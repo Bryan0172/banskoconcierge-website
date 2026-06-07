@@ -151,9 +151,28 @@ Die Schritt-für-Schritt-Anweisung für den initialen Export aus der Desktop-App
 liegt in **`DESKTOP-SYNC-INSTRUCTIONS.md`**.
 
 ### Persönliche Präferenzen & projektübergreifende Instruktionen
-<!-- Hier werden Inhalte aus der globalen ~/.claude/CLAUDE.md der Desktop-App
-     eingepflegt, sobald sie bereitgestellt werden. Bis dahin: leer. -->
-- Kommunikationssprache: Deutsch (Standard für Antworten in diesem Projekt).
+
+<!-- Exportiert aus Desktop-App am 2026-06-07 via DESKTOP-SYNC-INSTRUCTIONS.md Teil A -->
+
+**Nutzer:** Andreas Donner — Inhaber Peak Care EDPK, Bansko Bulgaria
+**Sprache:** Antworten immer auf Deutsch, außer wenn der Nutzer explizit Englisch oder Bulgarisch wünscht.
+
+**Grundregeln (gelten projektübergreifend):**
+- Kein Auto-Post, kein Auto-Publish — jede Veröffentlichung erfordert manuelle Freigabe durch Andreas
+- Keine Mehrwertsteuer ausweisen — Peak Care EDPK ist Kleinunternehmer (Art. 96 Abs. 1 ZDDS Bulgarien)
+- Dateien immer in `ChatGpt_Orchestrator/<Projektname>/` ablegen, nicht auf Desktop-Root
+- Angebote nur auf Basis Vor-Ort-Besichtigung erstellen
+
+**Marken-Übersicht (nicht vermischen):**
+- **Bansko Concierge** — Immobilien-Concierge & Owner Management, Bansko/Balkans (dieses Repo)
+- **Peak Care EDPK** — Bautechnische Prüfung & Projektbegleitung, Bulgarien
+- **Peak Care AI** — KI-Compliance für Hotels (EU AI Act)
+
+**Kontext Bansko Concierge Website:**
+- Primäre CTA: WhatsApp `+359 895 762 785` — konsistent auf allen Seiten
+- Zielgruppe: Remote-Eigentümer, europäische Expats & Investoren in Bulgarien
+- Ton: professionell, vertrauenswürdig, kein VIP-Luxus-Bragging
+- Blog-Autor: Andreas Donner — keine erfundenen Credentials oder Statistiken
 
 ## Git & deployment workflow
 - `main` is the production branch — pushing to it deploys live. Be deliberate about
