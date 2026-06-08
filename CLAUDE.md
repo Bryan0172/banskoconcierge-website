@@ -160,7 +160,10 @@ liegt in **`DESKTOP-SYNC-INSTRUCTIONS.md`**.
 **Grundregeln (gelten projektübergreifend):**
 - Kein Auto-Post, kein Auto-Publish — jede Veröffentlichung erfordert manuelle Freigabe durch Andreas
 - Keine Mehrwertsteuer ausweisen — Peak Care EDPK ist Kleinunternehmer (Art. 96 Abs. 1 ZDDS Bulgarien)
-- Dateien immer in `ChatGpt_Orchestrator/<Projektname>/` ablegen, nicht auf Desktop-Root
+- **Cloud-Speicher ausschließlich Google Drive** — auf Desktop **und** Handy. **Kein OneDrive.**
+  Alle Arbeitsdateien werden in Google Drive abgelegt/gesucht (nicht in lokalen
+  OneDrive-Pfaden wie `C:\Users\...\OneDrive\...`). Projektordner-Struktur in Drive:
+  `ChatGpt_Orchestrator/<Projektname>/`.
 - Angebote nur auf Basis Vor-Ort-Besichtigung erstellen
 
 **Marken-Übersicht (nicht vermischen):**
