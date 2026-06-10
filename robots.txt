@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://www.banskoconcierge.com/sitemap.xml
+Sitemap: https://banskoconcierge.com/sitemap.xml
 
 # Block irrelevant paths
 Disallow: /netlify/
