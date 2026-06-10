@@ -70,7 +70,7 @@ function toSlug(title) {
 // ── Article HTML template ────────────────────────────────────────────────────
 
 function buildArticleHTML({ slug, title, content, metadescription, thumbnail, thumbnail_alt_text, keyword_seed, publishDate }) {
-  const canonicalUrl = `https://www.banskoconcierge.com/blog/${slug}.html`;
+  const canonicalUrl = `https://banskoconcierge.com/blog/${slug}.html`;
   const heroImg = thumbnail
     ? `<img src="${thumbnail}" alt="${thumbnail_alt_text || title}" style="width:100%;height:320px;object-fit:cover;display:block;">`
     : `<div style="width:100%;height:240px;background:linear-gradient(135deg,#0d1b3e 0%,#1a3a6e 50%,#0A0E27 100%);display:flex;align-items:center;justify-content:center;font-size:3rem;">✦</div>`;
@@ -94,7 +94,7 @@ function buildArticleHTML({ slug, title, content, metadescription, thumbnail, th
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet"/>
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Article","headline":"${title.replace(/"/g,'&quot;')}","description":"${(metadescription||'').replace(/"/g,'&quot;')}","author":{"@type":"Person","name":"Andreas Donner"},"publisher":{"@type":"Organization","name":"Bansko Concierge VIP","url":"https://www.banskoconcierge.com"},"datePublished":"${publishDate}","url":"${canonicalUrl}"}
+  {"@context":"https://schema.org","@type":"Article","headline":"${title.replace(/"/g,'&quot;')}","description":"${(metadescription||'').replace(/"/g,'&quot;')}","author":{"@type":"Person","name":"Andreas Donner"},"publisher":{"@type":"Organization","name":"Bansko Concierge VIP","url":"https://banskoconcierge.com"},"datePublished":"${publishDate}","url":"${canonicalUrl}"}
   </script>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -386,7 +386,7 @@ exports.handler = async (event) => {
     return {
       statusCode: 200,
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ success: true, slug, url: `https://www.banskoconcierge.com/blog/${slug}.html` }),
+      body: JSON.stringify({ success: true, slug, url: `https://banskoconcierge.com/blog/${slug}.html` }),
     };
 
   } catch (err) {
