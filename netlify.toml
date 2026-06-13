@@ -276,3 +276,28 @@
   to = "/car-import-registration-bulgaria"
   status = 301
   force = true
+
+# Property Intelligence Sektion (unlisted, eigene Unterordner)
+[[redirects]]
+  from = "/property-intelligence"
+  to = "/property-intelligence/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/due-diligence"
+  to = "/due-diligence/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/saroqueta"
+  to = "/saroqueta/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/investor-intake"
+  to = "/investor-intake/index.html"
+  status = 200
+  force = true
