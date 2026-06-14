@@ -307,3 +307,9 @@
   to = "/portfolio/index.html"
   status = 200
   force = true
+
+[[redirects]]
+  from = "/blog/buying-property-bansko-2026"
+  to = "/blog/buying-property-bansko-2026.html"
+  status = 200
+  force = true
