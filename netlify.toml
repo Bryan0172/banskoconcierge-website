@@ -301,3 +301,9 @@
   to = "/investor-intake/index.html"
   status = 200
   force = true
+
+[[redirects]]
+  from = "/portfolio"
+  to = "/portfolio/index.html"
+  status = 200
+  force = true
