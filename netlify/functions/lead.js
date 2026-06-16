@@ -64,9 +64,6 @@ exports.handler = async (event) => {
     payload.replyTo = { email: submitterEmail, name: submitterName || submitterEmail };
   }
 
-  const debug = (event.queryStringParameters && event.queryStringParameters.debug) === '1';
-  let brevoStatus = null, brevoBody = null, exception = null;
-
   try {
     const res = await fetch(BREVO_URL, {
       method: 'POST',
@@ -77,29 +74,11 @@ exports.handler = async (event) => {
       },
       body: JSON.stringify(payload),
     });
-    brevoStatus = res.status;
     if (!res.ok) {
-      brevoBody = await res.text();
-      console.error('Brevo send failed', res.status, brevoBody);
+      console.error('Brevo send failed', res.status, await res.text());
     }
   } catch (e) {
-    exception = e && e.message;
-    console.error('lead handler exception', exception);
-  }
-
-  // Temporary diagnostics: ?debug=1 returns status info WITHOUT exposing the key value.
-  if (debug) {
-    return {
-      statusCode: 200,
-      headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({
-        hasKey: !!process.env.BREVO_API_KEY,
-        keyPrefix: (process.env.BREVO_API_KEY || '').slice(0, 8),
-        brevoStatus,
-        brevoBody,
-        exception,
-      }),
-    };
+    console.error('lead handler exception', e && e.message);
   }
 
   // Always send the visitor to the thank-you page (never lose them on a mail error).
