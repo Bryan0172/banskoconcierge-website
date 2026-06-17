@@ -209,4 +209,48 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+
+  <!-- High-intent buyer/owner blog pages (added 2026-06-17, A18 sitemap reconstruction) -->
+  <url>
+    <loc>https://banskoconcierge.com/blog/buying-property-bulgaria-israel</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://banskoconcierge.com/blog/buying-property-bulgaria-western-europe</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://banskoconcierge.com/blog/relocating-to-bulgaria-from-germany</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://banskoconcierge.com/blog/relocating-to-bulgaria-uk-scandinavia</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://banskoconcierge.com/blog/remote-owner-care-bulgaria</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://banskoconcierge.com/blog/owner-care-bulgaria-russian</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://banskoconcierge.com/blog/bansko-ski-season-property-owners</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
 </urlset>
