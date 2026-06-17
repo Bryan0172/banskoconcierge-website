@@ -64,21 +64,58 @@ exports.handler = async (event) => {
     payload.replyTo = { email: submitterEmail, name: submitterName || submitterEmail };
   }
 
-  try {
-    const res = await fetch(BREVO_URL, {
+  async function sendViaBrevo(body) {
+    return fetch(BREVO_URL, {
       method: 'POST',
       headers: {
         'api-key': process.env.BREVO_API_KEY || '',
         'content-type': 'application/json',
         accept: 'application/json',
       },
-      body: JSON.stringify(payload),
+      body: JSON.stringify(body),
     });
-    if (!res.ok) {
-      console.error('Brevo send failed', res.status, await res.text());
+  }
+
+  // Try the lead mail, with one retry on failure.
+  let delivered = false;
+  let lastErr = '';
+  for (let attempt = 1; attempt <= 2 && !delivered; attempt++) {
+    try {
+      const res = await sendViaBrevo(payload);
+      if (res.ok) {
+        delivered = true;
+      } else {
+        lastErr = `HTTP ${res.status}: ${await res.text()}`;
+        console.error(`Brevo send failed (attempt ${attempt})`, lastErr);
+      }
+    } catch (e) {
+      lastErr = (e && e.message) || String(e);
+      console.error(`lead handler exception (attempt ${attempt})`, lastErr);
     }
-  } catch (e) {
-    console.error('lead handler exception', e && e.message);
+  }
+
+  // Fallback alarm: if the lead mail could not be delivered, fire a best-effort
+  // alarm with the raw lead data so a lead can never vanish unnoticed. Covers
+  // transient Brevo errors and recipient issues. (For a fully invalid API key this
+  // alarm also fails — the loud console.error above is then the only signal; a second
+  // independent notification channel is the recommended long-term hardening.)
+  if (!delivered) {
+    try {
+      await sendViaBrevo({
+        sender: SENDER,
+        to: [{ email: 'andy7203@googlemail.com', name: 'Lead Alarm' }],
+        subject: `⚠️ LEAD-FUNCTION FEHLER — Lead evtl. verloren (${formName})`,
+        htmlContent: `<div style="font-family:Arial,sans-serif">
+          <h2 style="color:#b00;margin:0 0 12px">⚠️ Website-Lead konnte NICHT zugestellt werden</h2>
+          <p>Brevo-Fehler: <code>${esc(lastErr)}</code>. Lead-Rohdaten zur manuellen Erfassung:</p>
+          <table style="border-collapse:collapse;font-size:14px">${rows}</table>
+          <p style="color:#888;font-size:12px;margin-top:12px">Reply-To des Interessenten: ${esc(submitterEmail) || '—'}</p>
+        </div>`,
+      });
+      console.error('lead alarm dispatched to andy7203');
+    } catch (e2) {
+      console.error('lead alarm ALSO failed — lead only in function logs', (e2 && e2.message) || String(e2));
+    }
   }
 
   // Always send the visitor to the thank-you page (never lose them on a mail error).
