@@ -26,6 +26,22 @@ function esc(s) {
     .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
+// Server-seitiger Spam-Filter (Honeypot allein reicht nicht — Bots fuellen die echten Felder).
+// Verwirft leere Probe-Submissions + Score aus Casino-/Jackpot-Keywords, Links, fehlender Mail.
+function isSpam(data) {
+  const name = String(data.name || data.Name || data.fullname || '').trim();
+  const email = String(data.email || data.Email || '').trim();
+  const msg = String(data.message || data.Message || data.nachricht || '').trim();
+  const hay = (name + ' ' + msg + ' ' + (data.service || '')).toLowerCase();
+  if (!name && !email && !msg) return true;
+  let score = 0;
+  if (/jackpot|casino|lottery|\blotto\b|viagra|cialis|bitcoin|crypto|forex|\bwinner\b|you won|you have won|congratulations|earn \$|make money|\$\s?\d{3,}|gift ?card|inheritance|loan offer|backlink|seo service|escort|\bnude\b|\bsex\b/i.test(hay)) score += 4;
+  const urlCount = (hay.match(/https?:\/\/|www\.|\b\w+\.(ru|cn|tk|top|xyz|click|loan|win)\b/gi) || []).length;
+  if (urlCount >= 2) score += 4; else if (urlCount === 1) score += 2;
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) score += 2;
+  return score >= 4;
+}
+
 exports.handler = async (event) => {
   if (event.httpMethod !== 'POST') {
     return { statusCode: 405, body: 'Method Not Allowed' };
@@ -35,6 +51,11 @@ exports.handler = async (event) => {
 
   // Honeypot: if the hidden bot-field is filled, silently accept (spam) without emailing.
   if (data['bot-field']) {
+    return { statusCode: 303, headers: { Location: THANK_YOU }, body: '' };
+  }
+
+  // Spam-Filter: still auf Danke-Seite leiten, KEINE Mail (Bot merkt nichts).
+  if (isSpam(data)) {
     return { statusCode: 303, headers: { Location: THANK_YOU }, body: '' };
   }
 

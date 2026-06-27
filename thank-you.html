@@ -49,5 +49,12 @@
     </div>
   </div>
   <footer class="footer">© 2026 Bansko Concierge · Property Intelligence &amp; Due Diligence</footer>
+  <!-- GA4 Lead-Conversion: Besucher hat eine Anfrage abgeschickt (landet hier). gtag wird per Netlify-Edge injiziert -> auf Verfuegbarkeit warten. -->
+  <script>
+    (function fireLead(tries){
+      if (typeof window.gtag === 'function') { window.gtag('event', 'generate_lead', { form_name: 'contact' }); }
+      else if ((tries || 0) < 25) { setTimeout(function(){ fireLead((tries || 0) + 1); }, 300); }
+    })(0);
+  </script>
 </body>
 </html>
