@@ -9,6 +9,12 @@
             "command": "git pull --ff-only origin main 2>/dev/null || true",
             "statusMessage": "Syncing latest CLAUDE.md from main…",
             "timeout": 30
+          },
+          {
+            "type": "command",
+            "command": "echo 'SYNC-ERINNERUNG fuer Andreas (auf Deutsch ausgeben): Neuester Stand wurde beim Start automatisch geholt (git pull). WICHTIG: Am Ende der Arbeit immer committen & pushen, sonst sieht das andere Geraet (Laptop/Handy) die Aenderungen nicht. Empfehlung: ueberall im Cloud-Modus arbeiten, dann bleibt alles synchron. Diese Erinnerung zu Beginn der Session kurz an Andreas weitergeben.'",
+            "statusMessage": "Sync-Erinnerung…",
+            "timeout": 10
           }
         ]
       }
