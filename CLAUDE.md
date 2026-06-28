@@ -168,8 +168,11 @@ Synchronisation läuft **nicht automatisch wie iCloud**, sondern über `pull`
   nicht sichtbar. Eine bestehende lokale Session lässt sich über das Session-Menü
   („Öffnen in" / „Continue in" → *Claude Code on the Web*) in die Cloud übergeben;
   Voraussetzung ist ein sauberer Arbeitsstand **und** dass das Projekt auf GitHub liegt.
-- **Andreas zu Beginn jeder Session kurz an diesen Workflow erinnern** (Pull ist
-  automatisch passiert; am Ende committen & pushen nicht vergessen).
+- **Zu Beginn jeder Session meldet der SessionStart-Hook den echten Sync-Zustand**
+  (Anzahl ungepushter Commits + ungespeicherter Dateien). Dieses Ergebnis Andreas
+  kurz weitergeben: bei Zahlen >0 **dringend** ans committen & pushen erinnern, sonst
+  nur bestätigen, dass alles synchron ist. So wird vergessenes Pushen spätestens beim
+  nächsten Start auf demselben Gerät erkannt, bevor woanders weitergearbeitet wird.
 
 ### Persönliche Präferenzen & projektübergreifende Instruktionen
 
