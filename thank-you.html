@@ -3,7 +3,7 @@
 <head>
   <!-- Google Analytics (GA4) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSNS9EKQ0P"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-LSNS9EKQ0P');gtag('event','generate_lead',{form_name:'contact'});</script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-LSNS9EKQ0P');</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Thank you — Bansko Concierge</title>
@@ -49,10 +49,15 @@
     </div>
   </div>
   <footer class="footer">© 2026 Bansko Concierge · Property Intelligence &amp; Due Diligence</footer>
-  <!-- GA4 Lead-Conversion: Besucher hat eine Anfrage abgeschickt (landet hier). gtag wird per Netlify-Edge injiziert -> auf Verfuegbarkeit warten. -->
+  <!-- GA4 Lead-Conversion: feuert genau EINMAL, nur wenn die Lead-Function uns hierher
+       geschickt hat (?form=<formular>). Direkte/gebookmarkte Aufrufe und Bots (Honeypot/
+       Spam landen ohne ?form= hier) zaehlen NICHT. form_name kommt aus dem Formularnamen,
+       damit GA4 contact / investor-intake / saroqueta-access unterscheiden kann. -->
   <script>
     (function fireLead(tries){
-      if (typeof window.gtag === 'function') { window.gtag('event', 'generate_lead', { form_name: 'contact' }); }
+      var form = new URLSearchParams(window.location.search).get('form');
+      if (!form) return; // kein Formular-Parameter -> keine echte Conversion -> nicht zaehlen
+      if (typeof window.gtag === 'function') { window.gtag('event', 'generate_lead', { form_name: form }); }
       else if ((tries || 0) < 25) { setTimeout(function(){ fireLead((tries || 0) + 1); }, 300); }
     })(0);
   </script>

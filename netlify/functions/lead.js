@@ -140,5 +140,12 @@ exports.handler = async (event) => {
   }
 
   // Always send the visitor to the thank-you page (never lose them on a mail error).
-  return { statusCode: 303, headers: { Location: THANK_YOU }, body: '' };
+  // ?form=<formName> laesst thank-you.html die GA4-generate_lead-Conversion pro Formular
+  // korrekt attribuieren (contact vs. investor-intake vs. saroqueta-access). Honeypot- und
+  // Spam-Treffer oben werden OHNE diesen Parameter umgeleitet -> keine Fake-Conversion.
+  return {
+    statusCode: 303,
+    headers: { Location: `${THANK_YOU}?form=${encodeURIComponent(formName)}` },
+    body: '',
+  };
 };
