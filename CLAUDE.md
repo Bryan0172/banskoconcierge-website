@@ -150,6 +150,27 @@ entsteht, gilt:
 Die Schritt-für-Schritt-Anweisung für den initialen Export aus der Desktop-App
 liegt in **`DESKTOP-SYNC-INSTRUCTIONS.md`**.
 
+### Sync-Workflow Laptop ↔ Handy (Arbeitsstand aktuell halten)
+
+GitHub ist der **zentrale Master-Stand**. Laptop und Handy sind nur Kopien.
+Synchronisation läuft **nicht automatisch wie iCloud**, sondern über `pull`
+(neuesten Stand holen) und `push` (eigene Änderungen hochladen). Verbindliche Regel:
+
+- **Vor der Arbeit: `pull`** — den neuesten Stand von GitHub holen. (Passiert beim
+  Session-Start bereits automatisch über den SessionStart-Hook in
+  `.claude/settings.json`.)
+- **Nach der Arbeit: `commit` + `push`** — sonst sieht das jeweils andere Gerät die
+  Änderungen **nicht**. Ohne Push gibt es keinen Sync.
+- **Empfehlung: überall im Cloud-Modus arbeiten** (Desktop *Remote* + Handy). Cloud-
+  Sessions holen den neuesten Stand beim Start von selbst und laufen weiter, auch wenn
+  der Laptop aus ist — dann bleibt nur noch das Pushen am Ende zu tun.
+- **Nur Cloud-Sessions erscheinen auf dem Handy.** Lokale Desktop-Sessions sind mobil
+  nicht sichtbar. Eine bestehende lokale Session lässt sich über das Session-Menü
+  („Öffnen in" / „Continue in" → *Claude Code on the Web*) in die Cloud übergeben;
+  Voraussetzung ist ein sauberer Arbeitsstand **und** dass das Projekt auf GitHub liegt.
+- **Andreas zu Beginn jeder Session kurz an diesen Workflow erinnern** (Pull ist
+  automatisch passiert; am Ende committen & pushen nicht vergessen).
+
 ### Persönliche Präferenzen & projektübergreifende Instruktionen
 
 <!-- Exportiert aus Desktop-App am 2026-06-07 via DESKTOP-SYNC-INSTRUCTIONS.md Teil A -->
