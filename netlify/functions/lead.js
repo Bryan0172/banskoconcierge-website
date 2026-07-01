@@ -9,6 +9,19 @@ const TO = [{ email: 'web@banskoconcierge.com', name: 'Bansko Concierge' }];
 const BCC = [{ email: 'andy7203@googlemail.com' }];
 const THANK_YOU = '/thank-you.html';
 
+// Cloudflare Turnstile server-side verification (third spam layer after honeypot + isSpam).
+// Only active when CLOUDFLARE_TURNSTILE_SECRET is set in Netlify env — backwards-compatible.
+async function verifyTurnstile(token, ip) {
+  const body = new URLSearchParams();
+  body.append('secret', process.env.CLOUDFLARE_TURNSTILE_SECRET || '');
+  body.append('response', token || '');
+  if (ip) body.append('remoteip', ip);
+  const res = await fetch('https://challenges.cloudflare.com/turnstile/v1/siteverify', {
+    method: 'POST', body,
+  });
+  return (await res.json()).success === true;
+}
+
 function parseBody(event) {
   let raw = event.body || '';
   if (event.isBase64Encoded) raw = Buffer.from(raw, 'base64').toString('utf8');
@@ -52,6 +65,15 @@ exports.handler = async (event) => {
   // Honeypot: if the hidden bot-field is filled, silently accept (spam) without emailing.
   if (data['bot-field']) {
     return { statusCode: 303, headers: { Location: THANK_YOU }, body: '' };
+  }
+
+  // Turnstile: third spam layer — only active when CLOUDFLARE_TURNSTILE_SECRET is set.
+  if (process.env.CLOUDFLARE_TURNSTILE_SECRET) {
+    const token = data['cf-turnstile-response'];
+    const ip = event.headers['cf-connecting-ip'] || event.headers['x-forwarded-for'] || '';
+    if (!await verifyTurnstile(token, ip)) {
+      return { statusCode: 303, headers: { Location: THANK_YOU }, body: '' };
+    }
   }
 
   // Spam-Filter: still auf Danke-Seite leiten, KEINE Mail (Bot merkt nichts).
