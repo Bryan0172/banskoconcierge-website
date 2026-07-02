@@ -76,6 +76,13 @@
   status = 301
   force = true
 
+# Orphaned URL: ranks p.1 (GSC 388 Impr, Pos 4.2) but 404 — recover to homepage (02.07.2026, SEO)
+[[redirects]]
+  from = "/vip-concierge-desk"
+  to = "/"
+  status = 301
+  force = true
+
 # Explicit 301 redirects: .html → clean URLs (fixes GSC "Page with redirect" issue)
 [[redirects]]
   from = "/blog.html"
