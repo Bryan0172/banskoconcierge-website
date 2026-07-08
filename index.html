@@ -2268,6 +2268,10 @@
     function choose(v){
       try{localStorage.setItem('bc_consent',v);}catch(e){}
       gtag('consent','update',{'analytics_storage': v==='granted'?'granted':'denied'});
+      // GA4 versendet den bereits gefeuerten (cookielosen) Pageview NICHT automatisch erneut
+      // nach einem Consent-Update — ohne diesen Re-Fire bleibt ein Ein-Seiten-Besuch, der erst
+      // NACH dem initialen Pageview zustimmt, komplett unsichtbar in Realtime/Reports. (08.07.)
+      if(v==='granted'){gtag('event','page_view');}
       el.classList.remove('bc-show');
     }
     var ok=document.getElementById('bc-ok'), no=document.getElementById('bc-no');
