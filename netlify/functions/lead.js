@@ -11,15 +11,34 @@ const THANK_YOU = '/thank-you.html';
 
 // Cloudflare Turnstile server-side verification (third spam layer after honeypot + isSpam).
 // Only active when CLOUDFLARE_TURNSTILE_SECRET is set in Netlify env — backwards-compatible.
+// Fails OPEN on any technical error (bad/empty Cloudflare response, network issue): a
+// verification-service hiccup must never crash the function or silently swallow a real
+// lead — honeypot + isSpam remain as the other two spam layers either way.
 async function verifyTurnstile(token, ip) {
-  const body = new URLSearchParams();
-  body.append('secret', process.env.CLOUDFLARE_TURNSTILE_SECRET || '');
-  body.append('response', token || '');
-  if (ip) body.append('remoteip', ip);
-  const res = await fetch('https://challenges.cloudflare.com/turnstile/v1/siteverify', {
-    method: 'POST', body,
-  });
-  return (await res.json()).success === true;
+  if (!token) return false;
+  try {
+    const body = new URLSearchParams();
+    body.append('secret', process.env.CLOUDFLARE_TURNSTILE_SECRET || '');
+    body.append('response', token);
+    if (ip) body.append('remoteip', ip);
+    const res = await fetch('https://challenges.cloudflare.com/turnstile/v1/siteverify', {
+      method: 'POST', body,
+    });
+    if (!res.ok) {
+      console.error(`Turnstile siteverify HTTP ${res.status} — failing open`);
+      return true;
+    }
+    const text = await res.text();
+    let json;
+    try { json = JSON.parse(text); } catch (e) {
+      console.error('Turnstile siteverify returned non-JSON — failing open', text.slice(0, 200));
+      return true;
+    }
+    return json.success === true;
+  } catch (e) {
+    console.error('Turnstile verification threw — failing open to avoid losing a lead', (e && e.message) || String(e));
+    return true;
+  }
 }
 
 function parseBody(event) {
