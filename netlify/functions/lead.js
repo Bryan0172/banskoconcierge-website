@@ -60,6 +60,11 @@ function esc(s) {
 
 // Server-seitiger Spam-Filter (Honeypot allein reicht nicht — Bots fuellen die echten Felder).
 // Verwirft leere Probe-Submissions + Score aus Casino-/Jackpot-Keywords, Links, fehlender Mail.
+// WICHTIG: KEIN Score auf blosse Geldbetraege ($500,000 o. ae.) — fuer einen Immobilien-/
+// Investoren-Concierge ist ein genannter Betrag ein KAUFINTENT-Signal, kein Spam-Signal.
+// Echter Geld-Spam wird weiter ueber die Kombi-Keywords ("earn $", "make money", "you won",
+// Casino/Lottery) + URL-Erkennung + Invalid-Mail-Score gefangen. Das nackte Betrag-Muster
+// hat still investoren-typische Anfragen (z. B. "$500,000") gedroppt und wurde entfernt.
 function isSpam(data) {
   const name = String(data.name || data.Name || data.fullname || '').trim();
   const email = String(data.email || data.Email || '').trim();
@@ -67,7 +72,7 @@ function isSpam(data) {
   const hay = (name + ' ' + msg + ' ' + (data.service || '')).toLowerCase();
   if (!name && !email && !msg) return true;
   let score = 0;
-  if (/jackpot|casino|lottery|\blotto\b|viagra|cialis|bitcoin|crypto|forex|\bwinner\b|you won|you have won|congratulations|earn \$|make money|\$\s?\d{3,}|gift ?card|inheritance|loan offer|backlink|seo service|escort|\bnude\b|\bsex\b/i.test(hay)) score += 4;
+  if (/jackpot|casino|lottery|\blotto\b|viagra|cialis|bitcoin|crypto|forex|\bwinner\b|you won|you have won|congratulations|earn \$|make money|gift ?card|inheritance|loan offer|backlink|seo service|escort|\bnude\b|\bsex\b/i.test(hay)) score += 4;
   const urlCount = (hay.match(/https?:\/\/|www\.|\b\w+\.(ru|cn|tk|top|xyz|click|loan|win)\b/gi) || []).length;
   if (urlCount >= 2) score += 4; else if (urlCount === 1) score += 2;
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) score += 2;
