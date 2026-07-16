@@ -304,10 +304,11 @@
   status = 200
   force = true
 
+# Mallorca: ausserhalb Geo-Gate (BG + NordGR). Co-Broker-Beziehung bleibt intern.
 [[redirects]]
   from = "/saroqueta"
-  to = "/saroqueta/index.html"
-  status = 200
+  to = "/"
+  status = 301
   force = true
 
 [[redirects]]
@@ -316,10 +317,12 @@
   status = 200
   force = true
 
+# BC 2035 Gesamthaus (Andreas 16.07.): kein oeffentlicher Listings-Laden.
+# Verkauf entsteht aus dem Owner-Bestand, nicht aus einem Schaufenster.
 [[redirects]]
   from = "/portfolio"
-  to = "/portfolio/index.html"
-  status = 200
+  to = "/private-markets/"
+  status = 301
   force = true
 
 [[redirects]]
