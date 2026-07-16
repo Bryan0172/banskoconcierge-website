@@ -1222,148 +1222,168 @@
 
   <!-- ─── SEO: SCHEMA.ORG JSON-LD (GEO + AI Search Optimised) ─────── -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {"@type": "ListItem", "position": 1, "name": "Bansko Concierge", "item": "https://banskoconcierge.com"}
-    ]
-  }
-  </script>
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Bansko Concierge",
+      "item": "https://banskoconcierge.com"
+    }
+  ]
+}
+</script>
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "LocalBusiness",
-        "@id": "https://banskoconcierge.com/#business",
-        "name": "Bansko Concierge",
-        "description": "Private operations service for international property owners, buyers, investors and families relocating to Bulgaria. Property oversight, relocation orientation, owner care and local coordination, personally coordinated from Bansko.",
-        "url": "https://banskoconcierge.com",
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://banskoconcierge.com/#business",
+      "name": "Bansko Concierge",
+      "description": "Private operations service for international property owners, buyers, investors and families relocating to Bulgaria. Property oversight, relocation orientation, owner care and local coordination, personally coordinated from Bansko.",
+      "url": "https://banskoconcierge.com",
+      "telephone": "+359895762785",
+      "email": "hello@banskoconcierge.com",
+      "founder": {
+        "@type": "Person",
+        "name": "Andreas Donner",
+        "jobTitle": "Founder & Director",
+        "description": "Diplom-Ingenieur with 25+ years of international project development and construction experience"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bansko",
+        "addressCountry": "BG"
+      },
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "Bulgaria"
+        }
+      ],
+      "priceRange": "€€€",
+      "openingHours": "Mo-Su 08:00-22:00",
+      "contactPoint": {
+        "@type": "ContactPoint",
         "telephone": "+359895762785",
-        "email": "hello@banskoconcierge.com",
-        "founder": {
-          "@type": "Person",
-          "name": "Andreas Donner",
-          "jobTitle": "Founder & Director",
-          "description": "Diplom-Ingenieur with 25+ years of international project development and construction experience"
-        },
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Bansko",
-          "addressCountry": "BG"
-        },
-        "areaServed": [
-          {"@type": "Country", "name": "Bulgaria"}
-        ],
-        "priceRange": "€€€",
-        "openingHours": "Mo-Su 08:00-22:00",
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "telephone": "+359895762785",
-          "contactType": "customer service",
-          "availableLanguage": ["English", "German", "Bulgarian"]
-        },
-        "sameAs": [
-          "https://www.instagram.com/banskoconcierge",
-          "https://www.facebook.com/banskoconcierge",
-          "https://www.linkedin.com/company/bansko-concierge"
+        "contactType": "customer service",
+        "availableLanguage": [
+          "English",
+          "German",
+          "Bulgarian"
         ]
       },
-      {
-        "@type": "Service",
-        "@id": "https://banskoconcierge.com/#services",
-        "provider": {"@id": "https://banskoconcierge.com/#business"},
-        "serviceType": "Property Operations & Relocation Services",
-        "name": "Bansko Concierge – Core Services",
-        "description": "Property Risk Check Bulgaria, Owner Care Bulgaria, Relocation Bulgaria Orientation and Investor Support — locally coordinated from Bansko.",
-        "hasOfferCatalog": {
-          "@type": "OfferCatalog",
-          "name": "Core Services",
-          "itemListElement": [
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Property Risk Check Bulgaria",
-                "description": "Assessment of visible building condition, moisture and mold risk, obvious construction defects and realistic renovation cost ranges. For buyers and existing owners."
-              }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Owner Care Bulgaria",
-                "description": "Reliable local presence for international property owners: regular inspections, contractor coordination, maintenance follow-up, issue response and direct reporting."
-              }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Relocation Bulgaria Orientation",
-                "description": "Practical orientation for individuals and families relocating to Bulgaria: location choice, everyday setup, banking, residency steps, local contacts and trusted professional referrals."
-              }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Investor Support",
-                "description": "Local coordination and trusted referrals for international investors and buyers navigating the Bulgarian property market."
-              }
-            }
-          ]
-        }
+      "sameAs": [
+        "https://www.instagram.com/banskoconcierge",
+        "https://www.facebook.com/banskoconcierge",
+        "https://www.linkedin.com/company/bansko-concierge"
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://banskoconcierge.com/#services",
+      "provider": {
+        "@id": "https://banskoconcierge.com/#business"
       },
-      {
-        "@type": "FAQPage",
-        "@id": "https://banskoconcierge.com/#faq",
-        "mainEntity": [
+      "serviceType": "Property Operations & Relocation Services",
+      "name": "Bansko Concierge – Core Services",
+      "description": "Property Risk Check Bulgaria, Owner Care Bulgaria, Relocation Bulgaria Orientation and Investor Support — locally coordinated from Bansko.",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Core Services",
+        "itemListElement": [
           {
-            "@type": "Question",
-            "name": "What does Bansko Concierge do?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Bansko Concierge is a private operations service for international property owners, buyers, investors and families relocating to Bulgaria. We handle property oversight, relocation orientation, owner care and local coordination — personally coordinated from Bansko."
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Property Risk Check Bulgaria",
+              "description": "Assessment of visible building condition, moisture and mold risk, obvious construction defects and realistic renovation cost ranges. For buyers and existing owners.",
+              "@id": "https://banskoconcierge.com/property-risk-check-bulgaria#service"
             }
           },
           {
-            "@type": "Question",
-            "name": "Where does Bansko Concierge operate?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Bansko is our base. Bulgaria is our primary market. We support international clients who need trusted local coordination and property oversight across Bulgaria, with a growing network perspective across the Balkans."
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Owner Care Bulgaria",
+              "description": "Reliable local presence for international property owners: regular inspections, contractor coordination, maintenance follow-up, issue response and direct reporting.",
+              "@id": "https://banskoconcierge.com/owner-care-bulgaria#service"
             }
           },
           {
-            "@type": "Question",
-            "name": "How do I get in touch with Bansko Concierge?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "The fastest way is via WhatsApp at +359 895 762 785. We respond personally within 24 hours."
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Relocation Bulgaria Orientation",
+              "description": "Practical orientation for individuals and families relocating to Bulgaria: location choice, everyday setup, banking, residency steps, local contacts and trusted professional referrals.",
+              "@id": "https://banskoconcierge.com/relocation-bulgaria-orientation#service"
             }
           },
           {
-            "@type": "Question",
-            "name": "Who is behind Bansko Concierge?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Bansko Concierge is personally coordinated by Andreas Donner, Dipl.-Ing., with 25+ years of international project development and construction experience."
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Investor Support Bulgaria",
+              "description": "Local coordination and trusted referrals for international investors and buyers navigating the Bulgarian property market.",
+              "@id": "https://banskoconcierge.com/investor-support#service"
             }
           }
         ]
-      },
-      {
-        "@type": "WebSite",
-        "@id": "https://banskoconcierge.com/#website",
-        "url": "https://banskoconcierge.com",
-        "name": "Bansko Concierge",
-        "publisher": {"@id": "https://banskoconcierge.com/#business"}
       }
-    ]
-  }
-  </script>
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://banskoconcierge.com/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What does Bansko Concierge do?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Bansko Concierge is a private operations service for international property owners, buyers, investors and families relocating to Bulgaria. We handle property oversight, relocation orientation, owner care and local coordination — personally coordinated from Bansko."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where does Bansko Concierge operate?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Bansko is our base. Bulgaria is our primary market. We support international clients who need trusted local coordination and property oversight across Bulgaria, with a growing network perspective across the Balkans."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I get in touch with Bansko Concierge?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The fastest way is via WhatsApp at +359 895 762 785. We respond personally within 24 hours."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who is behind Bansko Concierge?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Bansko Concierge is personally coordinated by Andreas Donner, Dipl.-Ing., with 25+ years of international project development and construction experience."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://banskoconcierge.com/#website",
+      "url": "https://banskoconcierge.com",
+      "name": "Bansko Concierge",
+      "publisher": {
+        "@id": "https://banskoconcierge.com/#business"
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 

@@ -289,7 +289,7 @@
 # damit SEO-Autorität/Backlinks sauber zur neuen Seite wandern.
 [[redirects]]
   from = "/property-intelligence"
-  to = "/private-markets"
+  to = "/private-markets/"
   status = 301
   force = true
 [[redirects]]
