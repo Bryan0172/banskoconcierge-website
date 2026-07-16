@@ -284,11 +284,18 @@
   status = 301
   force = true
 
-# Property Intelligence Sektion (unlisted, eigene Unterordner)
+# Property Intelligence → BC Private Markets Sub-Brand-Merge (16.07., Andreas-Go):
+# ein Name für den Investor-Layer statt zwei konkurrierender Hubs. 301 statt Rename,
+# damit SEO-Autorität/Backlinks sauber zur neuen Seite wandern.
 [[redirects]]
   from = "/property-intelligence"
-  to = "/property-intelligence/index.html"
-  status = 200
+  to = "/private-markets"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/property-intelligence/*"
+  to = "/private-markets"
+  status = 301
   force = true
 
 [[redirects]]
