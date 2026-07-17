@@ -298,6 +298,14 @@
   status = 301
   force = true
 
+# Duplicate-Content-Konsolidierung (17.07., STRATEGIE-Go): kurzer Artikel kannibalisierte
+# den langen zum selben Thema (beide GSC-indexiert/gelistet). Langer bleibt, kurzer 301.
+[[redirects]]
+  from = "/blog/black-sea-adriatic-or-aegean-choosing-your-luxury-beach-in-the-balkans"
+  to = "/blog/black-sea-adriatic-aegean"
+  status = 301
+  force = true
+
 [[redirects]]
   from = "/due-diligence"
   to = "/due-diligence/index.html"
