@@ -39,7 +39,7 @@
     <a href="/" class="nav__back">← Home</a>
   </nav>
   <div class="wrap">
-    <div class="card">
+    <div class="card" id="card">
       <span class="label">Thank you</span>
       <h1>Your enquiry has reached us.</h1>
       <p>We review every enquiry personally and respond directly — typically within one business day. For anything time-sensitive, reach us on WhatsApp.</p>
@@ -49,6 +49,21 @@
       </div>
     </div>
   </div>
+  <script>
+    // Report-Gate: kommt der Besucher vom Balkan-Report-Formular, direkten Download zeigen
+    // statt nur "wir melden uns" — sofortiger Wert für den Lead, kein Warten auf Mail.
+    if (document.referrer && document.referrer.indexOf('/balkan-property-investment-report-2026') !== -1) {
+      var card = document.getElementById('card');
+      card.querySelector('h1').textContent = 'Your report is ready.';
+      card.querySelector('p').textContent = 'Thank you — your download is below. We review every enquiry personally and will follow up directly.';
+      var dl = document.createElement('a');
+      dl.href = '/assets/reports/Balkan-Property-Investment-Report-2026-DE.pdf';
+      dl.className = 'btn btn--gold';
+      dl.textContent = 'Download the Report (PDF)';
+      dl.setAttribute('download', '');
+      card.querySelector('.cta-wrap').prepend(dl);
+    }
+  </script>
   <footer class="footer">© 2026 Bansko Concierge · Private Markets &amp; Due Diligence</footer>
   <!-- GA4 Lead-Conversion: Besucher hat eine Anfrage abgeschickt (landet hier). gtag wird per Netlify-Edge injiziert -> auf Verfuegbarkeit warten. -->
   <script>
