@@ -91,20 +91,6 @@ exports.handler = async (event) => {
     return { statusCode: 303, headers: { Location: THANK_YOU }, body: '' };
   }
 
-  // Turnstile: third spam layer — only active when CLOUDFLARE_TURNSTILE_SECRET is set.
-  if (process.env.CLOUDFLARE_TURNSTILE_SECRET) {
-    const token = data['cf-turnstile-response'];
-    const ip = event.headers['cf-connecting-ip'] || event.headers['x-forwarded-for'] || '';
-    if (!await verifyTurnstile(token, ip)) {
-      return { statusCode: 303, headers: { Location: THANK_YOU }, body: '' };
-    }
-  }
-
-  // Spam-Filter: still auf Danke-Seite leiten, KEINE Mail (Bot merkt nichts).
-  if (isSpam(data)) {
-    return { statusCode: 303, headers: { Location: THANK_YOU }, body: '' };
-  }
-
   const formName = data['form-name'] || 'website-form';
   const submitterName = data.name || data.Name || data.fullname || '';
   const submitterEmail = data.email || data.Email || '';
@@ -113,6 +99,47 @@ exports.handler = async (event) => {
     .filter(([k]) => !['form-name', 'bot-field'].includes(k))
     .map(([k, v]) => `<tr><td style="padding:4px 12px;font-weight:600;vertical-align:top;border-bottom:1px solid #eee">${esc(k)}</td><td style="padding:4px 12px;border-bottom:1px solid #eee">${esc(v)}</td></tr>`)
     .join('');
+
+  async function sendAlarm(reason) {
+    // Turnstile kann bei einem echten Menschen fehlschlagen (Netzwerk, Adblocker,
+    // Browser-Eigenheit) — anders als bot-field/isSpam ist das KEIN bestätigter Bot.
+    // Ohne diesen Alarm verschwindet ein solcher Lead spurlos: die Danke-Seite zeigt
+    // trotzdem Erfolg an, aber keine Mail geht je raus (gefunden 20.07. beim E2E-Test
+    // des Balkan-Report-Gates — 2 von 3 echten Testsubmits liefen genau in diesen Pfad).
+    try {
+      await fetch(BREVO_URL, {
+        method: 'POST',
+        headers: { 'api-key': process.env.BREVO_API_KEY || '', 'content-type': 'application/json', accept: 'application/json' },
+        body: JSON.stringify({
+          sender: SENDER,
+          to: [{ email: 'andy7203@googlemail.com', name: 'Lead Alarm' }],
+          subject: `⚠️ LEAD BLOCKIERT (${reason}) — evtl. echter Lead, bitte prüfen (${formName})`,
+          htmlContent: `<div style="font-family:Arial,sans-serif">
+            <h2 style="color:#b00;margin:0 0 12px">⚠️ Anfrage wurde vom Spam-Schutz blockiert (${esc(reason)})</h2>
+            <p>Das kann ein echter Bot sein — oder ein Mensch, bei dem die Prüfung fehlgeschlagen ist. Rohdaten zur manuellen Einschätzung:</p>
+            <table style="border-collapse:collapse;font-size:14px">${rows}</table>
+          </div>`,
+        }),
+      });
+    } catch (e) {
+      console.error('turnstile/spam alarm mail failed', (e && e.message) || String(e));
+    }
+  }
+
+  // Turnstile: third spam layer — only active when CLOUDFLARE_TURNSTILE_SECRET is set.
+  if (process.env.CLOUDFLARE_TURNSTILE_SECRET) {
+    const token = data['cf-turnstile-response'];
+    const ip = event.headers['cf-connecting-ip'] || event.headers['x-forwarded-for'] || '';
+    if (!await verifyTurnstile(token, ip)) {
+      await sendAlarm('Turnstile-Verifikation fehlgeschlagen');
+      return { statusCode: 303, headers: { Location: THANK_YOU }, body: '' };
+    }
+  }
+
+  // Spam-Filter: still auf Danke-Seite leiten, KEINE Mail (Bot merkt nichts).
+  if (isSpam(data)) {
+    return { statusCode: 303, headers: { Location: THANK_YOU }, body: '' };
+  }
 
   const html = `<div style="font-family:Arial,sans-serif;color:#1a1a1a">
     <h2 style="margin:0 0 12px">🌐 Neue Website-Anfrage — ${esc(formName)}</h2>
