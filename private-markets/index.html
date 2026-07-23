@@ -3,7 +3,7 @@
 <head>
   <!-- Google Analytics (GA4) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSNS9EKQ0P"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-LSNS9EKQ0P');</script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('consent','default',{'ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','analytics_storage':'denied','wait_for_update':500});try{if(localStorage.getItem('bc_consent')==='granted'){gtag('consent','update',{'analytics_storage':'granted'});}}catch(e){}gtag('js',new Date());gtag('config','G-LSNS9EKQ0P');</script>
 <script>document.addEventListener('click',function(e){var a=e.target.closest?e.target.closest('a[href*="wa.me"]'):null;if(a&&typeof gtag==='function'){gtag('event','whatsapp_click',{link_url:a.getAttribute('href')||'',page_path:location.pathname});}},true);</script>
   <meta charset="UTF-8" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -590,5 +590,45 @@
     hamburger.addEventListener('click', () => mobileMenu.classList.add('open'));
     mobileClose.addEventListener('click', closeMobileMenu);
   </script>
+<!-- GDPR Cookie-Consent banner (Consent Mode v2) -->
+<style>
+  #bc-consent{position:fixed;left:0;right:0;bottom:0;z-index:2147483000;background:#0A0E27;color:#E8D5B0;font-family:'Inter',system-ui,sans-serif;padding:16px;box-shadow:0 -4px 24px rgba(0,0,0,.4);display:none;border-top:1px solid rgba(201,169,110,.25)}
+  #bc-consent.bc-show{display:block}
+  #bc-consent .bc-in{max-width:1080px;margin:0 auto;display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+  #bc-consent p{margin:0;font-size:13.5px;line-height:1.55;flex:1 1 340px;color:#cbb890}
+  #bc-consent a{color:#C9A96E;text-decoration:underline}
+  #bc-consent .bc-btns{display:flex;gap:10px;flex:0 0 auto}
+  #bc-consent button{border:0;border-radius:8px;padding:10px 20px;font-size:13.5px;font-weight:600;cursor:pointer;font-family:inherit}
+  #bc-consent .bc-ok{background:#C9A96E;color:#0A0E27}
+  #bc-consent .bc-ok:hover{background:#E8D5B0}
+  #bc-consent .bc-no{background:transparent;color:#cbb890;border:1px solid rgba(201,169,110,.4)}
+  #bc-consent .bc-no:hover{border-color:#C9A96E}
+</style>
+<div id="bc-consent" role="dialog" aria-live="polite" aria-label="Cookie consent">
+  <div class="bc-in">
+    <p>We use cookies for anonymous statistics (Google Analytics) to improve our website &mdash; only with your consent. Essential functions are unaffected. More in our <a href="/privacy">Privacy Policy</a>.</p>
+    <div class="bc-btns">
+      <button class="bc-no" id="bc-no" type="button">Decline</button>
+      <button class="bc-ok" id="bc-ok" type="button">Accept</button>
+    </div>
+  </div>
+</div>
+<script>
+  (function(){
+    function gtag(){window.dataLayer=window.dataLayer||[];window.dataLayer.push(arguments);}
+    var el=document.getElementById('bc-consent');
+    if(!el)return;
+    var stored=null; try{stored=localStorage.getItem('bc_consent');}catch(e){}
+    if(!stored){el.classList.add('bc-show');}
+    function choose(v){
+      try{localStorage.setItem('bc_consent',v);}catch(e){}
+      gtag('consent','update',{'analytics_storage': v==='granted'?'granted':'denied'});
+      el.classList.remove('bc-show');
+    }
+    var ok=document.getElementById('bc-ok'), no=document.getElementById('bc-no');
+    if(ok)ok.addEventListener('click',function(){choose('granted');});
+    if(no)no.addEventListener('click',function(){choose('decline');});
+  })();
+</script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
   <!-- Google Analytics (GA4) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSNS9EKQ0P"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-LSNS9EKQ0P');</script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('consent','default',{'ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','analytics_storage':'denied','wait_for_update':500});try{if(localStorage.getItem('bc_consent')==='granted'){gtag('consent','update',{'analytics_storage':'granted'});}}catch(e){}gtag('js',new Date());gtag('config','G-LSNS9EKQ0P');</script>
 <script>document.addEventListener('click',function(e){var a=e.target.closest?e.target.closest('a[href*="wa.me"]'):null;if(a&&typeof gtag==='function'){gtag('event','whatsapp_click',{link_url:a.getAttribute('href')||'',page_path:location.pathname});}},true);</script>
   <meta charset="UTF-8" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -157,5 +157,45 @@
   </div></footer>
   <a href="https://wa.me/359895762785?text=Hello%20Bansko%20Concierge%2C%20interested%20in%20Montenegro." target="_blank" rel="noopener" class="wa-sticky" aria-label="WhatsApp"><div class="wa-sticky__btn"><svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div></a>
   <script>const nav=document.getElementById('nav');window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>60)},{passive:true});const hamburger=document.getElementById('hamburger');const mobileMenu=document.getElementById('mobileMenu');const mobileClose=document.getElementById('mobileClose');hamburger.addEventListener('click',()=>{mobileMenu.classList.add('open');document.body.style.overflow='hidden'});function closeMobileMenu(){mobileMenu.classList.remove('open');document.body.style.overflow=''}mobileClose.addEventListener('click',closeMobileMenu);mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMobileMenu));(function(){const slides=document.querySelectorAll('#tbandCarousel .tband__slide');const dotsEl=document.getElementById('tbandDots');if(!slides.length||!dotsEl)return;let cur=0,timer;slides.forEach((_,i)=>{const d=document.createElement('button');d.className='tband__dot'+(i===0?' active':'');d.setAttribute('aria-label','Testimonial '+(i+1));d.addEventListener('click',()=>{go(i);clearInterval(timer);timer=setInterval(next,6000)});dotsEl.appendChild(d)});function go(n){slides[cur].classList.remove('active');dotsEl.children[cur].classList.remove('active');cur=n;slides[cur].classList.add('active');dotsEl.children[cur].classList.add('active')}function next(){go((cur+1)%slides.length)}timer=setInterval(next,6000)})();</script>
+<!-- GDPR Cookie-Consent banner (Consent Mode v2) -->
+<style>
+  #bc-consent{position:fixed;left:0;right:0;bottom:0;z-index:2147483000;background:#0A0E27;color:#E8D5B0;font-family:'Inter',system-ui,sans-serif;padding:16px;box-shadow:0 -4px 24px rgba(0,0,0,.4);display:none;border-top:1px solid rgba(201,169,110,.25)}
+  #bc-consent.bc-show{display:block}
+  #bc-consent .bc-in{max-width:1080px;margin:0 auto;display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+  #bc-consent p{margin:0;font-size:13.5px;line-height:1.55;flex:1 1 340px;color:#cbb890}
+  #bc-consent a{color:#C9A96E;text-decoration:underline}
+  #bc-consent .bc-btns{display:flex;gap:10px;flex:0 0 auto}
+  #bc-consent button{border:0;border-radius:8px;padding:10px 20px;font-size:13.5px;font-weight:600;cursor:pointer;font-family:inherit}
+  #bc-consent .bc-ok{background:#C9A96E;color:#0A0E27}
+  #bc-consent .bc-ok:hover{background:#E8D5B0}
+  #bc-consent .bc-no{background:transparent;color:#cbb890;border:1px solid rgba(201,169,110,.4)}
+  #bc-consent .bc-no:hover{border-color:#C9A96E}
+</style>
+<div id="bc-consent" role="dialog" aria-live="polite" aria-label="Cookie consent">
+  <div class="bc-in">
+    <p>We use cookies for anonymous statistics (Google Analytics) to improve our website &mdash; only with your consent. Essential functions are unaffected. More in our <a href="/privacy">Privacy Policy</a>.</p>
+    <div class="bc-btns">
+      <button class="bc-no" id="bc-no" type="button">Decline</button>
+      <button class="bc-ok" id="bc-ok" type="button">Accept</button>
+    </div>
+  </div>
+</div>
+<script>
+  (function(){
+    function gtag(){window.dataLayer=window.dataLayer||[];window.dataLayer.push(arguments);}
+    var el=document.getElementById('bc-consent');
+    if(!el)return;
+    var stored=null; try{stored=localStorage.getItem('bc_consent');}catch(e){}
+    if(!stored){el.classList.add('bc-show');}
+    function choose(v){
+      try{localStorage.setItem('bc_consent',v);}catch(e){}
+      gtag('consent','update',{'analytics_storage': v==='granted'?'granted':'denied'});
+      el.classList.remove('bc-show');
+    }
+    var ok=document.getElementById('bc-ok'), no=document.getElementById('bc-no');
+    if(ok)ok.addEventListener('click',function(){choose('granted');});
+    if(no)no.addEventListener('click',function(){choose('decline');});
+  })();
+</script>
 </body>
 </html>
