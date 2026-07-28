@@ -294,7 +294,7 @@
   force = true
 [[redirects]]
   from = "/property-intelligence/*"
-  to = "/private-markets"
+  to = "/private-markets/"
   status = 301
   force = true
 
