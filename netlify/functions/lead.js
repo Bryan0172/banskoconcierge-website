@@ -100,6 +100,23 @@ exports.handler = async (event) => {
     .map(([k, v]) => `<tr><td style="padding:4px 12px;font-weight:600;vertical-align:top;border-bottom:1px solid #eee">${esc(k)}</td><td style="padding:4px 12px;border-bottom:1px solid #eee">${esc(v)}</td></tr>`)
     .join('');
 
+  // PATCH 09.08.2026 (SEO/GEO, auf REQ-2026-08-09-SEO-BLOCKIERT-ALARM-...): dieselbe Diagnose-Zeile
+  // wie in der PC-Fassung. cf-turnstile-response wird hier NUR fuer die Zaehlung ausgeklammert —
+  // ein Bot mit leerem Body sendet zwar nichts, ein Mensch mit abgelaufenem Token sendet aber
+  // ebenfalls kein gueltiges Token; das Feld selbst sagt nichts ueber Mensch/Bot aus.
+  const alarmPayload = Object.entries(data)
+    .filter(([k]) => !['form-name', 'bot-field', 'cf-turnstile-response'].includes(k));
+  const alarmFilled = alarmPayload.filter(([, v]) => String(v || '').trim() !== '').length;
+  const alarmVerdict = alarmFilled === 0
+    ? '<strong style="color:#b00">BOT (sehr wahrscheinlich)</strong> — kein einziges Nutzfeld ausgefuellt.'
+    : '<strong style="color:#0a0">MENSCH MOEGLICH</strong> — es wurden Nutzfelder ausgefuellt, bitte inhaltlich pruefen.';
+  const alarmDiag = `<p style="font-size:13px;margin:10px 0 0;padding:8px 10px;background:#f6f6f6;border-left:3px solid #999">
+            Einschaetzung: ${alarmVerdict}<br>
+            Nutzfelder gesamt: <strong>${alarmPayload.length}</strong> · davon ausgefuellt: <strong>${alarmFilled}</strong>
+            · IP: ${esc(event.headers['cf-connecting-ip'] || event.headers['x-forwarded-for'] || 'unbekannt')}
+            · User-Agent: ${esc(event.headers['user-agent'] || event.headers['User-Agent'] || 'unbekannt')}
+          </p>`;
+
   async function sendAlarm(reason) {
     // Turnstile kann bei einem echten Menschen fehlschlagen (Netzwerk, Adblocker,
     // Browser-Eigenheit) — anders als bot-field/isSpam ist das KEIN bestätigter Bot.
@@ -118,6 +135,7 @@ exports.handler = async (event) => {
             <h2 style="color:#b00;margin:0 0 12px">⚠️ Anfrage wurde vom Spam-Schutz blockiert (${esc(reason)})</h2>
             <p>Das kann ein echter Bot sein — oder ein Mensch, bei dem die Prüfung fehlgeschlagen ist. Rohdaten zur manuellen Einschätzung:</p>
             <table style="border-collapse:collapse;font-size:14px">${rows}</table>
+            ${alarmDiag}
           </div>`,
         }),
       });
