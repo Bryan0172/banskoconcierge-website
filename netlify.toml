@@ -257,6 +257,11 @@
   status = 200
 
 [[redirects]]
+  from = "/relocation-bulgaria-orientation-hebrew"
+  to = "/relocation-bulgaria-orientation-hebrew.html"
+  status = 200
+
+[[redirects]]
   from = "/investor-support"
   to = "/investor-support.html"
   status = 200
