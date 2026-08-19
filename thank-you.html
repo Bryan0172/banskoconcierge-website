@@ -65,13 +65,10 @@
     }
   </script>
   <footer class="footer">© 2026 Bansko Concierge · Private Markets &amp; Due Diligence</footer>
-  <!-- GA4 Lead-Conversion: Besucher hat eine Anfrage abgeschickt (landet hier). gtag wird per Netlify-Edge injiziert -> auf Verfuegbarkeit warten. -->
-  <script>
-    (function fireLead(tries){
-      if (typeof window.gtag === 'function') { window.gtag('event', 'generate_lead', { form_name: 'contact' }); }
-      else if ((tries || 0) < 25) { setTimeout(function(){ fireLead((tries || 0) + 1); }, 300); }
-    })(0);
-  </script>
+  <!-- GA4 Lead-Conversion: das Event feuert im Inline-Head-Script dieser Seite (Zeile 6),
+       hinter der Consent-Pruefung. Der fruehere Retry-Block an dieser Stelle stammte aus der
+       Netlify-Edge-Injektion; seit gtag im Head selbst geladen wird, hat er das Event ein
+       zweites Mal gefeuert (GA4 17.08.: generate_lead 18 = 2 x lead_submit 9). Entfernt. -->
 <!-- GDPR Cookie-Consent banner (Consent Mode v2) -->
 <style>
   #bc-consent{position:fixed;left:0;right:0;bottom:0;z-index:2147483000;background:#0A0E27;color:#E8D5B0;font-family:'Inter',system-ui,sans-serif;padding:16px;box-shadow:0 -4px 24px rgba(0,0,0,.4);display:none;border-top:1px solid rgba(201,169,110,.25)}
