@@ -104,8 +104,14 @@ exports.handler = async (event) => {
   // wie in der PC-Fassung. cf-turnstile-response wird hier NUR fuer die Zaehlung ausgeklammert —
   // ein Bot mit leerem Body sendet zwar nichts, ein Mensch mit abgelaufenem Token sendet aber
   // ebenfalls kein gueltiges Token; das Feld selbst sagt nichts ueber Mensch/Bot aus.
+  // PATCH 02.09.2026 (SEO/GEO, A386-SEO): von Blacklist auf Whitelist umgestellt, NUR fuer diese
+  // Verdikt-/Zaehl-Kopie — die volle `rows`-Tabelle oben bleibt unveraendert Blacklist, damit ein
+  // Mensch beim manuellen Pruefen weiterhin JEDES uebermittelte Feld sieht, auch unerwartete. Die
+  // Zaehlung selbst soll aber nicht durch injizierte Zusatz-Feldnamen nach oben verzerrt werden
+  // koennen — nur die Feldnamen, die das BC-Kontaktformular selbst kennt (index.html), zaehlen.
+  const KNOWN_FIELDS = ['name', 'email', 'service', 'arrival', 'guests', 'message', 'referral_source'];
   const alarmPayload = Object.entries(data)
-    .filter(([k]) => !['form-name', 'bot-field', 'cf-turnstile-response'].includes(k));
+    .filter(([k]) => KNOWN_FIELDS.includes(k));
   const alarmFilled = alarmPayload.filter(([, v]) => String(v || '').trim() !== '').length;
   const alarmVerdict = alarmFilled === 0
     ? '<strong style="color:#b00">BOT (sehr wahrscheinlich)</strong> — kein einziges Nutzfeld ausgefuellt.'
