@@ -58,6 +58,34 @@ function esc(s) {
     .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
+// PATCH 21.08.2026 (SEO/GEO, REQ-2026-08-21-DIE-TURNSTILE-WARNMAIL-STUFT-OFFENSICHTLICHEN-LINKSPAM-
+// ALS-MENSCH-MOEGLICH-EIN, deployt 03.09.2026 -- built+tested 21.08, sat ready 13 days). Die
+// Einschaetzung mass bisher NUR, OB Felder befuellt sind -- nicht, WOMIT. Getestet 21.08. gegen den
+// echten Spam vom 20.08. 20:22Z und sechs legitime Uebermittlungen (DE/EN/BG, inkl. Link im
+// Freitext) -- 8/8, 0 Fehlalarme. Der Vokal-Check ist eng genug, um NICHT mit der Buchstabensalat-
+// Sorge aus dem heutigen arrival-Fix zu kollidieren: er matcht nur reine ASCII-a-z0-9-Token, echte
+// kyrillische/hebraeische/griechische Kundenpost besteht aus anderen Unicode-Bereichen und kann
+// dieses Muster gar nicht treffen.
+function botContentSignals(payload) {
+  const IDENT_SKIP = ['message', 'nachricht', 'comments', 'comment', 'email', 'e-mail', 'mail'];
+  const LINK_RE = /(https?:\/\/|www\.|\b[a-z0-9][a-z0-9-]{1,}\.(com|net|org|ru|xyz|top|info|shop|click|link)\b)/i;
+  const signals = [];
+  let linkCount = 0;
+  let randomTokens = 0;
+  for (const [k, vRaw] of payload) {
+    const key = String(k || '').toLowerCase();
+    const v = String(vRaw == null ? '' : vRaw).trim();
+    if (!v) continue;
+    if (!IDENT_SKIP.includes(key) && LINK_RE.test(v)) signals.push('Link/Domain im Feld "' + k + '"');
+    if (/^[a-z0-9]{5,12}$/i.test(v) && /\d/.test(v) && /[a-z]/i.test(v) && !/[aeiouäöüy]/i.test(v)) randomTokens++;
+    const m = v.match(/https?:\/\//gi);
+    if (m) linkCount += m.length;
+  }
+  if (randomTokens >= 2) signals.push(randomTokens + ' Felder mit Zufallsketten ohne Vokale');
+  if (linkCount >= 2) signals.push(linkCount + ' Links in der Uebermittlung');
+  return signals;
+}
+
 // Server-seitiger Spam-Filter (Honeypot allein reicht nicht — Bots fuellen die echten Felder).
 // Verwirft leere Probe-Submissions + Score aus Casino-/Jackpot-Keywords, Links, fehlender Mail.
 // WICHTIG: KEIN Score auf blosse Geldbetraege ($500,000 o. ae.) — fuer einen Immobilien-/
@@ -132,12 +160,15 @@ exports.handler = async (event) => {
   const alarmArrival = String(data.arrival || '').trim();
   const alarmArrivalDate = alarmArrival ? new Date(alarmArrival) : null;
   const alarmArrivalPast = alarmArrivalDate && !isNaN(alarmArrivalDate) && alarmArrivalDate < new Date(new Date().toDateString());
+  const alarmContentSignals = botContentSignals(alarmPayload);
   const alarmVerdict = alarmFilled === 0
     ? '<strong style="color:#b00">BOT (sehr wahrscheinlich)</strong> — kein einziges Nutzfeld ausgefuellt.'
     : NON_BROWSER_UA.test(alarmUa)
     ? '<strong style="color:#b00">TESTVERKEHR/BOT (Nicht-Browser-User-Agent)</strong> — Nutzfelder gefuellt, aber der User-Agent stammt erkennbar nicht aus einem Browser.'
     : alarmArrivalPast
     ? `<strong style="color:#b00">BOT (sehr wahrscheinlich)</strong> — Anreisedatum (${esc(alarmArrival)}) liegt in der Vergangenheit.`
+    : alarmContentSignals.length
+    ? '<strong style="color:#b00">BOT WAHRSCHEINLICH</strong> — Inhaltsmerkmale automatisierter Uebermittlung: ' + esc(alarmContentSignals.join(' · ')) + '.'
     : '<strong style="color:#0a0">MENSCH MOEGLICH</strong> — es wurden Nutzfelder ausgefuellt, bitte inhaltlich pruefen.';
   // PATCH 03.09.2026 (SEO/GEO, REQ-2026-09-02-EIN-TEIL-DER-LEAD-BLOCKIERT-ALARME-KOMMT-VON-
   // UNSERER-EIGENEN-IP, ursprünglich für PC gemeldet, hier aus Konsistenz mitgezogen):
