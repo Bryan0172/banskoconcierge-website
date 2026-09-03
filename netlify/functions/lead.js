@@ -113,8 +113,15 @@ exports.handler = async (event) => {
   const alarmPayload = Object.entries(data)
     .filter(([k]) => KNOWN_FIELDS.includes(k));
   const alarmFilled = alarmPayload.filter(([, v]) => String(v || '').trim() !== '').length;
+  // PATCH 03.09.2026 (SEO/GEO, REQ-2026-08-26-SEO-SE4-ZUSTELLTEST-..., aus PC mitgezogen fuer
+  // Konsistenz): bekannte Nicht-Browser-User-Agents bekommen ein eigenes Verdikt statt als
+  // "MENSCH MOEGLICH" durchzurutschen — rein additive Praezisierung, aendert die Blockade nicht.
+  const alarmUa = event.headers['user-agent'] || event.headers['User-Agent'] || '';
+  const NON_BROWSER_UA = /\bcurl\/|\bwget\/|python-requests|node-fetch|axios\/|Go-http-client|PostmanRuntime/i;
   const alarmVerdict = alarmFilled === 0
     ? '<strong style="color:#b00">BOT (sehr wahrscheinlich)</strong> — kein einziges Nutzfeld ausgefuellt.'
+    : NON_BROWSER_UA.test(alarmUa)
+    ? '<strong style="color:#b00">TESTVERKEHR/BOT (Nicht-Browser-User-Agent)</strong> — Nutzfelder gefuellt, aber der User-Agent stammt erkennbar nicht aus einem Browser.'
     : '<strong style="color:#0a0">MENSCH MOEGLICH</strong> — es wurden Nutzfelder ausgefuellt, bitte inhaltlich pruefen.';
   // PATCH 03.09.2026 (SEO/GEO, REQ-2026-09-02-EIN-TEIL-DER-LEAD-BLOCKIERT-ALARME-KOMMT-VON-
   // UNSERER-EIGENEN-IP, ursprünglich für PC gemeldet, hier aus Konsistenz mitgezogen):
