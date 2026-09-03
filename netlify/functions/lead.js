@@ -142,6 +142,7 @@ exports.handler = async (event) => {
             <p>Das kann ein echter Bot sein — oder ein Mensch, bei dem die Prüfung fehlgeschlagen ist. Rohdaten zur manuellen Einschätzung:</p>
             <table style="border-collapse:collapse;font-size:14px">${rows}</table>
             ${alarmDiag}
+            <p style="color:#888;font-size:12px;margin-top:14px">Quelle: banskoconcierge.com · Formular „${esc(formName)}" · Grund: ${esc(reason)}</p>
           </div>`,
         }),
       });
