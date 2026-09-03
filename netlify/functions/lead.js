@@ -116,10 +116,19 @@ exports.handler = async (event) => {
   const alarmVerdict = alarmFilled === 0
     ? '<strong style="color:#b00">BOT (sehr wahrscheinlich)</strong> — kein einziges Nutzfeld ausgefuellt.'
     : '<strong style="color:#0a0">MENSCH MOEGLICH</strong> — es wurden Nutzfelder ausgefuellt, bitte inhaltlich pruefen.';
+  // PATCH 03.09.2026 (SEO/GEO, REQ-2026-09-02-EIN-TEIL-DER-LEAD-BLOCKIERT-ALARME-KOMMT-VON-
+  // UNSERER-EIGENEN-IP, ursprünglich für PC gemeldet, hier aus Konsistenz mitgezogen):
+  // Kennzeichnung statt Unterdrückung — s. Begründung in peak-care.com/netlify/functions/lead.cjs.
+  const KNOWN_OWN_IPS = ['149.62.204.85'];
+  const alarmSrcIp = event.headers['cf-connecting-ip'] || event.headers['x-forwarded-for'] || '';
+  const alarmSrcLabel = KNOWN_OWN_IPS.some(ip => alarmSrcIp.includes(ip))
+    ? '<strong style="color:#666">eigene Infrastruktur (bekannte IP)</strong>'
+    : '<strong style="color:#0a0">extern</strong>';
   const alarmDiag = `<p style="font-size:13px;margin:10px 0 0;padding:8px 10px;background:#f6f6f6;border-left:3px solid #999">
             Einschaetzung: ${alarmVerdict}<br>
             Nutzfelder gesamt: <strong>${alarmPayload.length}</strong> · davon ausgefuellt: <strong>${alarmFilled}</strong>
-            · IP: ${esc(event.headers['cf-connecting-ip'] || event.headers['x-forwarded-for'] || 'unbekannt')}
+            · Quelle: ${alarmSrcLabel}
+            · IP: ${esc(alarmSrcIp || 'unbekannt')}
             · User-Agent: ${esc(event.headers['user-agent'] || event.headers['User-Agent'] || 'unbekannt')}
           </p>`;
 
