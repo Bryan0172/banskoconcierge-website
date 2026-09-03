@@ -118,10 +118,26 @@ exports.handler = async (event) => {
   // "MENSCH MOEGLICH" durchzurutschen — rein additive Praezisierung, aendert die Blockade nicht.
   const alarmUa = event.headers['user-agent'] || event.headers['User-Agent'] || '';
   const NON_BROWSER_UA = /\bcurl\/|\bwget\/|python-requests|node-fetch|axios\/|Go-http-client|PostmanRuntime/i;
+  // PATCH 03.09.2026 (SEO/GEO, REQ-2026-08-28-DIE-TURNSTILE-WARNMAIL-STUFT-...): Vorschlag 1
+  // aus dem REQ, bewusst erst jetzt gebaut, weil er nicht mit A410-SEOs Freigabefrage im
+  // selben Bundle stehen sollte (dort inzwischen erledigt). Nur Vorschlag 1 (arrival in der
+  // Vergangenheit) -- deckt laut REQ alle drei belegten Faelle allein ab. Vorschlag 2
+  // (Buchstabensalat-Heuristik) bewusst NICHT gebaut: Vokal-Konsonant-Muster schlagen bei
+  // kyrillischer/hebraeischer/griechischer Kundenpost falsch an. Vorschlag 3 (gleiche Mail,
+  // wechselnder Service binnen 24h) bewusst NICHT gebaut: braucht Zustand ueber mehrere
+  // Aufrufe hinweg, den diese stateless Function nicht haelt -- waere ein neuer, groesserer
+  // Vorgang (Speicher/DB), kein Drei-Zeilen-Fix. Rein additive Verdikt-Praezisierung wie beim
+  // User-Agent-Check oben: aendert nur die Einschaetzung im Betreff, keine Zeile wird
+  // unterdrueckt, keine Blockade-Logik veraendert sich.
+  const alarmArrival = String(data.arrival || '').trim();
+  const alarmArrivalDate = alarmArrival ? new Date(alarmArrival) : null;
+  const alarmArrivalPast = alarmArrivalDate && !isNaN(alarmArrivalDate) && alarmArrivalDate < new Date(new Date().toDateString());
   const alarmVerdict = alarmFilled === 0
     ? '<strong style="color:#b00">BOT (sehr wahrscheinlich)</strong> — kein einziges Nutzfeld ausgefuellt.'
     : NON_BROWSER_UA.test(alarmUa)
     ? '<strong style="color:#b00">TESTVERKEHR/BOT (Nicht-Browser-User-Agent)</strong> — Nutzfelder gefuellt, aber der User-Agent stammt erkennbar nicht aus einem Browser.'
+    : alarmArrivalPast
+    ? `<strong style="color:#b00">BOT (sehr wahrscheinlich)</strong> — Anreisedatum (${esc(alarmArrival)}) liegt in der Vergangenheit.`
     : '<strong style="color:#0a0">MENSCH MOEGLICH</strong> — es wurden Nutzfelder ausgefuellt, bitte inhaltlich pruefen.';
   // PATCH 03.09.2026 (SEO/GEO, REQ-2026-09-02-EIN-TEIL-DER-LEAD-BLOCKIERT-ALARME-KOMMT-VON-
   // UNSERER-EIGENEN-IP, ursprünglich für PC gemeldet, hier aus Konsistenz mitgezogen):
