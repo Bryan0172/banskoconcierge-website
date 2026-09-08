@@ -193,7 +193,7 @@ exports.handler = async (event) => {
     // trotzdem Erfolg an, aber keine Mail geht je raus (gefunden 20.07. beim E2E-Test
     // des Balkan-Report-Gates — 2 von 3 echten Testsubmits liefen genau in diesen Pfad).
     try {
-      await fetch(BREVO_URL, {
+      const alarmRes = await fetch(BREVO_URL, {
         method: 'POST',
         headers: { 'api-key': process.env.BREVO_API_KEY || '', 'content-type': 'application/json', accept: 'application/json' },
         body: JSON.stringify({
@@ -209,6 +209,18 @@ exports.handler = async (event) => {
           </div>`,
         }),
       });
+      // fetch() does NOT throw on HTTP 4xx/5xx, so the catch below only ever sees
+      // network aborts. Without this check a REJECTED alarm (quota, rate limit,
+      // blocked recipient) leaves no trace at all — and this is the last wire we
+      // have, because it only fires when something has already gone wrong. No retry
+      // on purpose: the alarm is not idempotent, and a second attempt after a first
+      // that in truth succeeded would produce a duplicate.
+      if (!alarmRes.ok) {
+        console.error(
+          'turnstile/spam alarm mail rejected by Brevo',
+          `HTTP ${alarmRes.status}: ${await alarmRes.text()}`
+        );
+      }
     } catch (e) {
       console.error('turnstile/spam alarm mail failed', (e && e.message) || String(e));
     }
