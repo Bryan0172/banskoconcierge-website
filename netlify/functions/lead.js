@@ -23,7 +23,7 @@ async function verifyTurnstile(token, ip) {
     body.append('secret', process.env.CLOUDFLARE_TURNSTILE_SECRET || '');
     body.append('response', token);
     if (ip) body.append('remoteip', ip);
-    const res = await fetch('https://challenges.cloudflare.com/turnstile/v1/siteverify', {
+    const res = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
       method: 'POST', body,
     });
     if (!res.ok) {
