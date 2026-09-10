@@ -9,13 +9,15 @@ const TO = [{ email: 'web@banskoconcierge.com', name: 'Bansko Concierge' }];
 const BCC = [{ email: 'andy7203@googlemail.com' }];
 const THANK_YOU = '/thank-you.html';
 
-// Cloudflare Turnstile server-side verification (third spam layer after honeypot + isSpam).
-// Only active when CLOUDFLARE_TURNSTILE_SECRET is set in Netlify env — backwards-compatible.
-// Fails OPEN on any technical error (bad/empty Cloudflare response, network issue): a
-// verification-service hiccup must never crash the function or silently swallow a real
-// lead — honeypot + isSpam remain as the other two spam layers either way.
+// GO 10.09.2026 (Andreas, A453-PCAI-Muster, REQ-2026-09-08-DER-HEUTE-AUF-PCAI-GESCHLOSSENE-
+// TURNSTILE-FAIL-OPEN-STEHT-WORTGLEICH-NOCH-IN-PEAK-CARE-COM — dieselbe Klasse, hier auf BC
+// gefunden und mitgefixt): bisher fiel jeder technische Cloudflare-Fehler OPEN (true) = wie
+// ein bestandener Check behandelt. Live gemessen war das kein seltener Randfall, sondern
+// reproduzierbar der Normalfall bei gestoertem siteverify. Rueckgabewert jetzt Tri-State
+// ('pass'|'fail'|'error'); die Aufrufstelle behandelt 'error' wie 'fail' — Alarm-Mail statt
+// stiller Zustellung, kein Interessent geht verloren (Rohdaten gehen als Alarm-Mail raus).
 async function verifyTurnstile(token, ip) {
-  if (!token) return false;
+  if (!token) return 'fail';
   try {
     const body = new URLSearchParams();
     body.append('secret', process.env.CLOUDFLARE_TURNSTILE_SECRET || '');
@@ -25,19 +27,19 @@ async function verifyTurnstile(token, ip) {
       method: 'POST', body,
     });
     if (!res.ok) {
-      console.error(`Turnstile siteverify HTTP ${res.status} — failing open`);
-      return true;
+      console.error(`Turnstile siteverify HTTP ${res.status} — treating as unverified, not as pass`);
+      return 'error';
     }
     const text = await res.text();
     let json;
     try { json = JSON.parse(text); } catch (e) {
-      console.error('Turnstile siteverify returned non-JSON — failing open', text.slice(0, 200));
-      return true;
+      console.error('Turnstile siteverify returned non-JSON — treating as unverified, not as pass', text.slice(0, 200));
+      return 'error';
     }
-    return json.success === true;
+    return json.success === true ? 'pass' : 'fail';
   } catch (e) {
-    console.error('Turnstile verification threw — failing open to avoid losing a lead', (e && e.message) || String(e));
-    return true;
+    console.error('Turnstile verification threw — treating as unverified, not as pass', (e && e.message) || String(e));
+    return 'error';
   }
 }
 
@@ -230,8 +232,15 @@ exports.handler = async (event) => {
   if (process.env.CLOUDFLARE_TURNSTILE_SECRET) {
     const token = data['cf-turnstile-response'];
     const ip = event.headers['cf-connecting-ip'] || event.headers['x-forwarded-for'] || '';
-    if (!await verifyTurnstile(token, ip)) {
+    const verdict = await verifyTurnstile(token, ip);
+    if (verdict === 'fail') {
       await sendAlarm('Turnstile-Verifikation fehlgeschlagen');
+      return { statusCode: 303, headers: { Location: THANK_YOU }, body: '' };
+    }
+    if (verdict === 'error') {
+      // GO 10.09.2026 (Andreas, A453-PCAI-Muster): technischer Fehler ist hier kein seltener
+      // Randfall gewesen, sondern reproduzierbar der Normalfall — deshalb wie 'fail' behandeln.
+      await sendAlarm('Turnstile technisch nicht prüfbar — Verifikation ausgefallen');
       return { statusCode: 303, headers: { Location: THANK_YOU }, body: '' };
     }
   }
