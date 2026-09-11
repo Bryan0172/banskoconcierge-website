@@ -65,12 +65,6 @@
   force = true
 
 [[redirects]]
-  from = "/ski-services"
-  to = "/"
-  status = 301
-  force = true
-
-[[redirects]]
   from = "/property-management"
   to = "/"
   status = 301
