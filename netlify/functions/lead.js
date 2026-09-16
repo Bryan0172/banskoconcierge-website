@@ -180,12 +180,22 @@ exports.handler = async (event) => {
   const alarmSrcLabel = KNOWN_OWN_IPS.some(ip => alarmSrcIp.includes(ip))
     ? '<strong style="color:#666">eigene Infrastruktur (bekannte IP)</strong>'
     : '<strong style="color:#0a0">extern</strong>';
+  // PATCH 16.09.2026 (SEO/GEO, A484-SEO): Token-Status ERZWUNGEN anzeigen. Die rows-Tabelle
+  // oben zeigt cf-turnstile-response nur, wenn das Feld ueberhaupt ankam — genau im wichtigsten
+  // Fall (Feld fehlt) steht dort also nichts, und "keine Zeile" ist von "nicht hingesehen" nicht
+  // zu unterscheiden. Der Tokenwert selbst wird bewusst NICHT ausgeschrieben (300+ Zeichen,
+  // Einmal-Token, kein Erkenntniswert) — nur Vorhandensein und Laenge.
+  const alarmTokenRaw = String(data['cf-turnstile-response'] || '');
+  const alarmTokenLabel = alarmTokenRaw.trim() === ''
+    ? '<strong style="color:#b00">fehlte oder war leer</strong> — Feld wurde nicht uebermittelt'
+    : `<strong style="color:#0a0">vorhanden</strong> (${alarmTokenRaw.length} Zeichen) — von Cloudflare abgelehnt`;
   const alarmDiag = `<p style="font-size:13px;margin:10px 0 0;padding:8px 10px;background:#f6f6f6;border-left:3px solid #999">
             Einschaetzung: ${alarmVerdict}<br>
             Nutzfelder gesamt: <strong>${alarmPayload.length}</strong> · davon ausgefuellt: <strong>${alarmFilled}</strong>
             · Quelle: ${alarmSrcLabel}
             · IP: ${esc(alarmSrcIp || 'unbekannt')}
             · User-Agent: ${esc(event.headers['user-agent'] || event.headers['User-Agent'] || 'unbekannt')}
+            <br>Turnstile-Token (<code>cf-turnstile-response</code>): ${alarmTokenLabel}
           </p>`;
 
   async function sendAlarm(reason) {
@@ -234,7 +244,14 @@ exports.handler = async (event) => {
     const ip = event.headers['cf-connecting-ip'] || event.headers['x-forwarded-for'] || '';
     const verdict = await verifyTurnstile(token, ip);
     if (verdict === 'fail') {
-      await sendAlarm('Turnstile-Verifikation fehlgeschlagen');
+      // PATCH 16.09.2026 (SEO/GEO, A484-SEO, Andreas-Go "A484-SEO: ja"): bis hierher meldete
+      // BC beide Faelle wortgleich. verifyTurnstile gibt 'fail' sowohl bei FEHLENDEM Token
+      // (Z. 21, Bot sendet gar nichts) als auch bei einem Token, das Cloudflare ABLEHNT.
+      // Nur der zweite Fall ist ein echter Verifikationsfehler; der erste trifft regelmaessig
+      // Menschen, deren Token nach ~300 s abgelaufen ist. Ohne die Unterscheidung ist an der
+      // Mail nicht erkennbar, ob nachgefasst werden muss. Wortlaut identisch zu PC (lead.cjs
+      // Z. 221). Aendert NICHTS an der Blockade selbst.
+      await sendAlarm(token ? 'Turnstile-Verifikation fehlgeschlagen' : 'Turnstile-Token fehlte oder war abgelaufen');
       return { statusCode: 303, headers: { Location: THANK_YOU }, body: '' };
     }
     if (verdict === 'error') {
