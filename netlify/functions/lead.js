@@ -162,6 +162,14 @@ exports.handler = async (event) => {
   const alarmArrival = String(data.arrival || '').trim();
   const alarmArrivalDate = alarmArrival ? new Date(alarmArrival) : null;
   const alarmArrivalPast = alarmArrivalDate && !isNaN(alarmArrivalDate) && alarmArrivalDate < new Date(new Date().toDateString());
+  // PATCH 17.09.2026 (SEO/GEO, A485-SEO(a), Andreas-Go "A485-SEO: ja"): ein unparsbares
+  // Anreisedatum (z. B. "1988-00-05" -- Monat 00 existiert nicht) fiel bisher durch BEIDE
+  // Raster -- alarmArrivalPast ist mit isNaN() false, und der Wert selbst sieht wie ein
+  // ausgefuelltes Nutzfeld aus. Live an echtem Bot-Verkehr gefunden (16.09., A484-Verifikation),
+  // bekam trotz Lamborghini-Linkspam das gruene Verdikt. Ein Datum, das kein Datum ist, ist
+  // mindestens so stark ein Bot-Signal wie eines in der Vergangenheit. Rein additiv --
+  // aendert nur den Verdikt-Text, unterdrueckt keine Mail, keine Blockade-Logik veraendert.
+  const alarmArrivalInvalid = alarmArrival !== '' && alarmArrivalDate && isNaN(alarmArrivalDate);
   const alarmContentSignals = botContentSignals(alarmPayload);
   const alarmVerdict = alarmFilled === 0
     ? '<strong style="color:#b00">BOT (sehr wahrscheinlich)</strong> — kein einziges Nutzfeld ausgefuellt.'
@@ -169,6 +177,8 @@ exports.handler = async (event) => {
     ? '<strong style="color:#b00">TESTVERKEHR/BOT (Nicht-Browser-User-Agent)</strong> — Nutzfelder gefuellt, aber der User-Agent stammt erkennbar nicht aus einem Browser.'
     : alarmArrivalPast
     ? `<strong style="color:#b00">BOT (sehr wahrscheinlich)</strong> — Anreisedatum (${esc(alarmArrival)}) liegt in der Vergangenheit.`
+    : alarmArrivalInvalid
+    ? `<strong style="color:#b00">BOT (sehr wahrscheinlich)</strong> — Anreisedatum (${esc(alarmArrival)}) ist kein gueltiges Datum.`
     : alarmContentSignals.length
     ? '<strong style="color:#b00">BOT WAHRSCHEINLICH</strong> — Inhaltsmerkmale automatisierter Uebermittlung: ' + esc(alarmContentSignals.join(' · ')) + '.'
     : '<strong style="color:#0a0">MENSCH MOEGLICH</strong> — es wurden Nutzfelder ausgefuellt, bitte inhaltlich pruefen.';
@@ -267,9 +277,26 @@ exports.handler = async (event) => {
     return { statusCode: 303, headers: { Location: THANK_YOU }, body: '' };
   }
 
+  // PATCH 17.09.2026 (SEO/GEO, A485-SEO(b), Andreas-Go "A485-SEO: ja"): eigene Zeilenliste nur
+  // fuer die Erfolgs-Mail -- `rows` oben bleibt fuer die Warnmail unveraendert (volle Blacklist,
+  // damit ein Mensch beim manuellen Pruefen eines blockierten Leads jedes Feld sieht). In der
+  // Erfolgs-Mail dagegen drueckte der 300+ Zeichen lange Rohtoken die eigentliche Anfrage nach
+  // unten -- PC/PCAI haben das bereits (13.08./11.09.) auf einen Fingerabdruck (12 Zeichen +
+  // Laenge) gekuerzt, hier aus Konsistenz nachgezogen. Reine Lesbarkeit, kein Sicherheitsthema
+  // (interne Mail, Einmal-Token) und keine Aenderung an der Blockade-Logik.
+  const successRows = Object.entries(data)
+    .filter(([k]) => !['form-name', 'bot-field', 'cf-turnstile-response'].includes(k))
+    .map(([k, v]) => `<tr><td style="padding:4px 12px;font-weight:600;vertical-align:top;border-bottom:1px solid #eee">${esc(k)}</td><td style="padding:4px 12px;border-bottom:1px solid #eee">${esc(v)}</td></tr>`)
+    .join('')
+    + (() => {
+        const tok = String(data['cf-turnstile-response'] || '');
+        const fp = tok ? `${esc(tok.slice(0, 12))}… · ${tok.length} Z.` : '(leer)';
+        return `<tr><td style="padding:4px 12px;font-weight:600;vertical-align:top;border-bottom:1px solid #eee;color:#888">cf-turnstile-response</td><td style="padding:4px 12px;border-bottom:1px solid #eee;color:#888">${fp}</td></tr>`;
+      })();
+
   const html = `<div style="font-family:Arial,sans-serif;color:#1a1a1a">
     <h2 style="margin:0 0 12px">🌐 Neue Website-Anfrage — ${esc(formName)}</h2>
-    <table style="border-collapse:collapse;font-size:14px">${rows}</table>
+    <table style="border-collapse:collapse;font-size:14px">${successRows}</table>
     <p style="color:#888;font-size:12px;margin-top:14px">Quelle: banskoconcierge.com · Formular „${esc(formName)}"</p>
   </div>`;
 
