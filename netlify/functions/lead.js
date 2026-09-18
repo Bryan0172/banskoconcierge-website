@@ -71,6 +71,18 @@ function esc(s) {
 function botContentSignals(payload) {
   const IDENT_SKIP = ['message', 'nachricht', 'comments', 'comment', 'email', 'e-mail', 'mail'];
   const LINK_RE = /(https?:\/\/|www\.|\b[a-z0-9][a-z0-9-]{1,}\.(com|net|org|ru|xyz|top|info|shop|click|link)\b)/i;
+  // PATCH 17.09.2026 (SEO/GEO, A496-SEO, aus REQ-2026-09-15-DER-TURNSTILE-GATE-HAT-ZUM-ERSTEN-
+  // MAL-ECHTEN-FREMDVERKEHR-GEBLOCKT): DISPATCHER schlug vor "URL im Freitextfeld ==> Bot".
+  // Bewusst NICHT so gebaut: 'message' steht seit jeher in IDENT_SKIP, weil ein Kunde dort
+  // legitim ein Objekt verlinkt ("wir interessieren uns fuer https://www.imot.bg/...") --
+  // dieselbe Fehlklasse wie das entfernte nackte Betrag-Muster oben ($500,000 ist Kaufintent,
+  // kein Spam). Gemessen: der naive Vorschlag stuft eine echte Objektanfrage als Bot ein.
+  // Gebaut wird die enge Variante: Wegwerf-/Kurzlinkdomains haben in einer Immobilien-/
+  // Concierge-Anfrage keinen legitimen Zweck, ein Objekt-/Hotel-/Entwicklerlink schon.
+  // Greift AUCH in IDENT_SKIP-Feldern, weil genau dort (message) der belegte Scam stand
+  // (telegra.ph, Fall LarryarelP 13.09.). Rein additiv: nur Verdikt-Text, keine Mail wird
+  // unterdrueckt, keine Blockade-Logik veraendert sich.
+  const THROWAWAY_HOST_RE = /\b(?:telegra\.ph|t\.me|bit\.ly|tinyurl\.com|goo\.gl|cutt\.ly|is\.gd|rb\.gy|rebrand\.ly|shorturl\.at|ow\.ly|buff\.ly|clck\.ru|vk\.cc|surl\.li|shorte\.st|adf\.ly)\b/i;
   const signals = [];
   let linkCount = 0;
   let randomTokens = 0;
@@ -79,6 +91,7 @@ function botContentSignals(payload) {
     const v = String(vRaw == null ? '' : vRaw).trim();
     if (!v) continue;
     if (!IDENT_SKIP.includes(key) && LINK_RE.test(v)) signals.push('Link/Domain im Feld "' + k + '"');
+    if (THROWAWAY_HOST_RE.test(v)) signals.push('Wegwerf-/Kurzlink-Domain im Feld "' + k + '"');
     if (/^[a-z0-9]{5,12}$/i.test(v) && /\d/.test(v) && /[a-z]/i.test(v) && !/[aeiouäöüy]/i.test(v)) randomTokens++;
     const m = v.match(/https?:\/\//gi);
     if (m) linkCount += m.length;
