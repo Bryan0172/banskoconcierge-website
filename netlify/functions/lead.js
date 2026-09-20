@@ -184,17 +184,25 @@ exports.handler = async (event) => {
   // aendert nur den Verdikt-Text, unterdrueckt keine Mail, keine Blockade-Logik veraendert.
   const alarmArrivalInvalid = alarmArrival !== '' && alarmArrivalDate && isNaN(alarmArrivalDate);
   const alarmContentSignals = botContentSignals(alarmPayload);
-  const alarmVerdict = alarmFilled === 0
-    ? '<strong style="color:#b00">BOT (sehr wahrscheinlich)</strong> — kein einziges Nutzfeld ausgefuellt.'
+  // PATCH 19.09.2026 (SEO/GEO, A510-SEO, Andreas-Go im Chat "ja, mach das so"): die Einstufung
+  // war bisher NUR ein HTML-Text und damit maschinell nicht auswertbar. A510 verlangt, BOT-Faelle
+  // nicht mehr an Andreas zuzustellen -- dafuer braucht es ein Flag. Bewusst als EIN Objekt je
+  // Zweig statt einer zweiten, danebenlaufenden Bedingungsliste: eine spaeter ergaenzte Heuristik
+  // muss ihr `bot`-Flag zwangsweise mitangeben und kann nicht still in die falsche Klasse rutschen.
+  // Der Verdikt-TEXT ist gegenueber der Vorfassung unveraendert (Zeichen fuer Zeichen).
+  const alarmVerdictInfo = alarmFilled === 0
+    ? { bot: true, html: '<strong style="color:#b00">BOT (sehr wahrscheinlich)</strong> — kein einziges Nutzfeld ausgefuellt.' }
     : NON_BROWSER_UA.test(alarmUa)
-    ? '<strong style="color:#b00">TESTVERKEHR/BOT (Nicht-Browser-User-Agent)</strong> — Nutzfelder gefuellt, aber der User-Agent stammt erkennbar nicht aus einem Browser.'
+    ? { bot: true, html: '<strong style="color:#b00">TESTVERKEHR/BOT (Nicht-Browser-User-Agent)</strong> — Nutzfelder gefuellt, aber der User-Agent stammt erkennbar nicht aus einem Browser.' }
     : alarmArrivalPast
-    ? `<strong style="color:#b00">BOT (sehr wahrscheinlich)</strong> — Anreisedatum (${esc(alarmArrival)}) liegt in der Vergangenheit.`
+    ? { bot: true, html: `<strong style="color:#b00">BOT (sehr wahrscheinlich)</strong> — Anreisedatum (${esc(alarmArrival)}) liegt in der Vergangenheit.` }
     : alarmArrivalInvalid
-    ? `<strong style="color:#b00">BOT (sehr wahrscheinlich)</strong> — Anreisedatum (${esc(alarmArrival)}) ist kein gueltiges Datum.`
+    ? { bot: true, html: `<strong style="color:#b00">BOT (sehr wahrscheinlich)</strong> — Anreisedatum (${esc(alarmArrival)}) ist kein gueltiges Datum.` }
     : alarmContentSignals.length
-    ? '<strong style="color:#b00">BOT WAHRSCHEINLICH</strong> — Inhaltsmerkmale automatisierter Uebermittlung: ' + esc(alarmContentSignals.join(' · ')) + '.'
-    : '<strong style="color:#0a0">MENSCH MOEGLICH</strong> — es wurden Nutzfelder ausgefuellt, bitte inhaltlich pruefen.';
+    ? { bot: true, html: '<strong style="color:#b00">BOT WAHRSCHEINLICH</strong> — Inhaltsmerkmale automatisierter Uebermittlung: ' + esc(alarmContentSignals.join(' · ')) + '.' }
+    : { bot: false, html: '<strong style="color:#0a0">MENSCH MOEGLICH</strong> — es wurden Nutzfelder ausgefuellt, bitte inhaltlich pruefen.' };
+  const alarmVerdict = alarmVerdictInfo.html;
+  const alarmIsBot = alarmVerdictInfo.bot;
   // PATCH 03.09.2026 (SEO/GEO, REQ-2026-09-02-EIN-TEIL-DER-LEAD-BLOCKIERT-ALARME-KOMMT-VON-
   // UNSERER-EIGENEN-IP, ursprünglich für PC gemeldet, hier aus Konsistenz mitgezogen):
   // Kennzeichnung statt Unterdrückung — s. Begründung in peak-care.com/netlify/functions/lead.cjs.
@@ -238,6 +246,38 @@ exports.handler = async (event) => {
     const VERIFY_MARKER = 'system verify-test';
     if (Object.values(data || {}).some((v) => String(v).toLowerCase().includes(VERIFY_MARKER))) {
       console.log('sendAlarm suppressed: SYSTEM VERIFY-TEST marker present', { reason, formName });
+      return;
+    }
+    // PATCH 19.09.2026 (SEO/GEO, A510-SEO, Andreas-Go im Chat "ja, mach das so", ueber
+    // REQ-2026-09-19-A510-SEO-BOT-KLASSIFIZIERTE-TURNSTILE-WARNMAILS-NICHT-MEHR-AN-ANDREAS):
+    // Andreas bekam binnen zwei Tagen vier Blockier-Warnmails, darunter einen Lamborghini-
+    // Gewinnspiel-Scam, den die Heuristik selbst bereits korrekt als BOT ausgewiesen hatte.
+    // Kein Fehlalarm, aber Abstumpfung in genau dem Kanal, der einen ECHTEN blockierten Lead
+    // melden soll. Entscheid: BOT ==> nicht mehr zustellen, MENSCH MOEGLICH ==> unveraendert.
+    // KEINE neue Heuristik -- es wird ausschliesslich das Flag benutzt, das die bestehende
+    // Einstufung ohnehin schon berechnet.
+    //
+    // ‼️ AUSNAHME SE4, und sie ist tragend, nicht kosmetisch: die stehende SEO-Pflicht SE4
+    // (Wirksamkeits-Nachweis alle 3 Tage) hat als EINZIGEN Beleg genau diese Blockier-Mail --
+    // "Function antwortet 200" ist dort seit 12.08.2026 ausdruecklich verboten. Wuerde eine
+    // kuenftige SE4-Einsendung als BOT eingestuft (z. B. weil sie ohne Browser-UA abgesetzt
+    // wird), verschwaende ihr Beleg lautlos und SE4 meldete Gruen auf einer Messung, die es
+    // nie gab. Darum traegt SE4 einen eigenen Marker, der die A510-Unterdrueckung aushebelt --
+    // die Gegenrichtung zu VERIFY_MARKER oben. Abwaegung offen benannt: wer den String kennt,
+    // kann eine Warnmail erzwingen. Das ist eine Warnmail, kein Lead und kein Geld, waehrend
+    // eine blinde SE4 eine tragende Kontrolle still abschaltet.
+    const SE4_MARKER = 'se4-wirksamkeitsnachweis';
+    const isSe4Proof = Object.values(data || {}).some((v) => String(v).toLowerCase().includes(SE4_MARKER));
+    if (alarmIsBot && !isSe4Proof) {
+      // Bewusst KEIN stiller Abbruch (A510 verlangt es woertlich): der Fall geht strukturiert
+      // ins Netlify-Funktionslog, damit Volumen und Muster auswertbar bleiben. Ein Zaehler je
+      // Marke in einer DATEI ist hier technisch nicht moeglich -- die Function ist stateless
+      // und ihr Dateisystem read-only bzw. pro Aufruf verworfen; das Funktionslog IST der
+      // interne Log. Gleiche Bauart wie die VERIFY_MARKER-Unterdrueckung darueber.
+      console.log('A510 sendAlarm suppressed: bot-classified', JSON.stringify({
+        marker: 'A510_BOT_SUPPRESSED', brand: 'BC', reason, formName,
+        filled: alarmFilled, ua: alarmUa, ip: alarmSrcIp, at: new Date().toISOString(),
+      }));
       return;
     }
     // Turnstile kann bei einem echten Menschen fehlschlagen (Netzwerk, Adblocker,
