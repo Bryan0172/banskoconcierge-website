@@ -125,11 +125,27 @@
     <priority>0.9</priority>
   </url>
 
+  <!-- 26.09.2026 (SEO/GEO, REQ-2026-09-24-OTTERLYAI-.../ MARKETING-Text 25.09.): DE-Hub ergänzt,
+       vorher lieferte /de/private-markets/ 404 — Otterly zitierte deshalb bei deutschen
+       Off-Market-Prompts DEKRA/TÜV/Bureau Veritas statt BC. -->
   <url>
     <loc>https://banskoconcierge.com/private-markets/</loc>
-    <lastmod>2026-07-16</lastmod>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://banskoconcierge.com/private-markets/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://banskoconcierge.com/de/private-markets/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banskoconcierge.com/private-markets/"/>
+  </url>
+
+  <url>
+    <loc>https://banskoconcierge.com/de/private-markets/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://banskoconcierge.com/private-markets/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://banskoconcierge.com/de/private-markets/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banskoconcierge.com/private-markets/"/>
   </url>
 
   <url>
