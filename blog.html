@@ -250,6 +250,27 @@
         <div style="grid-column:1/-1; text-align:center; padding:60px 0; color:var(--grey);">Loading articles…</div>
       </div>
 
+      <!-- Statische Fallback-Liste fuer Crawler ohne JS-Ausfuehrung (GEO/KI-Antwortmaschinen, Lighthouse etc.) —
+           #blogGrid oben bleibt die eigentliche, dynamisch gerenderte Ansicht; diese Liste dient nur der
+           Verlinkung im rohen HTML, kein visuelles Duplikat fuer echte Besucher. -->
+      <noscript>
+        <div style="max-width:720px; margin:0 auto; padding:40px 0;">
+          <h2 style="font-family:var(--font-serif); font-size:1.4rem; margin-bottom:20px;">All Articles</h2>
+          <ul style="list-style:none; padding:0; display:flex; flex-direction:column; gap:14px;">
+            <li><a href="/blog/best-ski-resorts-balkans" style="color:var(--gold);">Best Ski Resorts in the Balkans: Bansko vs Kopaonik vs Jahorina vs Borovets</a></li>
+            <li><a href="/blog/black-sea-adriatic-aegean" style="color:var(--gold);">Black Sea vs Adriatic vs Aegean: The Ultimate Luxury Beach Guide for Summer 2026</a></li>
+            <li><a href="/blog/private-transfer-athens-bansko" style="color:var(--gold);">How to Get from Athens Airport to Bansko: All Transfer Options Compared</a></li>
+            <li><a href="/blog/private-transfer-sofia-airport-to-bansko" style="color:var(--gold);">Private Transfer from Sofia Airport to Bansko</a></li>
+            <li><a href="/blog/bansko-montenegro-croatia-investment-2026" style="color:var(--gold);">Bansko vs Montenegro vs Croatia: Where to Invest in Balkans Property in 2026</a></li>
+            <li><a href="/blog/buying-property-bulgaria-western-europe" style="color:var(--gold);">Buying Property in Bulgaria: A Guide for Western European Buyers</a></li>
+            <li><a href="/blog/remote-owner-care-bulgaria" style="color:var(--gold);">Owner Care in Bulgaria When You Can't Be There</a></li>
+            <li><a href="/private-markets/" style="color:var(--gold);">BC Private Markets — curated off-market access and buy-side advisory</a></li>
+            <li><a href="/private-markets/balkan-prime-signals-1/" style="color:var(--gold);">Balkan Prime Signals #1 — a buy-side market read</a></li>
+            <li><a href="/balkan-property-investment-report-2026/" style="color:var(--gold);">Balkan Property Investment Report 2026</a></li>
+          </ul>
+        </div>
+      </noscript>
+
       <!-- CTA Banner -->
       <div class="blog-cta">
         <div class="blog-cta__text">
