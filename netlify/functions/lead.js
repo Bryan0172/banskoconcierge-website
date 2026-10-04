@@ -268,6 +268,14 @@ exports.handler = async (event) => {
     // eine blinde SE4 eine tragende Kontrolle still abschaltet.
     const SE4_MARKER = 'se4-wirksamkeitsnachweis';
     const isSe4Proof = Object.values(data || {}).some((v) => String(v).toLowerCase().includes(SE4_MARKER));
+    // PATCH 04.10.2026 (SEO/GEO, REQ-2026-10-04-TURNSTILE-WARNMAILS-EIGENE-TESTS-NICHT-AN-ANDREAS-,
+    // Andreas im Chat: "Go Turnstile"): der SE4-Beleg bleibt erhalten (die Mail wird weiter gesendet),
+    // geht aber NUR an den Hub und traegt [TEST] + Einstufung EIGENTEST. Alle uebrigen Faelle
+    // (Bots, unbekannte, moegliche echte Besucher) laufen unveraendert wie bisher an Andreas.
+    const HUB_ONLY = [{ email: 'peakcare@peak-care.com', name: 'Peak Care Hub' }];
+    const diagShown = isSe4Proof
+      ? alarmDiag.replace(alarmVerdict, '<strong style="color:#666">EIGENTEST</strong> — SE4-Wirksamkeitsnachweis der SEO-Lane, kein echter Interessent.')
+      : alarmDiag;
     if (alarmIsBot && !isSe4Proof) {
       // Bewusst KEIN stiller Abbruch (A510 verlangt es woertlich): der Fall geht strukturiert
       // ins Netlify-Funktionslog, damit Volumen und Muster auswertbar bleiben. Ein Zaehler je
@@ -291,13 +299,15 @@ exports.handler = async (event) => {
         headers: { 'api-key': process.env.BREVO_API_KEY || '', 'content-type': 'application/json', accept: 'application/json' },
         body: JSON.stringify({
           sender: SENDER,
-          to: [{ email: 'andy7203@googlemail.com', name: 'Lead Alarm' }],
-          subject: `⚠️ LEAD BLOCKIERT (${reason}) — evtl. echter Lead, bitte prüfen (${formName})`,
+          to: isSe4Proof ? HUB_ONLY : [{ email: 'andy7203@googlemail.com', name: 'Lead Alarm' }],
+          subject: isSe4Proof
+            ? `[TEST] SE4-Wirksamkeitsnachweis BC — erwartete Turnstile-Blockade (${formName})`
+            : `⚠️ LEAD BLOCKIERT (${reason}) — evtl. echter Lead, bitte prüfen (${formName})`,
           htmlContent: `<div style="font-family:Arial,sans-serif">
-            <h2 style="color:#b00;margin:0 0 12px">⚠️ Anfrage wurde vom Spam-Schutz blockiert (${esc(reason)})</h2>
-            <p>Das kann ein echter Bot sein — oder ein Mensch, bei dem die Prüfung fehlgeschlagen ist. Rohdaten zur manuellen Einschätzung:</p>
+            <h2 style="color:${isSe4Proof ? '#666' : '#b00'};margin:0 0 12px">${isSe4Proof ? '🧪 Eigentest (SE4)' : '⚠️ Anfrage wurde vom Spam-Schutz blockiert'} (${esc(reason)})</h2>
+            <p>${isSe4Proof ? 'Eigener Testverkehr der SEO-Lane, keine Aktion nötig. Die Mail belegt, dass der Alarmweg dieser Marke funktioniert.' : 'Das kann ein echter Bot sein — oder ein Mensch, bei dem die Prüfung fehlgeschlagen ist. Rohdaten zur manuellen Einschätzung:'}</p>
             <table style="border-collapse:collapse;font-size:14px">${rows}</table>
-            ${alarmDiag}
+            ${diagShown}
             <p style="color:#888;font-size:12px;margin-top:14px">Quelle: banskoconcierge.com · Formular „${esc(formName)}" · Grund: ${esc(reason)}</p>
           </div>`,
         }),
