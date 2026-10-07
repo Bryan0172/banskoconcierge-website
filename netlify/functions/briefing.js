@@ -13,7 +13,7 @@
 const crypto = require('crypto');
 
 const LIST_ID = 11;
-const SENDER = { email: 'peakcare@peak-care.com', name: 'Bansko Concierge' };
+const SENDER = { email: 'hello@banskoconcierge.com', name: 'Bansko Concierge' };  // Brevo-Sender id 4, verifiziert 07.10.2026 (Andreas: nur hello@)
 const REPLY_TO = { email: 'hello@banskoconcierge.com', name: 'Bansko Concierge' };
 const BASE = 'https://banskoconcierge.com/briefing/';
 const MAX_AGE_MS = 7 * 24 * 3600 * 1000;
