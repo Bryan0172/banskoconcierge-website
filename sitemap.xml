@@ -317,4 +317,70 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://banskoconcierge.com/private-markets/balkan-prime-signals-1/"/>
   </url>
 
+  <!-- VARNA / ATLANTA x Bansko Concierge (live 07.10.2026) -->
+  <url>
+    <loc>https://banskoconcierge.com/varna/</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://banskoconcierge.com/varna/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://banskoconcierge.com/varna/en/"/>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://banskoconcierge.com/varna/bg/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://banskoconcierge.com/varna/ru/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://banskoconcierge.com/varna/he/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banskoconcierge.com/varna/"/>
+  </url>
+
+  <url>
+    <loc>https://banskoconcierge.com/varna/en/</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://banskoconcierge.com/varna/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://banskoconcierge.com/varna/en/"/>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://banskoconcierge.com/varna/bg/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://banskoconcierge.com/varna/ru/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://banskoconcierge.com/varna/he/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banskoconcierge.com/varna/"/>
+  </url>
+
+  <url>
+    <loc>https://banskoconcierge.com/varna/bg/</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://banskoconcierge.com/varna/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://banskoconcierge.com/varna/en/"/>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://banskoconcierge.com/varna/bg/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://banskoconcierge.com/varna/ru/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://banskoconcierge.com/varna/he/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banskoconcierge.com/varna/"/>
+  </url>
+
+  <url>
+    <loc>https://banskoconcierge.com/varna/ru/</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://banskoconcierge.com/varna/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://banskoconcierge.com/varna/en/"/>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://banskoconcierge.com/varna/bg/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://banskoconcierge.com/varna/ru/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://banskoconcierge.com/varna/he/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banskoconcierge.com/varna/"/>
+  </url>
+
+  <url>
+    <loc>https://banskoconcierge.com/varna/he/</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://banskoconcierge.com/varna/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://banskoconcierge.com/varna/en/"/>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://banskoconcierge.com/varna/bg/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://banskoconcierge.com/varna/ru/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://banskoconcierge.com/varna/he/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banskoconcierge.com/varna/"/>
+  </url>
+
 </urlset>
