@@ -85,6 +85,12 @@
   force = true
 
 [[redirects]]
+  from = "/blog/bansko-summer-guide"
+  to = "/blog/bulgaria-summer-property-check"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/blog/private-transfer-sofia-airport-to-bansko.html"
   to = "/blog/private-transfer-sofia-airport-to-bansko"
   status = 301
