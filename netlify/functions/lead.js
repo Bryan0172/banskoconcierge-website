@@ -8,6 +8,11 @@ const SENDER = { email: 'peakcare@peak-care.com', name: 'Bansko Concierge Websit
 const TO = [{ email: 'web@banskoconcierge.com', name: 'Bansko Concierge' }];
 const BCC = [{ email: 'andy7203@googlemail.com' }];
 const THANK_YOU = '/thank-you.html';
+// PATCH 14.10.2026 (SEO/GEO, Fr-Paket 16.10.): Turnstile-Fehlpfade leiten NICHT mehr auf die
+// Danke-Seite. Bis hierher sah ein blockierter Absender "Your enquiry has reached us" und die
+// Danke-Seite feuerte generate_lead, obwohl die Anfrage nur als Alarmmail im Hub lag. Die
+// Alarmmail bleibt unveraendert (kein Lead geht verloren). Honeypot/Spam bleiben auf THANK_YOU.
+const NOT_DELIVERED = '/enquiry-not-delivered.html';
 
 // GO 10.09.2026 (Andreas, A453-PCAI-Muster, REQ-2026-09-08-DER-HEUTE-AUF-PCAI-GESCHLOSSENE-
 // TURNSTILE-FAIL-OPEN-STEHT-WORTGLEICH-NOCH-IN-PEAK-CARE-COM — dieselbe Klasse, hier auf BC
@@ -343,13 +348,13 @@ exports.handler = async (event) => {
       // Mail nicht erkennbar, ob nachgefasst werden muss. Wortlaut identisch zu PC (lead.cjs
       // Z. 221). Aendert NICHTS an der Blockade selbst.
       await sendAlarm(token ? 'Turnstile-Verifikation fehlgeschlagen' : 'Turnstile-Token fehlte oder war abgelaufen');
-      return { statusCode: 303, headers: { Location: THANK_YOU }, body: '' };
+      return { statusCode: 303, headers: { Location: NOT_DELIVERED }, body: '' };
     }
     if (verdict === 'error') {
       // GO 10.09.2026 (Andreas, A453-PCAI-Muster): technischer Fehler ist hier kein seltener
       // Randfall gewesen, sondern reproduzierbar der Normalfall — deshalb wie 'fail' behandeln.
       await sendAlarm('Turnstile technisch nicht prüfbar — Verifikation ausgefallen');
-      return { statusCode: 303, headers: { Location: THANK_YOU }, body: '' };
+      return { statusCode: 303, headers: { Location: NOT_DELIVERED }, body: '' };
     }
   }
 

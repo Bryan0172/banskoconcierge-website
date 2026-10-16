@@ -6,6 +6,8 @@
   <title>Briefing | Bansko Concierge</title>
   <meta name="robots" content="noindex,follow" />
   <meta name="theme-color" content="#0A0E27" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LSNS9EKQ0P"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('consent','default',{'ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','analytics_storage':'denied','wait_for_update':500});try{if(localStorage.getItem('bc_consent')==='granted'){gtag('consent','update',{'analytics_storage':'granted'});}}catch(e){}gtag('js',new Date());gtag('config','G-LSNS9EKQ0P');</script>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="canonical" href="https://banskoconcierge.com/briefing/" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -97,6 +99,42 @@
 
   <footer>Bansko Concierge &middot; PEAK CARE EDPK, ul. Stragite 8, Bansko, Bulgaria &middot; <a href="/privacy.html" data-k="privacy"></a></footer>
 </div>
+<!-- GDPR Cookie-Consent banner (Consent Mode v2), gleiches Muster wie Startseite, Texte je Sprache ueber data-k -->
+<style>
+  #bc-consent{display:none;position:fixed;left:0;right:0;bottom:0;z-index:2147483000;background:#0A0E27;color:#E8D5B0;font-family:'Inter',system-ui,sans-serif;padding:16px;box-shadow:0 -4px 24px rgba(0,0,0,.4)}
+  #bc-consent.bc-show{display:block}
+  #bc-consent .bc-in{max-width:1080px;margin:0 auto;display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+  #bc-consent p{margin:0;font-size:13.5px;line-height:1.55;flex:1 1 340px;color:#cbb890}
+  #bc-consent a{color:#C9A96E;text-decoration:underline}
+  #bc-consent .bc-btns{display:flex;gap:10px;flex:0 0 auto}
+  #bc-consent button{border:0;border-radius:8px;padding:10px 20px;font-size:13.5px;font-weight:600;cursor:pointer;font-family:inherit}
+  #bc-consent .bc-ok{background:#C9A96E;color:#0A0E27}
+  #bc-consent .bc-no{background:transparent;color:#cbb890;border:1px solid rgba(201,169,110,.4)}
+</style>
+<div id="bc-consent" role="dialog" aria-live="polite" aria-label="Cookie consent">
+  <div class="bc-in">
+    <p><span data-k="ckText"></span> <a href="/privacy.html" data-k="privacy"></a></p>
+    <div class="bc-btns">
+      <button class="bc-no" id="bc-no" type="button" data-k="ckNo"></button>
+      <button class="bc-ok" id="bc-ok" type="button" data-k="ckOk"></button>
+    </div>
+  </div>
+</div>
+<script>
+  (function(){
+    var el=document.getElementById('bc-consent');
+    if(!el)return;
+    var stored=null; try{stored=localStorage.getItem('bc_consent');}catch(e){}
+    if(!stored){el.classList.add('bc-show');}
+    function choose(v){
+      try{localStorage.setItem('bc_consent',v);}catch(e){}
+      gtag('consent','update',{'analytics_storage': v==='granted'?'granted':'denied'});
+      el.classList.remove('bc-show');
+    }
+    document.getElementById('bc-ok').addEventListener('click',function(){choose('granted');});
+    document.getElementById('bc-no').addEventListener('click',function(){choose('decline');});
+  })();
+</script>
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <script>
 var T = {
@@ -113,7 +151,7 @@ var T = {
     ok:'Почти готово: изпратихме Ви имейл за потвърждение. Моля, проверете и папката със спам.',
     eEmail:'Моля, въведете валиден имейл адрес.', eConsent:'Моля, потвърдете съгласието.', eCaptcha:'Моля, потвърдете проверката за сигурност.', eSend:'Изпращането не успя. Моля, опитайте отново или пишете на hello@banskoconcierge.com.',
     cTitle:'Потвърдете абонамента си', cText:'Натиснете бутона, за да завършите абонирането за Bansko Concierge Briefing.', cBtn:'Потвърждавам', cErr:'Връзката е невалидна или е изтекла. Моля, абонирайте се отново.',
-    okTitle:'Абонаментът е потвърден', okText:'Благодарим Ви. Следващият брифинг ще получите на посочения имейл.', privacy:'Поверителност'
+    okTitle:'Абонаментът е потвърден', okText:'Благодарим Ви. Следващият брифинг ще получите на посочения имейл.', privacy:'Поверителност', ckText:'Използваме бисквитки за анонимна статистика (Google Analytics), само с Вашето съгласие. Основните функции не се засягат.', ckNo:'Отказвам', ckOk:'Приемам'
   },
   en: {
     label:'Property & investment briefing',
@@ -128,7 +166,7 @@ var T = {
     ok:'Almost done: we have sent you a confirmation email. Please also check your spam folder.',
     eEmail:'Please enter a valid email address.', eConsent:'Please confirm your consent.', eCaptcha:'Please complete the security check.', eSend:'Sending failed. Please try again or write to hello@banskoconcierge.com.',
     cTitle:'Confirm your subscription', cText:'Press the button to complete your subscription to the Bansko Concierge Briefing.', cBtn:'Confirm', cErr:'This link is invalid or has expired. Please subscribe again.',
-    okTitle:'Subscription confirmed', okText:'Thank you. You will receive the next briefing at the address you gave.', privacy:'Privacy'
+    okTitle:'Subscription confirmed', okText:'Thank you. You will receive the next briefing at the address you gave.', privacy:'Privacy', ckText:'We use cookies for anonymous statistics (Google Analytics), only with your consent. Essential functions are unaffected.', ckNo:'Decline', ckOk:'Accept'
   },
   de: {
     label:'Immobilien- und Investment-Briefing',
@@ -143,7 +181,7 @@ var T = {
     ok:'Fast geschafft: Wir haben Ihnen eine Bestätigungs-E-Mail geschickt. Bitte prüfen Sie auch den Spam-Ordner.',
     eEmail:'Bitte geben Sie eine gültige E-Mail-Adresse ein.', eConsent:'Bitte bestätigen Sie die Einwilligung.', eCaptcha:'Bitte schließen Sie die Sicherheitsprüfung ab.', eSend:'Senden fehlgeschlagen. Bitte versuchen Sie es erneut oder schreiben Sie an hello@banskoconcierge.com.',
     cTitle:'Anmeldung bestätigen', cText:'Drücken Sie den Button, um die Anmeldung zum Bansko Concierge Briefing abzuschließen.', cBtn:'Bestätigen', cErr:'Dieser Link ist ungültig oder abgelaufen. Bitte melden Sie sich erneut an.',
-    okTitle:'Anmeldung bestätigt', okText:'Vielen Dank. Das nächste Briefing erhalten Sie an die angegebene Adresse.', privacy:'Datenschutz'
+    okTitle:'Anmeldung bestätigt', okText:'Vielen Dank. Das nächste Briefing erhalten Sie an die angegebene Adresse.', privacy:'Datenschutz', ckText:'Wir verwenden Cookies für anonyme Statistik (Google Analytics), nur mit Ihrer Einwilligung. Grundfunktionen sind davon nicht betroffen.', ckNo:'Ablehnen', ckOk:'Zustimmen'
   }
 };
 var lang = 'bg';
