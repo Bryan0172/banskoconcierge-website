@@ -63,6 +63,7 @@
   <div class="form-wrap">
     <form name="investor-intake" method="POST" action="/.netlify/functions/lead">
       <input type="hidden" name="form-name" value="investor-intake" />
+      <input type="hidden" name="request_context" id="request_context" value="" />
       <p class="hp"><label>Don't fill this out: <input name="bot-field" /></label></p>
 
       <div class="fieldset">
@@ -81,7 +82,7 @@
           <div class="row2">
             <div class="field"><label>Country of residence</label><input type="text" name="country" /></div>
             <div class="field"><label>Your role</label>
-              <select name="role"><option>Buyer / private investor</option><option>Seller of a prime asset</option><option>Co-broker / partner</option><option>Family office / adviser</option></select>
+              <select name="role"><option value="" selected>— please choose —</option><option>Buyer / private investor</option><option>Seller of a prime asset</option><option>Co-broker / partner</option><option>Family office / adviser</option></select>
             </div>
           </div>
           <div class="field"><label>How did you hear about us?</label>
@@ -95,38 +96,38 @@
         <div class="form-grid">
           <div class="row2">
             <div class="field"><label>Budget range</label>
-              <select name="budget"><option>Under €150k</option><option>€150k–300k</option><option>€300k–600k</option><option>€600k–1M</option><option>€1M–3M</option><option>€3M+</option></select>
+              <select name="budget"><option value="" selected>— please choose —</option><option>Under €150k</option><option>€150k–300k</option><option>€300k–600k</option><option>€600k–1M</option><option>€1M–3M</option><option>€3M+</option></select>
             </div>
             <div class="field"><label>Funding</label>
-              <select name="funding"><option>All equity</option><option>Financing needed</option><option>Undecided</option></select>
+              <select name="funding"><option value="" selected>— please choose —</option><option>All equity</option><option>Financing needed</option><option>Undecided</option></select>
             </div>
           </div>
           <div class="row2">
             <div class="field"><label>Target region(s)</label>
-              <select name="region"><option>Bansko</option><option>Razlog</option><option>Sofia</option><option>Bulgaria — wider</option><option>Northern Greece</option><option>Selected Balkan markets (partner-led)</option><option>Open</option></select>
+              <select name="region"><option value="" selected>— please choose —</option><option>Bansko</option><option>Razlog</option><option>Sofia</option><option>Bulgaria — wider</option><option>Northern Greece</option><option>Selected Balkan markets (partner-led)</option><option>Open</option></select>
             </div>
             <div class="field"><label>Asset type</label>
-              <select name="asset_type"><option>Apartment</option><option>Villa</option><option>Land / development</option><option>Hotel / boutique</option><option>Renovation object</option><option>Open</option></select>
+              <select name="asset_type"><option value="" selected>— please choose —</option><option>Apartment</option><option>Villa</option><option>Land / development</option><option>Hotel / boutique</option><option>Renovation object</option><option>Open</option></select>
             </div>
           </div>
           <div class="row2">
             <div class="field"><label>Use</label>
-              <select name="use"><option>Investment</option><option>Own use</option><option>Mixed</option></select>
+              <select name="use"><option value="" selected>— please choose —</option><option>Investment</option><option>Own use</option><option>Mixed</option></select>
             </div>
             <div class="field"><label>Risk profile</label>
-              <select name="risk"><option>Conservative</option><option>Balanced</option><option>Opportunistic</option></select>
+              <select name="risk"><option value="" selected>— please choose —</option><option>Conservative</option><option>Balanced</option><option>Opportunistic</option></select>
             </div>
           </div>
           <div class="row2">
             <div class="field"><label>Timeline</label>
-              <select name="timeline"><option>Now</option><option>3–6 months</option><option>6–12 months</option><option>Over 12 months</option></select>
+              <select name="timeline"><option value="" selected>— please choose —</option><option>Now</option><option>3–6 months</option><option>6–12 months</option><option>Over 12 months</option></select>
             </div>
             <div class="field"><label>Need technical due diligence?</label>
-              <select name="dd_need"><option>Yes — Buyer Check / report</option><option>Maybe</option><option>No</option></select>
+              <select name="dd_need"><option value="" selected>— please choose —</option><option>Yes — Buyer Check / report</option><option>Maybe</option><option>No</option></select>
             </div>
           </div>
           <div class="field"><label>Operator / management need</label>
-            <select name="operator"><option>I will manage it myself</option><option>I need management / rental operation</option><option>Not sure yet</option></select>
+            <select name="operator"><option value="" selected>— please choose —</option><option>I will manage it myself</option><option>I need management / rental operation</option><option>Not sure yet</option></select>
           </div>
         </div>
       </div>
@@ -150,6 +151,24 @@
     © 2026 Bansko Concierge · Private Markets ·
     <a href="/due-diligence">Due Diligence</a>
   </footer>
+  <script>
+    // EIL 19.10.2026 (SEO/GEO): Einstieg ueber /due-diligence "Order a Buyer Check" kommt mit
+    // ?interest=buyer-check. Dann NUR das Interesse vorwaehlen und die Anfrage kennzeichnen;
+    // Budget/Finanzierung/Zeitrahmen bleiben neutral ("please choose"), nichts wird unterstellt.
+    // Formular-Absendung setzt ein Einmal-Flag fuer die Danke-Seite (generate_lead nur nach echter Absendung).
+    (function(){
+      var form=document.querySelector('form[name="investor-intake"]');
+      if(!form)return;
+      var q=null; try{q=new URLSearchParams(location.search).get('interest');}catch(e){}
+      if(q==='buyer-check'){
+        var ctx=document.getElementById('request_context'); if(ctx)ctx.value='Buyer Check (via /due-diligence)';
+        var dd=form.querySelector('select[name="dd_need"]'); if(dd)dd.value='Yes — Buyer Check / report';
+      }
+      form.addEventListener('submit',function(){
+        try{sessionStorage.setItem('bc_lead_pending',JSON.stringify({f:'investor-intake',t:Date.now()}));}catch(e){}
+      });
+    })();
+  </script>
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <!-- GDPR Cookie-Consent banner (Consent Mode v2) -->
 <style>

@@ -2011,7 +2011,7 @@
                 <option>Other Request</option>
               </select>
             </div>
-            <div class="form-row">
+            <div class="form-row" id="arrival-guests-row">
               <div class="form-group">
                 <label for="arrival">Arrival date</label>
                 <input type="date" id="arrival" name="arrival" />
@@ -2282,6 +2282,28 @@
     if(no)no.addEventListener('click',function(){choose('decline');});
   })();
 </script>
+  <script>
+    // EIL 19.10.2026 (SEO/GEO): Owner-Care-Anfragen reisen nicht an — Anreisedatum/Gaeste ausblenden,
+    // Werte leeren und deaktivieren (wird dann nicht mitgesendet). Beide Felder waren und bleiben optional;
+    // lead.js braucht sie nicht (nur Zaehlfeld der Warnmail-Einstufung, leer = unschaedlich).
+    // Absendung setzt ein Einmal-Flag fuer die Danke-Seite (generate_lead nur nach echter Absendung).
+    (function(){
+      var form=document.querySelector('form[name="contact"]');
+      if(!form)return;
+      var sel=document.getElementById('service'), row=document.getElementById('arrival-guests-row');
+      function sync(){
+        if(!sel||!row)return;
+        var hide=sel.value==='Owner Care Bulgaria';
+        row.style.display=hide?'none':'';
+        var inputs=row.querySelectorAll('input');
+        for(var i=0;i<inputs.length;i++){ if(hide){inputs[i].value='';} inputs[i].disabled=hide; }
+      }
+      if(sel){sel.addEventListener('change',sync); sync();}
+      form.addEventListener('submit',function(){
+        try{sessionStorage.setItem('bc_lead_pending',JSON.stringify({f:'contact',t:Date.now()}));}catch(e){}
+      });
+    })();
+  </script>
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </body>
 </html>

@@ -185,6 +185,15 @@
   <footer class="footer">
     © 2026 Bansko Concierge · <a href="/private-markets/">Private Markets</a> · <a href="/investor-support">Investor Support</a>
   </footer>
+  <script>
+    // EIL 19.10.2026 (SEO/GEO): Einmal-Flag fuer die Danke-Seite (generate_lead nur nach echter Absendung).
+    (function(){
+      var form=document.querySelector('form[name="balkan-report-request"]');
+      if(form)form.addEventListener('submit',function(){
+        try{sessionStorage.setItem('bc_lead_pending',JSON.stringify({f:'balkan-report-request',t:Date.now()}));}catch(e){}
+      });
+    })();
+  </script>
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <!-- GDPR Cookie-Consent banner (Consent Mode v2) -->
 <style>
