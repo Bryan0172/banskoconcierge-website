@@ -262,8 +262,8 @@ function buildArticleHTML({ slug, title, content, metadescription, thumbnail, th
       <div class="footer__bottom">
         <div class="footer__copy">© 2026 Bansko Concierge VIP. All rights reserved.</div>
         <div class="footer__legal">
-          <a href="https://sites.google.com/peak-care.com/legalimprint/startseite" target="_blank">Legal Imprint</a>
-          <a href="https://sites.google.com/peak-care.com/privacy-policy/startseite" target="_blank">Privacy Policy</a>
+          <a href="/imprint">Legal Imprint</a>
+          <a href="/privacy">Privacy Policy</a>
         </div>
       </div>
     </div>

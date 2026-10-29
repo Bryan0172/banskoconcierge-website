@@ -29,6 +29,18 @@
 
 # Phantom URL redirects — discovered by Google via analytics/old links
 [[redirects]]
+  from = "/impressum"
+  to = "/imprint"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/legal-notice"
+  to = "/imprint"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/home"
   to = "/"
   status = 301
