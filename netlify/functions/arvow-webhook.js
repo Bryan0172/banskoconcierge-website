@@ -239,14 +239,14 @@ function buildArticleHTML({ slug, title, content, metadescription, thumbnail, th
         <div style="margin-top:48px;background:var(--navy-lt);border:1px solid rgba(201,169,110,0.2);border-radius:4px;padding:28px 32px;">
           <div style="font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">Plan Your Balkan Experience</div>
           <p style="font-size:0.9rem;color:rgba(248,246,240,0.75);margin-bottom:20px;">Ready to experience the Balkans in style? Contact Bansko Concierge VIP directly — available 24/7 via WhatsApp.</p>
-          <a href="https://wa.me/359895762785?text=Hello%2C%20I%20read%20your%20article%20and%20would%20like%20to%20enquire." target="_blank" class="btn btn--gold" style="font-size:13px;">WhatsApp +359 895 762 785</a>
+          <a href="https://wa.me/359895762785?text=Hello%2C%20I%20read%20your%20article%20and%20would%20like%20to%20enquire.%0A%0ARef%3A%20BC-W-blog-${encodeURIComponent(slug.slice(0, 20).replace(/-+$/, ''))}-en" target="_blank" class="btn btn--gold" style="font-size:13px;">WhatsApp +359 895 762 785</a>
         </div>
       </article>
       <aside class="article-sidebar">
         <div class="sidebar-cta">
           <h4>Book Your Experience</h4>
           <p>Private transfers, bespoke experiences and white-glove concierge across the Balkans.</p>
-          <a href="https://wa.me/359895762785?text=Hello%2C%20I%20read%20your%20article%20and%20would%20like%20to%20enquire." target="_blank" class="btn btn--gold">WhatsApp Now</a>
+          <a href="https://wa.me/359895762785?text=Hello%2C%20I%20read%20your%20article%20and%20would%20like%20to%20enquire.%0A%0ARef%3A%20BC-W-blog-${encodeURIComponent(slug.slice(0, 20).replace(/-+$/, ''))}-en" target="_blank" class="btn btn--gold">WhatsApp Now</a>
           <p style="margin-top:12px;font-size:0.75rem;">+359 895 762 785</p>
         </div>
       </aside>
