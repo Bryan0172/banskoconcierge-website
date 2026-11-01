@@ -70,23 +70,23 @@
         <div class="fieldset__legend">About you</div>
         <div class="form-grid">
           <div class="row2">
-            <div class="field"><label>Name</label><input type="text" name="name" required /></div>
-            <div class="field"><label>Email</label><input type="email" name="email" required /></div>
+            <div class="field"><label for="f-name">Name</label><input id="f-name" type="text" name="name" required /></div>
+            <div class="field"><label for="f-email">Email</label><input id="f-email" type="email" name="email" required /></div>
           </div>
           <div class="row2">
-            <div class="field"><label>Phone</label><input type="tel" name="phone" /></div>
-            <div class="field"><label>Preferred language</label>
-              <select name="language"><option>English</option><option>Deutsch</option><option>Български</option><option>Français</option><option>Русский</option></select>
+            <div class="field"><label for="f-phone">Phone</label><input id="f-phone" type="tel" name="phone" /></div>
+            <div class="field"><label for="f-language">Preferred language</label>
+              <select id="f-language" name="language"><option>English</option><option>Deutsch</option><option>Български</option><option>Français</option><option>Русский</option></select>
             </div>
           </div>
           <div class="row2">
-            <div class="field"><label>Country of residence</label><input type="text" name="country" /></div>
-            <div class="field"><label>Your role</label>
-              <select name="role"><option value="" selected>— please choose —</option><option>Buyer / private investor</option><option>Seller of a prime asset</option><option>Co-broker / partner</option><option>Family office / adviser</option></select>
+            <div class="field"><label for="f-country">Country of residence</label><input id="f-country" type="text" name="country" /></div>
+            <div class="field"><label for="f-role">Your role</label>
+              <select id="f-role" name="role"><option value="" selected>— please choose —</option><option>Buyer / private investor</option><option>Seller of a prime asset</option><option>Co-broker / partner</option><option>Family office / adviser</option></select>
             </div>
           </div>
-          <div class="field"><label>How did you hear about us?</label>
-            <select name="referral_source"><option value="">— please choose —</option><option>Google / search</option><option>ChatGPT / AI assistant</option><option>Facebook</option><option>Instagram</option><option>LinkedIn</option><option>TikTok</option><option>Referral / word of mouth</option><option>A partner broker</option><option>Other</option></select>
+          <div class="field"><label for="f-referral_source">How did you hear about us?</label>
+            <select id="f-referral_source" name="referral_source"><option value="">— please choose —</option><option>Google / search</option><option>ChatGPT / AI assistant</option><option>Facebook</option><option>Instagram</option><option>LinkedIn</option><option>TikTok</option><option>Referral / word of mouth</option><option>A partner broker</option><option>Other</option></select>
           </div>
         </div>
       </div>
@@ -95,46 +95,46 @@
         <div class="fieldset__legend">What you are looking for</div>
         <div class="form-grid">
           <div class="row2">
-            <div class="field"><label>Budget range</label>
-              <select name="budget"><option value="" selected>— please choose —</option><option>Under €150k</option><option>€150k–300k</option><option>€300k–600k</option><option>€600k–1M</option><option>€1M–3M</option><option>€3M+</option></select>
+            <div class="field"><label for="f-budget">Budget range</label>
+              <select id="f-budget" name="budget"><option value="" selected>— please choose —</option><option>Under €150k</option><option>€150k–300k</option><option>€300k–600k</option><option>€600k–1M</option><option>€1M–3M</option><option>€3M+</option></select>
             </div>
-            <div class="field"><label>Funding</label>
-              <select name="funding"><option value="" selected>— please choose —</option><option>All equity</option><option>Financing needed</option><option>Undecided</option></select>
-            </div>
-          </div>
-          <div class="row2">
-            <div class="field"><label>Target region(s)</label>
-              <select name="region"><option value="" selected>— please choose —</option><option>Bansko</option><option>Razlog</option><option>Sofia</option><option>Bulgaria — wider</option><option>Northern Greece</option><option>Selected Balkan markets (partner-led)</option><option>Open</option></select>
-            </div>
-            <div class="field"><label>Asset type</label>
-              <select name="asset_type"><option value="" selected>— please choose —</option><option>Apartment</option><option>Villa</option><option>Land / development</option><option>Hotel / boutique</option><option>Renovation object</option><option>Open</option></select>
+            <div class="field"><label for="f-funding">Funding</label>
+              <select id="f-funding" name="funding"><option value="" selected>— please choose —</option><option>All equity</option><option>Financing needed</option><option>Undecided</option></select>
             </div>
           </div>
           <div class="row2">
-            <div class="field"><label>Use</label>
-              <select name="use"><option value="" selected>— please choose —</option><option>Investment</option><option>Own use</option><option>Mixed</option></select>
+            <div class="field"><label for="f-region">Target region(s)</label>
+              <select id="f-region" name="region"><option value="" selected>— please choose —</option><option>Bansko</option><option>Razlog</option><option>Sofia</option><option>Bulgaria — wider</option><option>Northern Greece</option><option>Selected Balkan markets (partner-led)</option><option>Open</option></select>
             </div>
-            <div class="field"><label>Risk profile</label>
-              <select name="risk"><option value="" selected>— please choose —</option><option>Conservative</option><option>Balanced</option><option>Opportunistic</option></select>
+            <div class="field"><label for="f-asset_type">Asset type</label>
+              <select id="f-asset_type" name="asset_type"><option value="" selected>— please choose —</option><option>Apartment</option><option>Villa</option><option>Land / development</option><option>Hotel / boutique</option><option>Renovation object</option><option>Open</option></select>
             </div>
           </div>
           <div class="row2">
-            <div class="field"><label>Timeline</label>
-              <select name="timeline"><option value="" selected>— please choose —</option><option>Now</option><option>3–6 months</option><option>6–12 months</option><option>Over 12 months</option></select>
+            <div class="field"><label for="f-use">Use</label>
+              <select id="f-use" name="use"><option value="" selected>— please choose —</option><option>Investment</option><option>Own use</option><option>Mixed</option></select>
             </div>
-            <div class="field"><label>Need technical due diligence?</label>
-              <select name="dd_need"><option value="" selected>— please choose —</option><option>Yes — Buyer Check / report</option><option>Maybe</option><option>No</option></select>
+            <div class="field"><label for="f-risk">Risk profile</label>
+              <select id="f-risk" name="risk"><option value="" selected>— please choose —</option><option>Conservative</option><option>Balanced</option><option>Opportunistic</option></select>
             </div>
           </div>
-          <div class="field"><label>Operator / management need</label>
-            <select name="operator"><option value="" selected>— please choose —</option><option>I will manage it myself</option><option>I need management / rental operation</option><option>Not sure yet</option></select>
+          <div class="row2">
+            <div class="field"><label for="f-timeline">Timeline</label>
+              <select id="f-timeline" name="timeline"><option value="" selected>— please choose —</option><option>Now</option><option>3–6 months</option><option>6–12 months</option><option>Over 12 months</option></select>
+            </div>
+            <div class="field"><label for="f-dd_need">Need technical due diligence?</label>
+              <select id="f-dd_need" name="dd_need"><option value="" selected>— please choose —</option><option>Yes — Buyer Check / report</option><option>Maybe</option><option>No</option></select>
+            </div>
+          </div>
+          <div class="field"><label for="f-operator">Operator / management need</label>
+            <select id="f-operator" name="operator"><option value="" selected>— please choose —</option><option>I will manage it myself</option><option>I need management / rental operation</option><option>Not sure yet</option></select>
           </div>
         </div>
       </div>
 
       <div class="fieldset">
         <div class="fieldset__legend">Anything else</div>
-        <div class="field"><label>Message (optional)</label><textarea name="message" rows="4" placeholder="Return target, specific requirements, or a property you already have in mind…"></textarea></div>
+        <div class="field"><label for="f-message">Message (optional)</label><textarea id="f-message" name="message" rows="4" placeholder="Return target, specific requirements, or a property you already have in mind…"></textarea></div>
       </div>
 
       <div class="cf-turnstile" data-sitekey="0x4AAAAAADtt3czGBcYEI0zB" data-theme="light" style="margin-bottom:12px;"></div>
@@ -152,7 +152,7 @@
 
     © 2026 Bansko Concierge · Private Markets ·
     <a href="/due-diligence">Due Diligence</a>
-  </footer>
+  <div class="bc-legal-links" style="flex:0 0 100%;width:100%;box-sizing:border-box;text-align:center;font-size:.78rem;padding:12px 16px 6px;opacity:.8"><a href="/privacy" style="color:inherit;text-decoration:underline">Privacy Policy</a> &middot; <a href="/imprint" style="color:inherit;text-decoration:underline">Legal Imprint</a></div></footer>
   <script>
     // EIL 19.10.2026 (SEO/GEO): Einstieg ueber /due-diligence "Order a Buyer Check" kommt mit
     // ?interest=buyer-check. Dann NUR das Interesse vorwaehlen und die Anfrage kennzeichnen;
