@@ -397,3 +397,40 @@
   to = "/404.html"
   status = 404
   force = true
+
+# A905 35 Villen: Projekt beendet, Seiten entfernt (Andreas 10.11., Abbau 11.11.)
+[[redirects]]
+  from = "/varna/bg/*"
+  to = "/private-markets/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/varna/en/*"
+  to = "/private-markets/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/varna/ru/*"
+  to = "/private-markets/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/varna/he/*"
+  to = "/private-markets/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/varna/*"
+  to = "/de/private-markets/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/varna"
+  to = "/de/private-markets/"
+  status = 301
+  force = true
