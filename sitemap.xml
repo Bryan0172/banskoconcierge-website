@@ -143,24 +143,70 @@
 
 
   <url>
-    <loc>https://banskoconcierge.com/intermediaries/</loc>
-    <lastmod>2026-11-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://banskoconcierge.com/intermediaries/"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://banskoconcierge.com/de/vermittler/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://banskoconcierge.com/intermediaries/"/>
-  </url>
-
-  <url>
     <loc>https://banskoconcierge.com/de/vermittler/</loc>
     <lastmod>2026-11-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://banskoconcierge.com/intermediaries/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://banskoconcierge.com/de/vermittler/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://banskoconcierge.com/intermediaries/"/>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://banskoconcierge.com/bg/intermediaries/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://banskoconcierge.com/ru/intermediaries/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://banskoconcierge.com/he/intermediaries/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://banskoconcierge.com/intermediaries/"/>
   </url>
+
+  <url>
+    <loc>https://banskoconcierge.com/intermediaries/</loc>
+    <lastmod>2026-11-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://banskoconcierge.com/de/vermittler/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://banskoconcierge.com/intermediaries/"/>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://banskoconcierge.com/bg/intermediaries/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://banskoconcierge.com/ru/intermediaries/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://banskoconcierge.com/he/intermediaries/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banskoconcierge.com/intermediaries/"/>
+  </url>
+
+  <url>
+    <loc>https://banskoconcierge.com/bg/intermediaries/</loc>
+    <lastmod>2026-11-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://banskoconcierge.com/de/vermittler/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://banskoconcierge.com/intermediaries/"/>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://banskoconcierge.com/bg/intermediaries/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://banskoconcierge.com/ru/intermediaries/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://banskoconcierge.com/he/intermediaries/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banskoconcierge.com/intermediaries/"/>
+  </url>
+
+  <url>
+    <loc>https://banskoconcierge.com/ru/intermediaries/</loc>
+    <lastmod>2026-11-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://banskoconcierge.com/de/vermittler/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://banskoconcierge.com/intermediaries/"/>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://banskoconcierge.com/bg/intermediaries/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://banskoconcierge.com/ru/intermediaries/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://banskoconcierge.com/he/intermediaries/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banskoconcierge.com/intermediaries/"/>
+  </url>
+
+  <url>
+    <loc>https://banskoconcierge.com/he/intermediaries/</loc>
+    <lastmod>2026-11-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://banskoconcierge.com/de/vermittler/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://banskoconcierge.com/intermediaries/"/>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://banskoconcierge.com/bg/intermediaries/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://banskoconcierge.com/ru/intermediaries/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://banskoconcierge.com/he/intermediaries/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://banskoconcierge.com/intermediaries/"/>
+  </url>
+
   <url>
     <loc>https://banskoconcierge.com/balkan-property-investment-report-2026/</loc>
     <lastmod>2026-07-20</lastmod>
