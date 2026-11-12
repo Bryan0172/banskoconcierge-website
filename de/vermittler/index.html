@@ -125,6 +125,73 @@
       .footer__bottom { flex-direction: column; text-align: center; gap: 16px; }
       .page-hero { padding: 130px 0 70px; }
     }
+  
+    /* Vermittlerseite: Design-Ebene (Text unveraendert, MARKETING v2) */
+    .vm-hero { position: relative; padding: 150px 0 80px; overflow: hidden; }
+    .vm-hero::before { content: ""; position: absolute; inset: 0; background: url('/assets/images/trust-bg.jpg') center 35% / cover no-repeat; opacity: 0.28; }
+    .vm-hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, var(--navy) 18%, rgba(10,14,39,0.72) 62%, rgba(10,14,39,0.55) 100%), linear-gradient(0deg, var(--navy) 0%, rgba(10,14,39,0) 40%); }
+    .vm-hero .container { position: relative; z-index: 1; }
+    .vm-hero__grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 56px; align-items: center; }
+    .vm-hero__eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 22px; }
+    .vm-hero__title { font-family: var(--font-serif); font-size: clamp(2.2rem, 4.2vw, 3.7rem); font-weight: 400; line-height: 1.14; letter-spacing: -0.02em; margin-bottom: 26px; }
+    .vm-hero__sub { font-size: 1.04rem; color: rgba(248,246,240,0.8); line-height: 1.85; max-width: 640px; margin-bottom: 34px; }
+    .vm-hero__ctas { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+    .vm-photo { position: relative; border-radius: 6px; overflow: hidden; border: 1px solid rgba(201,169,110,0.35); box-shadow: 0 30px 80px rgba(0,0,0,0.55); }
+    .vm-photo img { display: block; width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4 / 5; filter: saturate(0.92) contrast(1.03); }
+    .vm-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(10,14,39,0.55) 0%, rgba(10,14,39,0) 45%); pointer-events: none; }
+    .vm-photo__tag { position: absolute; left: 16px; bottom: 14px; z-index: 2; font-size: 10.5px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-lt); }
+    .vm-fear { padding: 84px 0 70px; }
+    .vm-fear h2 { font-family: var(--font-serif); font-size: clamp(1.7rem, 3vw, 2.5rem); font-weight: 400; line-height: 1.2; margin-bottom: 18px; }
+    .vm-fear__lead { max-width: 780px; font-size: 1.02rem; color: rgba(248,246,240,0.78); line-height: 1.85; margin-bottom: 44px; }
+    .vm-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+    .vm-card { background: linear-gradient(180deg, rgba(30,35,64,0.85), rgba(20,24,48,0.85)); border: 1px solid rgba(201,169,110,0.22); border-top: 2px solid var(--gold); border-radius: 4px; padding: 26px 22px 28px; font-size: 0.95rem; line-height: 1.65; color: rgba(248,246,240,0.86); }
+    .vm-card__n { font-family: var(--font-serif); font-size: 2rem; color: rgba(201,169,110,0.55); line-height: 1; margin-bottom: 14px; display: block; }
+    .vm-split { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 56px; align-items: center; }
+    .vm-split h2 { font-family: var(--font-serif); font-size: clamp(1.7rem, 3vw, 2.5rem); font-weight: 400; line-height: 1.2; margin-bottom: 18px; }
+    .vm-split p { font-size: 0.99rem; color: rgba(248,246,240,0.74); line-height: 1.85; margin-bottom: 18px; }
+    .vm-split .check-list { list-style: none; padding: 0; margin: 22px 0; display: flex; flex-direction: column; gap: 16px; }
+    .vm-split .check-list li { display: flex; gap: 14px; align-items: flex-start; font-size: 0.98rem; color: rgba(248,246,240,0.82); line-height: 1.65; }
+    .vm-split .check-list li::before { content: "\2713"; font-weight: 700; color: var(--gold); flex-shrink: 0; }
+    .vm-split .vm-photo img { aspect-ratio: 3 / 4; }
+    .vm-role { padding: 84px 0; }
+    .vm-role__box { max-width: 900px; border: 1px solid rgba(201,169,110,0.3); border-left: 4px solid var(--gold); background: rgba(201,169,110,0.05); border-radius: 4px; padding: 40px 44px; }
+    .vm-role__box h2 { font-family: var(--font-serif); font-size: clamp(1.6rem, 2.8vw, 2.3rem); font-weight: 400; margin-bottom: 20px; }
+    .vm-role__box p { font-size: 1rem; color: rgba(248,246,240,0.8); line-height: 1.85; margin-bottom: 16px; }
+    .vm-role__box p:last-child { margin-bottom: 0; }
+    .vm-circle { padding: 70px 0; text-align: center; }
+    .vm-circle h2 { font-family: var(--font-serif); font-size: clamp(1.6rem, 2.8vw, 2.3rem); font-weight: 400; margin-bottom: 18px; }
+    .vm-circle p { max-width: 720px; margin: 0 auto; font-size: 1rem; color: rgba(248,246,240,0.75); line-height: 1.85; }
+    .vm-steps-wrap { padding: 80px 0; }
+    .vm-steps-wrap h2 { margin-bottom: 8px; }
+    .vm-steps-wrap .steps { counter-reset: s; position: relative; }
+    .vm-steps-wrap .step { border-top: 1px solid rgba(201,169,110,0.4); padding-top: 22px; }
+    .vm-steps-wrap .step__num { color: rgba(201,169,110,0.7); }
+    .vm-ask { padding: 96px 0; background: radial-gradient(ellipse at 50% 0%, rgba(201,169,110,0.12), transparent 62%), var(--navy-mid); text-align: center; }
+    .vm-ask h2 { font-family: var(--font-serif); font-size: clamp(1.9rem, 3.6vw, 3rem); font-weight: 400; line-height: 1.2; margin-bottom: 18px; }
+    .vm-ask__p { font-size: 1.02rem; color: rgba(248,246,240,0.78); margin-bottom: 34px !important; }
+    .vm-ask__btns { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-bottom: 30px; }
+    .vm-ask__mail { font-size: 0.95rem; color: rgba(248,246,240,0.6); }
+    .vm-ask__mail a { color: var(--gold-lt); border-bottom: 1px solid rgba(201,169,110,0.4); }
+    .vm-ask__small { margin-top: 36px; font-size: 0.82rem; color: rgba(248,246,240,0.45); line-height: 1.7; }
+    .vm-ask__cross { margin-top: 10px; font-size: 0.88rem; color: rgba(248,246,240,0.65); }
+    .vm-ask__cross a { color: var(--gold); border-bottom: 1px solid rgba(201,169,110,0.4); }
+    .btn--wa { background: transparent; color: var(--white); border-color: rgba(248,246,240,0.35); }
+    .btn--wa:hover { background: rgba(248,246,240,0.08); }
+    @media (max-width: 960px) {
+      .vm-hero { padding: 120px 0 56px; }
+      .vm-hero__grid, .vm-split { grid-template-columns: 1fr; gap: 36px; }
+      .vm-hero::after { background: linear-gradient(0deg, var(--navy) 0%, rgba(10,14,39,0.78) 55%, rgba(10,14,39,0.7) 100%); }
+      .vm-cards { grid-template-columns: 1fr 1fr; }
+      .vm-photo img { aspect-ratio: 16 / 10; }
+      .vm-split .vm-photo img { aspect-ratio: 16 / 10; }
+    }
+    @media (max-width: 560px) {
+      .vm-cards { grid-template-columns: 1fr; }
+      .vm-role__box { padding: 28px 22px; }
+      .vm-hero__ctas .btn, .vm-ask__btns .btn { width: 100%; justify-content: center; }
+      .vm-fear, .vm-role, .vm-circle, .vm-steps-wrap, .vm-ask { padding-top: 56px; padding-bottom: 56px; }
+    }
+
   </style>
   <script type="application/ld+json">
 {
@@ -189,72 +256,77 @@
     <a href="https://wa.me/359895762785" target="_blank" class="nav__mobile-wa">WhatsApp</a>
   </div>
 
-  <section class="page-hero">
-    <div class="page-hero__bg"></div>
+  <section class="vm-hero">
     <div class="container">
-      <div class="page-hero__eyebrow">BC Private Markets · Für Vermittler und Verkäufer · Off-Market</div>
-      <h1 class="page-hero__title">Ihr Objekt bleibt in Ihrer Hand. Wir prüfen, bevor etwas kursiert.</h1>
-      <p class="page-hero__sub">Für Häuser, die nicht inserieren: Off-Market-Berater, Family Offices, Co-Broker, Notare, Gutachter, Nachlass- und Insolvenzverwalter, Hotelmakler mit stillem Mandat. Wenn Sie ein Objekt still bewegen, brauchen Sie keinen weiteren Makler. Sie brauchen eine Gegenseite, die das Gebäude prüfen kann, bevor Unterlagen die Runde machen.</p>
-      <div class="page-hero__ctas">
-        <a href="mailto:hello@banskoconcierge.com" class="btn btn--gold">Vertraulich Kontakt aufnehmen</a>
+      <div class="vm-hero__grid">
+        <div>
+          <div class="vm-hero__eyebrow">BC Private Markets · Für Vermittler und Verkäufer · Off-Market</div>
+          <h1 class="vm-hero__title">Ihr Objekt bleibt in Ihrer Hand. Wir prüfen, bevor etwas kursiert.</h1>
+          <p class="vm-hero__sub">Für Häuser, die nicht inserieren: Off-Market-Berater, Family Offices, Co-Broker, Notare, Gutachter, Nachlass- und Insolvenzverwalter, Hotelmakler mit stillem Mandat. Wenn Sie ein Objekt still bewegen, brauchen Sie keinen weiteren Makler. Sie brauchen eine Gegenseite, die das Gebäude prüfen kann, bevor Unterlagen die Runde machen.</p>
+          <div class="vm-hero__ctas">
+            <a href="mailto:hello@banskoconcierge.com" class="btn btn--gold">Vertraulich Kontakt aufnehmen</a>
+            <a href="https://wa.me/359895762785?text=Hallo%20Bansko%20Concierge%2C%20ich%20m%C3%B6chte%20ein%20Objekt%20vertraulich%20besprechen.%0A%0ARef%3A%20BC-W-vermittler-de" target="_blank" rel="noopener" class="btn btn--wa">WhatsApp</a>
+          </div>
+        </div>
+        <figure class="vm-photo">
+          <img src="/assets/images/pruefung-vor-ort.jpg" alt="Prüftermin vor Ort: Innenraum im Rohbau mit Gerüst und Werkzeug" width="1200" height="1600" fetchpriority="high" />
+          <figcaption class="vm-photo__tag">Prüfung vor Ort</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="vm-fear section--mid">
+    <div class="container">
+      <h2>Wie wir vertraulich zusammenarbeiten</h2>
+      <p class="vm-fear__lead">Bei einem stillen Verkauf ist die Sorge selten, keinen Käufer zu finden. Sie ist, dass das Objekt kursiert und an Wert verliert. Darauf ist unser Ablauf ausgerichtet:</p>
+      <div class="vm-cards">
+        <div class="vm-card"><span class="vm-card__n">01</span>Bei einem Suchauftrag vertreten wir nur den Käufer.</div>
+        <div class="vm-card"><span class="vm-card__n">02</span>Vertrauliche Objektdetails geben wir ausschließlich im vorher schriftlich vereinbarten Empfängerkreis weiter.</div>
+        <div class="vm-card"><span class="vm-card__n">03</span>Kein Exposé auf unserer Website, kein Objekt in sozialen Medien, kein Verteiler.</div>
+        <div class="vm-card"><span class="vm-card__n">04</span>Ihre Rolle und die Vergütungsbedingungen unserer Zusammenarbeit vereinbaren wir vor Beginn schriftlich.</div>
       </div>
     </div>
   </section>
 
   <section class="content-section">
     <div class="container">
-      <div class="content-section__inner">
-        <h2>Wie wir vertraulich zusammenarbeiten</h2>
-        <div class="divider"></div>
-        <p>Bei einem stillen Verkauf ist die Sorge selten, keinen Käufer zu finden. Sie ist, dass das Objekt kursiert und an Wert verliert. Darauf ist unser Ablauf ausgerichtet:</p>
-        <ul class="check-list">
-          <li>Bei einem Suchauftrag vertreten wir nur den Käufer.</li>
-          <li>Vertrauliche Objektdetails geben wir ausschließlich im vorher schriftlich vereinbarten Empfängerkreis weiter.</li>
-          <li>Kein Exposé auf unserer Website, kein Objekt in sozialen Medien, kein Verteiler.</li>
-          <li>Ihre Rolle und die Vergütungsbedingungen unserer Zusammenarbeit vereinbaren wir vor Beginn schriftlich.</li>
-        </ul>
+      <div class="vm-split">
+        <figure class="vm-photo">
+          <img src="/assets/images/pruefung-vor-ort.jpg" alt="Prüftermin vor Ort: Innenraum im Rohbau mit Gerüst und Werkzeug" width="1200" height="1600" loading="lazy" style="object-position:30% 70%" />
+        </figure>
+        <div>
+          <h2>Was wir mitbringen: die Prüfung</h2>
+          <p>Ein Vermittler kennt den Eigentümer und den Markt. Was oft fehlt, ist eine belastbare Beurteilung des Gebäudes, bevor ein Käufer danach fragt. Das ist unser Teil.</p>
+          <ul class="check-list">
+            <li>Ingenieurgeführte Prüfung vor Ort: Zustand, Bauweise, Feuchte, Haustechnik und realistische Sanierungskosten, aus eigener Bauerfahrung in der Region.</li>
+            <li>Wir ordnen amtliche Registerstatistiken zum Transaktionsgeschehen ein und unterscheiden sie von Angebotspreisen.</li>
+            <li>Rechts- und Steuerfragen klären entsprechend qualifizierte Fachleute vor Ort; wir koordinieren, wir ersetzen sie nicht.</li>
+          </ul>
+          <p>Die dokumentierte Prüfung schafft eine Grundlage für Besichtigung und Verhandlung.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="content-section section--mid">
+  <section class="vm-role section--mid">
     <div class="container">
-      <div class="content-section__inner">
-        <h2>Was wir mitbringen: die Prüfung</h2>
-        <div class="divider"></div>
-        <p>Ein Vermittler kennt den Eigentümer und den Markt. Was oft fehlt, ist eine belastbare Beurteilung des Gebäudes, bevor ein Käufer danach fragt. Das ist unser Teil.</p>
-        <ul class="check-list">
-          <li>Ingenieurgeführte Prüfung vor Ort: Zustand, Bauweise, Feuchte, Haustechnik und realistische Sanierungskosten, aus eigener Bauerfahrung in der Region.</li>
-          <li>Wir ordnen amtliche Registerstatistiken zum Transaktionsgeschehen ein und unterscheiden sie von Angebotspreisen.</li>
-          <li>Rechts- und Steuerfragen klären entsprechend qualifizierte Fachleute vor Ort; wir koordinieren, wir ersetzen sie nicht.</li>
-        </ul>
-        <p>Die dokumentierte Prüfung schafft eine Grundlage für Besichtigung und Verhandlung.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="content-section">
-    <div class="container">
-      <div class="content-section__inner">
+      <div class="vm-role__box">
         <h2>Unsere Rolle, schriftlich</h2>
-        <div class="divider"></div>
         <p>Bei jedem Objekt legen wir offen, für wen wir arbeiten. Würden wir in einem Geschäft von beiden Seiten vergütet, entsteht ein Interessenkonflikt. Wir benennen ihn vorher und handeln nur mit schriftlicher Zustimmung aller Beteiligten. Verlangt ein Geschäft eine regulierte Maklerrolle, liegt sie bei dem lizenzierten Haus, das das Mandat hält.</p>
         <p>Der Verkäufer bestimmt die technische Prüfung nicht. Vor einer Weitervermittlung klären wir die Befugnis zur Weitergabe sämtlicher wesentlicher Befunde. Soll ein wesentlicher Befund zurückgehalten werden, vermitteln wir das Objekt nicht weiter.</p>
       </div>
     </div>
   </section>
 
-  <section class="content-section section--mid">
+  <section class="vm-circle">
     <div class="container">
-      <div class="content-section__inner">
-        <h2>Ein Ansprechpartner, ein kleiner Kreis</h2>
-        <div class="divider"></div>
-        <p>Sie sprechen mit einer Person, nicht mit einem Team, das Ihre Unterlagen weiterreicht. Zu einem Off-Market-Vorgang nennen wir öffentlich weder Objekt noch Eigentümer. Wir arbeiten in ganz Bulgarien, auf dem Balkan und in Nordgriechenland.</p>
-      </div>
+      <h2>Ein Ansprechpartner, ein kleiner Kreis</h2>
+      <p>Sie sprechen mit einer Person, nicht mit einem Team, das Ihre Unterlagen weiterreicht. Zu einem Off-Market-Vorgang nennen wir öffentlich weder Objekt noch Eigentümer. Wir arbeiten in ganz Bulgarien, auf dem Balkan und in Nordgriechenland.</p>
     </div>
   </section>
 
-  <section class="how-it-works" id="how-it-works">
+  <section class="how-it-works vm-steps-wrap section--mid" id="how-it-works">
     <div class="container">
       <h2 class="heading-lg">Wie eine Zusammenarbeit beginnt</h2>
       <div class="steps">
@@ -282,17 +354,17 @@
     </div>
   </section>
 
-  <section class="contact-cta" id="contact">
+  <section class="vm-ask" id="contact">
     <div class="container">
-      <div class="contact-cta__inner">
-        <h2>Haben Sie ein Objekt, das nicht inseriert werden soll?</h2>
-        <p>Schreiben Sie uns in zwei Sätzen, worum es geht. Wir antworten persönlich. Konditionen auf Anfrage.</p>
-        <div class="contact-cta__actions">
-          <div class="contact-cta__email"><a href="mailto:hello@banskoconcierge.com">hello@banskoconcierge.com</a></div>
-        </div>
-        <p style="margin-top:28px;font-size:0.85rem;color:rgba(248,246,240,0.55);">Bansko Concierge erbringt keine Rechts-, Steuer- oder Finanzberatung. Über diese Seite werden keine Unterlagen hochgeladen.</p>
-        <p style="margin-top:12px;font-size:0.9rem;">Sie suchen selbst als Käufer? <a href="/de/private-markets/" style="color:var(--gold);border-bottom:1px solid rgba(201,169,110,0.4);">Private Markets &rarr;</a></p>
+      <h2>Haben Sie ein Objekt, das nicht inseriert werden soll?</h2>
+      <p class="vm-ask__p">Schreiben Sie uns in zwei Sätzen, worum es geht. Wir antworten persönlich. Konditionen auf Anfrage.</p>
+      <div class="vm-ask__btns">
+        <a href="mailto:hello@banskoconcierge.com" class="btn btn--gold">Vertraulich Kontakt aufnehmen</a>
+        <a href="https://wa.me/359895762785?text=Hallo%20Bansko%20Concierge%2C%20ich%20m%C3%B6chte%20ein%20Objekt%20vertraulich%20besprechen.%0A%0ARef%3A%20BC-W-vermittler-de" target="_blank" rel="noopener" class="btn btn--wa">WhatsApp</a>
       </div>
+      <div class="vm-ask__mail"><a href="mailto:hello@banskoconcierge.com">hello@banskoconcierge.com</a></div>
+      <p class="vm-ask__small">Bansko Concierge erbringt keine Rechts-, Steuer- oder Finanzberatung. Über diese Seite werden keine Unterlagen hochgeladen.</p>
+      <p class="vm-ask__cross">Sie suchen selbst als Käufer? <a href="/de/private-markets/">Private Markets &rarr;</a></p>
     </div>
   </section>
 

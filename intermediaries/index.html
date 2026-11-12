@@ -162,6 +162,73 @@
       .footer__bottom { flex-direction: column; text-align: center; gap: 16px; }
       .page-hero { padding: 130px 0 80px; } .content-section { padding: 60px 0; }
     }
+  
+    /* Vermittlerseite: Design-Ebene (Text unveraendert, MARKETING v2) */
+    .vm-hero { position: relative; padding: 150px 0 80px; overflow: hidden; }
+    .vm-hero::before { content: ""; position: absolute; inset: 0; background: url('/assets/images/trust-bg.jpg') center 35% / cover no-repeat; opacity: 0.28; }
+    .vm-hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, var(--navy) 18%, rgba(10,14,39,0.72) 62%, rgba(10,14,39,0.55) 100%), linear-gradient(0deg, var(--navy) 0%, rgba(10,14,39,0) 40%); }
+    .vm-hero .container { position: relative; z-index: 1; }
+    .vm-hero__grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 56px; align-items: center; }
+    .vm-hero__eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 22px; }
+    .vm-hero__title { font-family: var(--font-serif); font-size: clamp(2.2rem, 4.2vw, 3.7rem); font-weight: 400; line-height: 1.14; letter-spacing: -0.02em; margin-bottom: 26px; }
+    .vm-hero__sub { font-size: 1.04rem; color: rgba(248,246,240,0.8); line-height: 1.85; max-width: 640px; margin-bottom: 34px; }
+    .vm-hero__ctas { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+    .vm-photo { position: relative; border-radius: 6px; overflow: hidden; border: 1px solid rgba(201,169,110,0.35); box-shadow: 0 30px 80px rgba(0,0,0,0.55); }
+    .vm-photo img { display: block; width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4 / 5; filter: saturate(0.92) contrast(1.03); }
+    .vm-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(10,14,39,0.55) 0%, rgba(10,14,39,0) 45%); pointer-events: none; }
+    .vm-photo__tag { position: absolute; left: 16px; bottom: 14px; z-index: 2; font-size: 10.5px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-lt); }
+    .vm-fear { padding: 84px 0 70px; }
+    .vm-fear h2 { font-family: var(--font-serif); font-size: clamp(1.7rem, 3vw, 2.5rem); font-weight: 400; line-height: 1.2; margin-bottom: 18px; }
+    .vm-fear__lead { max-width: 780px; font-size: 1.02rem; color: rgba(248,246,240,0.78); line-height: 1.85; margin-bottom: 44px; }
+    .vm-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+    .vm-card { background: linear-gradient(180deg, rgba(30,35,64,0.85), rgba(20,24,48,0.85)); border: 1px solid rgba(201,169,110,0.22); border-top: 2px solid var(--gold); border-radius: 4px; padding: 26px 22px 28px; font-size: 0.95rem; line-height: 1.65; color: rgba(248,246,240,0.86); }
+    .vm-card__n { font-family: var(--font-serif); font-size: 2rem; color: rgba(201,169,110,0.55); line-height: 1; margin-bottom: 14px; display: block; }
+    .vm-split { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 56px; align-items: center; }
+    .vm-split h2 { font-family: var(--font-serif); font-size: clamp(1.7rem, 3vw, 2.5rem); font-weight: 400; line-height: 1.2; margin-bottom: 18px; }
+    .vm-split p { font-size: 0.99rem; color: rgba(248,246,240,0.74); line-height: 1.85; margin-bottom: 18px; }
+    .vm-split .check-list { list-style: none; padding: 0; margin: 22px 0; display: flex; flex-direction: column; gap: 16px; }
+    .vm-split .check-list li { display: flex; gap: 14px; align-items: flex-start; font-size: 0.98rem; color: rgba(248,246,240,0.82); line-height: 1.65; }
+    .vm-split .check-list li::before { content: "\2713"; font-weight: 700; color: var(--gold); flex-shrink: 0; }
+    .vm-split .vm-photo img { aspect-ratio: 3 / 4; }
+    .vm-role { padding: 84px 0; }
+    .vm-role__box { max-width: 900px; border: 1px solid rgba(201,169,110,0.3); border-left: 4px solid var(--gold); background: rgba(201,169,110,0.05); border-radius: 4px; padding: 40px 44px; }
+    .vm-role__box h2 { font-family: var(--font-serif); font-size: clamp(1.6rem, 2.8vw, 2.3rem); font-weight: 400; margin-bottom: 20px; }
+    .vm-role__box p { font-size: 1rem; color: rgba(248,246,240,0.8); line-height: 1.85; margin-bottom: 16px; }
+    .vm-role__box p:last-child { margin-bottom: 0; }
+    .vm-circle { padding: 70px 0; text-align: center; }
+    .vm-circle h2 { font-family: var(--font-serif); font-size: clamp(1.6rem, 2.8vw, 2.3rem); font-weight: 400; margin-bottom: 18px; }
+    .vm-circle p { max-width: 720px; margin: 0 auto; font-size: 1rem; color: rgba(248,246,240,0.75); line-height: 1.85; }
+    .vm-steps-wrap { padding: 80px 0; }
+    .vm-steps-wrap h2 { margin-bottom: 8px; }
+    .vm-steps-wrap .steps { counter-reset: s; position: relative; }
+    .vm-steps-wrap .step { border-top: 1px solid rgba(201,169,110,0.4); padding-top: 22px; }
+    .vm-steps-wrap .step__num { color: rgba(201,169,110,0.7); }
+    .vm-ask { padding: 96px 0; background: radial-gradient(ellipse at 50% 0%, rgba(201,169,110,0.12), transparent 62%), var(--navy-mid); text-align: center; }
+    .vm-ask h2 { font-family: var(--font-serif); font-size: clamp(1.9rem, 3.6vw, 3rem); font-weight: 400; line-height: 1.2; margin-bottom: 18px; }
+    .vm-ask__p { font-size: 1.02rem; color: rgba(248,246,240,0.78); margin-bottom: 34px !important; }
+    .vm-ask__btns { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-bottom: 30px; }
+    .vm-ask__mail { font-size: 0.95rem; color: rgba(248,246,240,0.6); }
+    .vm-ask__mail a { color: var(--gold-lt); border-bottom: 1px solid rgba(201,169,110,0.4); }
+    .vm-ask__small { margin-top: 36px; font-size: 0.82rem; color: rgba(248,246,240,0.45); line-height: 1.7; }
+    .vm-ask__cross { margin-top: 10px; font-size: 0.88rem; color: rgba(248,246,240,0.65); }
+    .vm-ask__cross a { color: var(--gold); border-bottom: 1px solid rgba(201,169,110,0.4); }
+    .btn--wa { background: transparent; color: var(--white); border-color: rgba(248,246,240,0.35); }
+    .btn--wa:hover { background: rgba(248,246,240,0.08); }
+    @media (max-width: 960px) {
+      .vm-hero { padding: 120px 0 56px; }
+      .vm-hero__grid, .vm-split { grid-template-columns: 1fr; gap: 36px; }
+      .vm-hero::after { background: linear-gradient(0deg, var(--navy) 0%, rgba(10,14,39,0.78) 55%, rgba(10,14,39,0.7) 100%); }
+      .vm-cards { grid-template-columns: 1fr 1fr; }
+      .vm-photo img { aspect-ratio: 16 / 10; }
+      .vm-split .vm-photo img { aspect-ratio: 16 / 10; }
+    }
+    @media (max-width: 560px) {
+      .vm-cards { grid-template-columns: 1fr; }
+      .vm-role__box { padding: 28px 22px; }
+      .vm-hero__ctas .btn, .vm-ask__btns .btn { width: 100%; justify-content: center; }
+      .vm-fear, .vm-role, .vm-circle, .vm-steps-wrap, .vm-ask { padding-top: 56px; padding-bottom: 56px; }
+    }
+
   </style>
   <script type="application/ld+json">
 {
@@ -226,72 +293,77 @@
     <a href="https://wa.me/359895762785" target="_blank" class="nav__mobile-wa">WhatsApp us</a>
   </div>
 
-  <section class="page-hero">
-    <div class="page-hero__bg"></div>
+  <section class="vm-hero">
     <div class="container">
-      <div class="page-hero__eyebrow">BC Private Markets · For intermediaries and sellers · Off-market</div>
-      <h1 class="page-hero__title">Your property stays in your hands. We review before anything circulates.</h1>
-      <p class="page-hero__sub">For firms that do not advertise: off-market advisers, family offices, co-brokers, notaries, surveyors, estate and insolvency administrators, hotel brokers with quiet mandates. If you move a property quietly, you do not need another agent. You need a counterpart who can review the building before documents start to circulate.</p>
-      <div class="page-hero__ctas">
-        <a href="mailto:hello@banskoconcierge.com" class="btn btn--gold">Get in touch confidentially</a>
+      <div class="vm-hero__grid">
+        <div>
+          <div class="vm-hero__eyebrow">BC Private Markets · For intermediaries and sellers · Off-market</div>
+          <h1 class="vm-hero__title">Your property stays in your hands. We review before anything circulates.</h1>
+          <p class="vm-hero__sub">For firms that do not advertise: off-market advisers, family offices, co-brokers, notaries, surveyors, estate and insolvency administrators, hotel brokers with quiet mandates. If you move a property quietly, you do not need another agent. You need a counterpart who can review the building before documents start to circulate.</p>
+          <div class="vm-hero__ctas">
+            <a href="mailto:hello@banskoconcierge.com" class="btn btn--gold">Get in touch confidentially</a>
+            <a href="https://wa.me/359895762785?text=Hello%20Bansko%20Concierge%2C%20I%20would%20like%20to%20discuss%20a%20property%20confidentially.%0A%0ARef%3A%20BC-W-intermediaries-en" target="_blank" rel="noopener" class="btn btn--wa">WhatsApp</a>
+          </div>
+        </div>
+        <figure class="vm-photo">
+          <img src="/assets/images/pruefung-vor-ort.jpg" alt="Review on site: interior of a building under renovation with scaffold and tools" width="1200" height="1600" fetchpriority="high" />
+          <figcaption class="vm-photo__tag">Review on site</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="vm-fear section--mid">
+    <div class="container">
+      <h2>How we work confidentially</h2>
+      <p class="vm-fear__lead">In a quiet sale the concern is rarely finding no buyer. It is the property doing the rounds and losing value. Our process is built around that:</p>
+      <div class="vm-cards">
+        <div class="vm-card"><span class="vm-card__n">01</span>On a search mandate we represent the buyer only.</div>
+        <div class="vm-card"><span class="vm-card__n">02</span>We share confidential property details only with the recipients agreed in writing beforehand.</div>
+        <div class="vm-card"><span class="vm-card__n">03</span>No listing on our website, no property on social media, no mailing list.</div>
+        <div class="vm-card"><span class="vm-card__n">04</span>We agree your role and the fee arrangements for our cooperation in writing before work begins.</div>
       </div>
     </div>
   </section>
 
   <section class="content-section">
     <div class="container">
-      <div class="content-section__inner">
-        <h2>How we work confidentially</h2>
-        <div class="divider"></div>
-        <p>In a quiet sale the concern is rarely finding no buyer. It is the property doing the rounds and losing value. Our process is built around that:</p>
-        <ul class="check-list">
-          <li>On a search mandate we represent the buyer only.</li>
-          <li>We share confidential property details only with the recipients agreed in writing beforehand.</li>
-          <li>No listing on our website, no property on social media, no mailing list.</li>
-          <li>We agree your role and the fee arrangements for our cooperation in writing before work begins.</li>
-        </ul>
+      <div class="vm-split">
+        <figure class="vm-photo">
+          <img src="/assets/images/pruefung-vor-ort.jpg" alt="Review on site: interior of a building under renovation with scaffold and tools" width="1200" height="1600" loading="lazy" style="object-position:30% 70%" />
+        </figure>
+        <div>
+          <h2>What we bring: the review</h2>
+          <p>An intermediary knows the owner and the market. What is often missing is a sound assessment of the building before a buyer asks for it. That is our part.</p>
+          <ul class="check-list">
+            <li>Engineer-led review on site: condition, construction, damp, building services and realistic renovation cost, from our own construction experience in the region.</li>
+            <li>We interpret official registry statistics on transaction activity and distinguish them from asking prices.</li>
+            <li>Legal and tax questions are handled by suitably qualified local professionals; we coordinate, we do not replace them.</li>
+          </ul>
+          <p>The documented assessment provides a basis for viewings and negotiations.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="content-section section--mid">
+  <section class="vm-role section--mid">
     <div class="container">
-      <div class="content-section__inner">
-        <h2>What we bring: the review</h2>
-        <div class="divider"></div>
-        <p>An intermediary knows the owner and the market. What is often missing is a sound assessment of the building before a buyer asks for it. That is our part.</p>
-        <ul class="check-list">
-          <li>Engineer-led review on site: condition, construction, damp, building services and realistic renovation cost, from our own construction experience in the region.</li>
-          <li>We interpret official registry statistics on transaction activity and distinguish them from asking prices.</li>
-          <li>Legal and tax questions are handled by suitably qualified local professionals; we coordinate, we do not replace them.</li>
-        </ul>
-        <p>The documented assessment provides a basis for viewings and negotiations.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="content-section">
-    <div class="container">
-      <div class="content-section__inner">
+      <div class="vm-role__box">
         <h2>Our role, in writing</h2>
-        <div class="divider"></div>
         <p>For every property we disclose whom we act for. If we were to be paid by both sides in a transaction, that is a conflict of interest. We name it beforehand and proceed only with the written consent of everyone involved. Where a transaction requires a regulated brokerage role, it sits with the licensed firm that holds the mandate.</p>
         <p>The seller does not determine the technical findings. Before proceeding with an introduction, we establish permission to share all material findings. If a material finding is to be withheld, we do not proceed with the introduction.</p>
       </div>
     </div>
   </section>
 
-  <section class="content-section section--mid">
+  <section class="vm-circle">
     <div class="container">
-      <div class="content-section__inner">
-        <h2>One contact, a small circle</h2>
-        <div class="divider"></div>
-        <p>You deal with one person, not a team passing your documents on. For an off-market transaction we do not name the property or the owner publicly. We work across Bulgaria, the Balkans and Northern Greece.</p>
-      </div>
+      <h2>One contact, a small circle</h2>
+      <p>You deal with one person, not a team passing your documents on. For an off-market transaction we do not name the property or the owner publicly. We work across Bulgaria, the Balkans and Northern Greece.</p>
     </div>
   </section>
 
-  <section class="how-it-works" id="how-it-works">
+  <section class="how-it-works vm-steps-wrap section--mid" id="how-it-works">
     <div class="container">
       <h2 class="heading-lg">How working together starts</h2>
       <div class="steps">
@@ -319,17 +391,17 @@
     </div>
   </section>
 
-  <section class="contact-cta" id="contact">
+  <section class="vm-ask" id="contact">
     <div class="container">
-      <div class="contact-cta__inner">
-        <h2>Do you have a property that should not be listed?</h2>
-        <p>Tell us in two sentences what it is about. We reply personally. Terms on request.</p>
-        <div class="contact-cta__actions">
-          <div class="contact-cta__email"><a href="mailto:hello@banskoconcierge.com">hello@banskoconcierge.com</a></div>
-        </div>
-        <p style="margin-top:28px;font-size:0.85rem;color:rgba(248,246,240,0.55);">Bansko Concierge does not provide legal, tax or financial advice. No documents are uploaded through this page.</p>
-        <p style="margin-top:12px;font-size:0.9rem;">Looking to buy yourself? <a href="/private-markets/" style="color:var(--gold);border-bottom:1px solid rgba(201,169,110,0.4);">Private Markets &rarr;</a></p>
+      <h2>Do you have a property that should not be listed?</h2>
+      <p class="vm-ask__p">Tell us in two sentences what it is about. We reply personally. Terms on request.</p>
+      <div class="vm-ask__btns">
+        <a href="mailto:hello@banskoconcierge.com" class="btn btn--gold">Get in touch confidentially</a>
+        <a href="https://wa.me/359895762785?text=Hello%20Bansko%20Concierge%2C%20I%20would%20like%20to%20discuss%20a%20property%20confidentially.%0A%0ARef%3A%20BC-W-intermediaries-en" target="_blank" rel="noopener" class="btn btn--wa">WhatsApp</a>
       </div>
+      <div class="vm-ask__mail"><a href="mailto:hello@banskoconcierge.com">hello@banskoconcierge.com</a></div>
+      <p class="vm-ask__small">Bansko Concierge does not provide legal, tax or financial advice. No documents are uploaded through this page.</p>
+      <p class="vm-ask__cross">Looking to buy yourself? <a href="/private-markets/">Private Markets &rarr;</a></p>
     </div>
   </section>
 
