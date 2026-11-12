@@ -232,6 +232,12 @@
       .vm-fear, .vm-role, .vm-circle, .vm-steps-wrap, .vm-ask { padding-top: 56px; padding-bottom: 56px; }
     }
 
+    .vm-lang { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-bottom: 26px; }
+    .vm-lang a { display: inline-block; padding: 6px 12px; border: 1px solid rgba(201,169,110,0.35); border-radius: 3px; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; color: rgba(248,246,240,0.78); transition: var(--transition); }
+    .vm-lang a:hover { background: rgba(201,169,110,0.12); color: var(--white); }
+    .vm-lang a[aria-current="page"] { background: var(--gold); border-color: var(--gold); color: var(--navy); pointer-events: none; }
+    .vm-lang--m { padding: 0 24px; justify-content: center; margin: 0 0 18px; }
+
   </style>
   <script type="application/ld+json">
 {
@@ -290,6 +296,7 @@
 
   <div class="nav__mobile" id="mobileMenu">
     <button class="nav__mobile-close" id="mobileClose" aria-label="Close menu">✕</button>
+    <nav class="vm-lang vm-lang--m" aria-label="Language"><a href="/de/vermittler/" hreflang="de" lang="de" title="Deutsch">DE</a><a href="/intermediaries/" hreflang="en" lang="en" title="English" aria-current="page">EN</a><a href="/bg/intermediaries/" hreflang="bg" lang="bg" title="Български">БГ</a><a href="/ru/intermediaries/" hreflang="ru" lang="ru" title="Русский">РУ</a><a href="/he/intermediaries/" hreflang="he" lang="he" title="עברית">עב</a></nav>
     <a href="/#services" onclick="closeMobileMenu()">How We Work</a>
     <a href="/investor-support" onclick="closeMobileMenu()">Investor Support</a>
     <a href="#contact" onclick="closeMobileMenu()">Contact</a>
@@ -300,6 +307,7 @@
     <div class="container">
       <div class="vm-hero__grid">
         <div>
+          <nav class="vm-lang" aria-label="Language"><a href="/de/vermittler/" hreflang="de" lang="de" title="Deutsch">DE</a><a href="/intermediaries/" hreflang="en" lang="en" title="English" aria-current="page">EN</a><a href="/bg/intermediaries/" hreflang="bg" lang="bg" title="Български">БГ</a><a href="/ru/intermediaries/" hreflang="ru" lang="ru" title="Русский">РУ</a><a href="/he/intermediaries/" hreflang="he" lang="he" title="עברית">עב</a></nav>
           <div class="vm-hero__eyebrow">BC Private Markets · For intermediaries and sellers · Off-market</div>
           <h1 class="vm-hero__title">Your property stays in your hands. We review before anything circulates.</h1>
           <p class="vm-hero__sub">For firms that do not advertise: off-market advisers, family offices, co-brokers, notaries, surveyors, estate and insolvency administrators, hotel brokers with quiet mandates. If you move a property quietly, you do not need another agent. You need a counterpart who can review the building before documents start to circulate.</p>

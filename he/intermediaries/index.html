@@ -232,6 +232,12 @@
       .vm-fear, .vm-role, .vm-circle, .vm-steps-wrap, .vm-ask { padding-top: 56px; padding-bottom: 56px; }
     }
 
+    .vm-lang { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-bottom: 26px; }
+    .vm-lang a { display: inline-block; padding: 6px 12px; border: 1px solid rgba(201,169,110,0.35); border-radius: 3px; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; color: rgba(248,246,240,0.78); transition: var(--transition); }
+    .vm-lang a:hover { background: rgba(201,169,110,0.12); color: var(--white); }
+    .vm-lang a[aria-current="page"] { background: var(--gold); border-color: var(--gold); color: var(--navy); pointer-events: none; }
+    .vm-lang--m { padding: 0 24px; justify-content: center; margin: 0 0 18px; }
+
     /* RTL (Hebraeisch) */
     [dir="rtl"] .vm-hero::after { background: linear-gradient(270deg, var(--navy) 18%, rgba(10,14,39,0.72) 62%, rgba(10,14,39,0.55) 100%), linear-gradient(0deg, var(--navy) 0%, rgba(10,14,39,0) 40%); }
     [dir="rtl"] .vm-role__box { border-left: 1px solid rgba(201,169,110,0.3); border-right: 4px solid var(--gold); }
@@ -298,6 +304,7 @@
 
   <div class="nav__mobile" id="mobileMenu">
     <button class="nav__mobile-close" id="mobileClose" aria-label="Close menu">✕</button>
+    <nav class="vm-lang vm-lang--m" aria-label="Language"><a href="/de/vermittler/" hreflang="de" lang="de" title="Deutsch">DE</a><a href="/intermediaries/" hreflang="en" lang="en" title="English">EN</a><a href="/bg/intermediaries/" hreflang="bg" lang="bg" title="Български">БГ</a><a href="/ru/intermediaries/" hreflang="ru" lang="ru" title="Русский">РУ</a><a href="/he/intermediaries/" hreflang="he" lang="he" title="עברית" aria-current="page">עב</a></nav>
     <a href="/#services" onclick="closeMobileMenu()">איך אנו עובדים</a>
     <a href="/investor-support" onclick="closeMobileMenu()">תמיכה למשקיעים</a>
     <a href="#contact" onclick="closeMobileMenu()">צור קשר</a>
@@ -308,6 +315,7 @@
     <div class="container">
       <div class="vm-hero__grid">
         <div>
+          <nav class="vm-lang" aria-label="Language"><a href="/de/vermittler/" hreflang="de" lang="de" title="Deutsch">DE</a><a href="/intermediaries/" hreflang="en" lang="en" title="English">EN</a><a href="/bg/intermediaries/" hreflang="bg" lang="bg" title="Български">БГ</a><a href="/ru/intermediaries/" hreflang="ru" lang="ru" title="Русский">РУ</a><a href="/he/intermediaries/" hreflang="he" lang="he" title="עברית" aria-current="page">עב</a></nav>
           <div class="vm-hero__eyebrow">BC Private Markets · למתווכים ולמוכרים · Off-Market</div>
           <h1 class="vm-hero__title">הנכס שלכם נשאר בידיים שלכם. אנחנו בודקים לפני שמשהו מתחיל להסתובב.</h1>
           <p class="vm-hero__sub">לחברות שאינן מפרסמות: יועצי Off-Market, משרדים משפחתיים, מתווכים משתפי פעולה, נוטריונים, שמאים, מנהלי עיזבונות וכונסי נכסים, מתווכי מלונות עם מנדט שקט. אם אתם מקדמים נכס בשקט, אינכם זקוקים למתווך נוסף. אתם זקוקים לצד שמולכם שיכול לבדוק את המבנה לפני שהמסמכים מתחילים להסתובב.</p>
