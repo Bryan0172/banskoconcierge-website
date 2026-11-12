@@ -238,6 +238,16 @@
     .vm-lang a[aria-current="page"] { background: var(--gold); border-color: var(--gold); color: var(--navy); pointer-events: none; }
     .vm-lang--m { padding: 0 24px; justify-content: center; margin: 0 0 18px; }
 
+    .vm-circle { position: relative; padding: 170px 0 150px; text-align: center; overflow: hidden; background: var(--navy); }
+    .vm-circle::before { content: ""; position: absolute; inset: 0; background: url('/assets/images/vermittler-meer.jpg') center 30% / cover no-repeat; }
+    .vm-circle::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,14,39,0.9) 0%, rgba(10,14,39,0.18) 30%, rgba(10,14,39,0.42) 68%, rgba(10,14,39,0.95) 100%); }
+    .vm-circle .container { position: relative; z-index: 1; }
+    .vm-circle h2 { text-shadow: 0 2px 24px rgba(0,0,0,0.55); }
+    .vm-circle p { color: #fff; text-shadow: 0 1px 20px rgba(0,0,0,0.85), 0 0 4px rgba(0,0,0,0.5); font-size: 1.1rem; max-width: 760px; }
+    .vm-circle__tag { display: inline-block; font-size: 10.5px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-lt); margin-bottom: 18px; }
+    .vm-photo__tag--top { top: 14px; bottom: auto; }
+    @media (max-width: 560px) { .vm-circle { padding: 84px 0; } }
+
   </style>
   <script type="application/ld+json">
 {
@@ -318,6 +328,7 @@
         </div>
         <figure class="vm-photo">
           <img src="/assets/images/vermittler-hero.jpg" alt="Представительное здание в горном пейзаже с осенними красками" width="1000" height="1250" fetchpriority="high" />
+          <figcaption class="vm-photo__tag">Горы</figcaption>
         </figure>
       </div>
     </div>
@@ -367,8 +378,9 @@
     </div>
   </section>
 
-  <section class="vm-circle">
+  <section class="vm-circle" role="img" aria-label="Современная люксовая резиденция на побережье с видом на море">
     <div class="container">
+      <span class="vm-circle__tag">Горы · Побережье</span>
       <h2>Один контакт, узкий круг</h2>
       <p>Вы общаетесь с одним человеком, а не с командой, передающей Ваши документы дальше. По off-market сделке мы публично не называем ни объект, ни собственника. Мы работаем по всей Болгарии, на Балканах и в Северной Греции.</p>
     </div>
